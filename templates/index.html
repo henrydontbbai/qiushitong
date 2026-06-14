@@ -36,11 +36,27 @@
                     <i class="fas fa-trophy"></i>
                     <span>世界杯专题</span>
                 </button>
+                <button type="button" id="settings-btn" class="settings-nav-btn">
+                    <i class="fas fa-cog"></i>
+                    <span>设置</span>
+                </button>
             </div>
-            
+
             <!-- 用户区域 -->
             <div class="nav-user">
-                {% if current_user %}
+                {% if local_free_mode %}
+                <!-- 本机免费模式 -->
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="user-details">
+                        <span class="username">本机免费使用</span>
+                        <span class="user-type-badge premium">免登录</span>
+                        <span class="predictions-remaining">无限制预测</span>
+                    </div>
+                </div>
+                {% elif current_user %}
                 <!-- 已登录用户信息 -->
                 <div class="user-info">
                     <div class="user-avatar">
@@ -86,16 +102,20 @@
                 <div class="hero-section">
                     <h1>AI足球预测</h1>
                     <p class="subtitle">基于大语言模型的智能足球比赛分析平台</p>
-                    
+
               <!-- 使用指南 -->
               <div class="usage-guide">
                   <h3><i class="fas fa-compass"></i> 快速开始</h3>
+                  {% if local_free_mode %}
+                  <p>选择预测模式 → 添加比赛 → 获取分析结果</p>
+                  <p><strong>本机免费使用</strong>，无需登录，无次数限制。首次使用请点右上角“设置”填写数据库和 AI 接口。</p>
+                  {% else %}
                   <p>注册登录 → 选择预测模式 → 添加比赛 → 获取AI分析</p>
                   <p><strong>免费用户</strong>每日3次预测，<strong>会员用户</strong>无限制使用</p>
+                  {% endif %}
               </div>
                 </div>
-                
-                <!-- 右侧：预测成功案例 -->
+
                 <!-- 右侧：世界杯专题入口 -->
                 <div class="success-cases">
                     <h2><i class="fas fa-trophy"></i> 世界杯专题</h2>
@@ -113,6 +133,7 @@
 
         <main>
 
+            <!-- 经典模式 -->
             <!-- 世界杯专题 -->
             <section id="worldcup-mode" class="match-input-section hidden">
                 <h2><i class="fas fa-trophy"></i> 2026 世界杯专题</h2>
@@ -146,7 +167,6 @@
                 </div>
             </section>
 
-            <!-- 经典模式 -->
             <section id="classic-mode" class="match-input-section active">
                 <h2><i class="fas fa-plus-circle"></i> 五大联赛分析 - 经典模式</h2>
                 <div class="classic-layout">
@@ -173,7 +193,7 @@
                                         <option value="">请选择主队</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="away-team-select">客队:</label>
                                     <select id="away-team-select" disabled>
@@ -187,12 +207,12 @@
                                     <label for="home-odds">主胜赔率:</label>
                                     <input type="number" id="home-odds" step="0.01" min="1.01" placeholder="例如: 2.10">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="draw-odds">平局赔率:</label>
                                     <input type="number" id="draw-odds" step="0.01" min="1.01" placeholder="例如: 3.50">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="away-odds">客胜赔率:</label>
                                     <input type="number" id="away-odds" step="0.01" min="1.01" placeholder="例如: 2.80">
@@ -215,12 +235,12 @@
                                 <small>请在左侧添加比赛</small>
                             </div>
                         </div>
-                        
+
                         <div class="classic-actions">
                             <button id="clear-classic-selection-btn" class="btn secondary-btn" disabled>
                                 <i class="fas fa-trash"></i> 清空购物车
                             </button>
-                            
+
                             <button id="classic-predict-btn" class="btn primary-btn" disabled>
                                 <i class="fas fa-chart-line"></i> 开始预测分析
                             </button>
@@ -253,7 +273,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <!-- 比赛统计和折叠控制 -->
                             <div class="matches-summary">
                                 <div class="matches-count">
@@ -266,7 +286,7 @@
                                 </button>
                             </div>
                         </div>
-                        
+
                         <div id="lottery-matches" class="lottery-matches-list">
                             <div class="loading-message">
                                 <i class="fas fa-info-circle"></i>
@@ -291,7 +311,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <h3><i class="fas fa-shopping-cart"></i> 比赛购物车 <span id="lottery-selected-count">(0)</span></h3>
                         <div id="lottery-selected-matches" class="lottery-cart-container">
                             <div class="empty-cart-message">
@@ -300,12 +320,12 @@
                                 <small>请在左侧选择比赛</small>
                             </div>
                         </div>
-                        
+
                         <div class="lottery-actions">
                             <button id="clear-lottery-selection-btn" class="btn secondary-btn" disabled>
                                 <i class="fas fa-trash"></i> 清空购物车
                             </button>
-                            
+
                             <button id="lottery-ai-predict-btn" class="btn primary-btn" disabled>
                                 <i class="fas fa-brain"></i> AI智能预测
                             </button>
@@ -320,7 +340,7 @@
                 <div class="ai-intro">
                     <p><i class="fas fa-lightbulb"></i> 使用先进的大语言模型进行智能分析，提供专业的比赛预测建议</p>
                 </div>
-                
+
                 <div class="ai-layout">
                     <!-- 左侧：比赛添加 -->
                     <div class="ai-input-panel">
@@ -331,29 +351,29 @@
                                     <label for="ai-home-team">主队:</label>
                                     <input type="text" id="ai-home-team" placeholder="请输入主队名称">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="ai-away-team">客队:</label>
                                     <input type="text" id="ai-away-team" placeholder="请输入客队名称">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="ai-league">联赛:</label>
                                     <input type="text" id="ai-league" placeholder="请输入联赛名称">
                                 </div>
                             </div>
-                            
+
                             <div class="form-row odds-row">
                                 <div class="form-group">
                                     <label for="ai-home-odds">主胜赔率:</label>
                                     <input type="number" id="ai-home-odds" step="0.01" min="1.01" placeholder="例如: 2.10">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="ai-draw-odds">平局赔率:</label>
                                     <input type="number" id="ai-draw-odds" step="0.01" min="1.01" placeholder="例如: 3.50">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="ai-away-odds">客胜赔率:</label>
                                     <input type="number" id="ai-away-odds" step="0.01" min="1.01" placeholder="例如: 2.80">
@@ -376,12 +396,12 @@
                                 <small>请在左侧添加比赛</small>
                             </div>
                         </div>
-                        
+
                         <div class="ai-actions">
                             <button id="clear-ai-selection-btn" class="btn secondary-btn" disabled>
                                 <i class="fas fa-trash"></i> 清空购物车
                             </button>
-                            
+
                             <button id="ai-predict-btn" class="btn primary-btn" disabled>
                                 <i class="fas fa-brain"></i> AI智能预测
                             </button>
@@ -393,13 +413,13 @@
 
             <section id="results-section" class="results-section hidden">
                 <h2><i class="fas fa-trophy"></i> 预测结果</h2>
-                
+
                 <div class="tabs">
                     <button class="tab-btn active" data-tab="individual">
                         <i class="fas fa-chart-pie"></i> 单场预测
                     </button>
                     <button class="tab-btn" data-tab="best-parlay">
-                        <i class="fas fa-star"></i> 组合参考
+                        <i class="fas fa-layer-group"></i> 组合参考
                     </button>
                     <button class="tab-btn" data-tab="all-parlays">
                         <i class="fas fa-layer-group"></i> 其他组合
@@ -408,25 +428,25 @@
                         <i class="fas fa-brain"></i> AI分析
                     </button>
                 </div>
-                
+
                 <div id="individual-tab" class="tab-content active">
                     <div id="individual-results" class="individual-results">
                         <!-- 单场预测结果将在这里动态生成 -->
                     </div>
                 </div>
-                
+
                 <div id="best-parlay-tab" class="tab-content">
                     <div id="best-parlay-results" class="best-parlay-results">
                         <!-- 组合参考结果将在这里动态生成 -->
                     </div>
                 </div>
-                
+
                 <div id="all-parlays-tab" class="tab-content">
                     <div id="all-parlays-results" class="all-parlays-results">
                         <!-- 其他组合将在这里动态生成 -->
                     </div>
                 </div>
-                
+
                 <!-- AI分析结果标签页 -->
                 <div id="ai-analysis-tab" class="tab-content">
                     <div id="ai-analysis-results" class="ai-analysis-results">
@@ -446,21 +466,12 @@
         <div class="loading-spinner"></div>
     </div>
 
-              <!-- 环境变量注入 -->
+              <!-- 本机运行配置注入 -->
               <script>
-                  // 将后端环境变量注入到前端
-                  {% if gemini_api_key %}
-                  window.GEMINI_API_KEY = "{{ gemini_api_key }}";
-                  console.log('✅ Gemini API密钥已从环境变量加载，长度:', "{{ gemini_api_key }}".length);
-                  {% else %}
-                  console.warn('❌ 未检测到GEMINI_API_KEY环境变量');
-                  {% endif %}
-                  {% if gemini_model %}
-                  window.GEMINI_MODEL = "{{ gemini_model }}";
-                  console.log('✅ Gemini模型设置为:', "{{ gemini_model }}");
-                  {% else %}
-                  console.warn('❌ 未检测到GEMINI_MODEL环境变量');
-                  {% endif %}
+                  window.LOCAL_FREE_MODE = {{ 'true' if local_free_mode else 'false' }};
+                  window.AI_PROVIDER = "{{ ai_provider or 'openai_compatible' }}";
+                  window.AI_BASE_URL = "{{ ai_base_url or '' }}";
+                  window.AI_MODEL = "{{ ai_model or '' }}";
               </script>
               <script src="{{ url_for('static', filename='js/data.js') }}"></script>
               <script src="{{ url_for('static', filename='js/prediction.js') }}"></script>
@@ -471,6 +482,80 @@
               <script src="{{ url_for('static', filename='js/app.js') }}"></script>
               <script src="{{ url_for('static', filename='js/nav-fix.js') }}"></script>
               <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+
+    <!-- 本机设置弹窗 -->
+    <div id="settings-modal" class="auth-modal hidden">
+        <div class="modal-content settings-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-cog"></i> 本机设置</h3>
+                <button class="modal-close" onclick="window.settingsManager && window.settingsManager.closeSettingsModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="settings-status" class="settings-status"></div>
+                <form id="settings-form" class="auth-form">
+                    <h4>数据库设置（用于彩票模式和保存记录）</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="settings-db-host">数据库地址</label>
+                            <input type="text" id="settings-db-host" name="db_host" placeholder="例如：127.0.0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="settings-db-port">端口</label>
+                            <input type="number" id="settings-db-port" name="db_port" placeholder="5432">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="settings-db-name">数据库名称</label>
+                            <input type="text" id="settings-db-name" name="db_name" placeholder="postgres">
+                        </div>
+                        <div class="form-group">
+                            <label for="settings-db-user">用户名</label>
+                            <input type="text" id="settings-db-user" name="db_user" placeholder="postgres">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="settings-db-password">数据库密码</label>
+                        <input type="password" id="settings-db-password" name="db_password" placeholder="请输入数据库密码">
+                    </div>
+
+                    <h4>AI 接口设置（用于 AI 智能模式）</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="settings-ai-provider">AI 接口类型</label>
+                            <select id="settings-ai-provider" name="ai_provider">
+                                <option value="openai_compatible">OpenAI兼容（GPT/DeepSeek/OpenRouter等）</option>
+                                <option value="gemini">Gemini</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="settings-ai-model">模型名称</label>
+                            <input type="text" id="settings-ai-model" name="ai_model" value="{{ ai_model }}" placeholder="例如：gpt-4o-mini / deepseek-chat">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="settings-ai-base-url">Base URL</label>
+                        <input type="text" id="settings-ai-base-url" name="ai_base_url" value="{{ ai_base_url }}" placeholder="例如：https://api.openai.com/v1">
+                    </div>
+                    <div class="form-group">
+                        <label for="settings-ai-key">API Key</label>
+                        <input type="password" id="settings-ai-key" name="ai_key" placeholder="请输入 AI 平台 API Key">
+                    </div>
+                    <p class="settings-help-text">GPT、DeepSeek、OpenRouter 等请选择 OpenAI兼容；Gemini 请选择 Gemini。</p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="settings-skip-btn" class="btn secondary-btn" type="button">跳过，先用经典模式</button>
+                <button id="settings-test-db-btn" class="btn secondary-btn" type="button">测试数据库</button>
+                <button id="settings-test-ai-btn" class="btn secondary-btn" type="button">测试 AI</button>
+                <button id="settings-save-btn" class="btn primary-btn" type="button">保存设置</button>
+            </div>
+        </div>
+    </div>
+
+              <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
 
     <!-- 登录弹窗 -->
     <div id="login-modal" class="auth-modal hidden">
@@ -485,12 +570,12 @@
                 <form id="login-form" class="auth-form">
                     <div class="form-group">
                         <label for="login-username">用户名</label>
-                        <input type="text" id="login-username" name="username" required 
+                        <input type="text" id="login-username" name="username" required
                                placeholder="请输入用户名">
                     </div>
                     <div class="form-group">
                         <label for="login-password">密码</label>
-                        <input type="password" id="login-password" name="password" required 
+                        <input type="password" id="login-password" name="password" required
                                placeholder="请输入密码">
                     </div>
                     <div class="form-actions">
@@ -519,22 +604,22 @@
                 <form id="register-form" class="auth-form">
                     <div class="form-group">
                         <label for="register-username">用户名</label>
-                        <input type="text" id="register-username" name="username" required 
+                        <input type="text" id="register-username" name="username" required
                                placeholder="请输入用户名（至少3个字符）">
                     </div>
                     <div class="form-group">
                         <label for="register-email">邮箱</label>
-                        <input type="email" id="register-email" name="email" required 
+                        <input type="email" id="register-email" name="email" required
                                placeholder="请输入邮箱地址">
                     </div>
                     <div class="form-group">
                         <label for="register-password">密码</label>
-                        <input type="password" id="register-password" name="password" required 
+                        <input type="password" id="register-password" name="password" required
                                placeholder="请输入密码（至少6个字符）">
                     </div>
                     <div class="form-group">
                         <label for="register-confirm-password">确认密码</label>
-                        <input type="password" id="register-confirm-password" name="confirm-password" required 
+                        <input type="password" id="register-confirm-password" name="confirm-password" required
                                placeholder="请再次输入密码">
                     </div>
                     <div class="form-actions">
@@ -551,4 +636,4 @@
     </div>
 
 </body>
-</html> 
+</html>

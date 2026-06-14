@@ -4,6 +4,7 @@
 
 class AuthManager {
     constructor() {
+        this.localFreeMode = window.LOCAL_FREE_MODE === true;
         this.currentUser = null;
         this.initializeEventListeners();
         this.checkLoginStatus();
@@ -58,6 +59,18 @@ class AuthManager {
     }
 
     async checkLoginStatus() {
+        if (this.localFreeMode) {
+            this.currentUser = {
+                username: 'local_guest',
+                user_type: 'local_free',
+                daily_predictions_used: 0,
+                total_predictions: 0
+            };
+            this.updateUserInterface();
+            this.enableAllPredictionButtons();
+            return;
+        }
+
         try {
             const response = await fetch('/api/user/info', { credentials: 'include' });
             const data = await response.json();
@@ -245,6 +258,14 @@ class AuthManager {
     }
 
     async updatePredictionCount() {
+        if (this.localFreeMode) {
+            const remainingElement = document.getElementById('predictions-remaining');
+            if (remainingElement) {
+                remainingElement.textContent = '无限制';
+            }
+            return;
+        }
+
         try {
             const response = await fetch('/api/user/can-predict', { credentials: 'include' });
             if (response.ok) {
@@ -262,6 +283,10 @@ class AuthManager {
     }
 
     async checkCanPredict() {
+        if (this.localFreeMode) {
+            return true;
+        }
+
         try {
             const response = await fetch('/api/user/can-predict', { credentials: 'include' });
             if (response.ok) {
@@ -276,6 +301,10 @@ class AuthManager {
     }
 
     async requireLogin() {
+        if (this.localFreeMode) {
+            return true;
+        }
+
         if (!this.currentUser) {
             this.showMessage('请先登录才能使用预测功能', 'warning');
             this.showLoginModal();
@@ -285,6 +314,10 @@ class AuthManager {
     }
 
     async checkPredictionLimit() {
+        if (this.localFreeMode) {
+            return true;
+        }
+
         // 检查是否需要登录
         if (!this.currentUser) {
             this.showMessage('请先登录后使用预测功能', 'warning');

@@ -89,7 +89,8 @@ body {
     justify-content: center; /* 使导航按钮居中 */
 }
 
-.nav-btn {
+.nav-btn,
+.settings-nav-btn {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -104,7 +105,8 @@ body {
     font-size: 0.9rem;
 }
 
-.nav-btn:hover {
+.nav-btn:hover,
+.settings-nav-btn:hover {
     background: var(--bg-secondary);
     border-color: var(--primary-color);
     color: var(--text-primary);
@@ -116,7 +118,8 @@ body {
     color: white;
 }
 
-.nav-btn i {
+.nav-btn i,
+.settings-nav-btn i {
     font-size: 1rem;
 }
 
@@ -1034,7 +1037,8 @@ footer {
         justify-content: center;
     }
     
-    .nav-btn {
+    .nav-btn,
+    .settings-nav-btn {
         padding: 0.5rem 1rem;
         font-size: 0.8rem;
         flex: 1;
@@ -1575,7 +1579,7 @@ footer {
     font-size: 0.7rem;
 }
 
-/* 串关结果样式 */
+/* 组合结果样式 */
 .best-parlay-card {
     background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.1) 100%);
     border: 2px solid var(--accent-color);
@@ -1666,7 +1670,7 @@ footer {
     margin-left: 0.5rem;
 }
 
-/* 其他串关组合 */
+/* 其他组合 */
 .parlays-list h3 {
     margin-bottom: 1rem;
     color: var(--text-primary);
@@ -2010,6 +2014,36 @@ footer {
     transition: all 0.2s ease;
 }
 
+.settings-modal-content {
+    max-width: 760px;
+}
+
+.settings-status-card {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.settings-status-card p {
+    margin: 0.5rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+#settings-form h4 {
+    margin: 1.25rem 0 0.75rem;
+    color: var(--primary-color);
+}
+
+#settings-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
 /* 响应式模态框 */
 @media (max-width: 768px) {
     .modal-content {
@@ -2095,7 +2129,7 @@ footer {
     font-weight: 500;
 }
 
-/* 最佳串关推荐 */
+/* 组合参考 */
 .best-parlay-section {
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     border: 2px solid var(--primary-color);
@@ -2257,7 +2291,7 @@ footer {
     border-radius: 0 0 8px 8px;
 }
 
-/* 响应式串关推荐 */
+/* 响应式组合参考 */
 @media (max-width: 768px) {
     .parlay-header {
         flex-direction: column;
@@ -2658,3 +2692,137 @@ footer {
     transform: none;
 }
 
+
+
+/* 世界杯专题 */
+.worldcup-hero-card,
+.worldcup-controls,
+.worldcup-fixtures-panel,
+.worldcup-results-panel,
+.worldcup-prediction-card,
+.worldcup-explanation-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.worldcup-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1rem;
+}
+
+.worldcup-controls {
+    grid-column: 1 / -1;
+}
+
+.worldcup-status, .worldcup-disclaimer, .worldcup-data-quality, .worldcup-market {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+}
+
+.worldcup-fixtures-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 620px;
+    overflow-y: auto;
+}
+
+.worldcup-fixture-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.9rem;
+}
+
+.worldcup-fixture-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.worldcup-fixture-title {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.worldcup-fixture-meta, .worldcup-fixture-note {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+}
+
+.worldcup-prob-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.worldcup-prob-item {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 0.8rem;
+}
+
+.worldcup-prob-item strong, .worldcup-prob-item span {
+    display: block;
+}
+
+.worldcup-prob-item span {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+}
+
+.worldcup-bar {
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 999px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.worldcup-bar i {
+    display: block;
+    height: 100%;
+    background: var(--gradient-primary);
+}
+
+.worldcup-score-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 0.5rem;
+}
+
+.worldcup-score-list div {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 0.6rem;
+    font-weight: 700;
+}
+
+.worldcup-score-list span {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.worldcup-score-lock {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 800;
+    margin: 1rem 0;
+}
+
+@media (max-width: 900px) {
+    .worldcup-layout, .worldcup-prob-grid {
+        grid-template-columns: 1fr;
+    }
+}

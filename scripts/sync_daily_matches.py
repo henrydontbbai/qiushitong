@@ -11,9 +11,12 @@ import logging
 from datetime import datetime, timedelta
 from typing import Dict, Any, List
 import argparse
+from dotenv import load_dotenv
 
 # 添加项目根目录到路径
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(PROJECT_ROOT)
+load_dotenv(os.path.join(PROJECT_ROOT, '.env'))
 
 from scripts.database import prediction_db
 from scripts.china_lottery_spider import ChinaLotterySpider
@@ -23,7 +26,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('/Users/sco/Desktop/MatchPredict/sync_matches.log', encoding='utf-8'),
+        logging.FileHandler(os.path.join(PROJECT_ROOT, 'sync_matches.log'), encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -135,7 +138,7 @@ class MatchSyncManager:
             连接是否成功
         """
         try:
-            conn = self.db.connect_to_database()
+            conn = self.db._get_conn()
             conn.close()
             logger.info("✅ 数据库连接测试成功")
             return True

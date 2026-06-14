@@ -21,22 +21,28 @@ class PredictionDatabase:
     """预测结果数据库管理"""
     
     def __init__(self):
+        self.reload_connection_params()
+        # self.init_tables() # 移除此行，数据库表的初始化应手动触发
+
+    def reload_connection_params(self):
+        """从当前环境变量重新读取数据库连接参数。"""
         logger.info("正在初始化数据库连接参数...")
         self.connection_params = {
             "host": os.getenv("DB_HOST", "dbprovider.ap-southeast-1.clawcloudrun.com"),
             "port": int(os.getenv("DB_PORT", "49674")),
             "database": os.getenv("DB_NAME", "postgres"),
             "user": os.getenv("DB_USER", "postgres"),
-            "password": os.getenv("DB_PASS", "sbdx497p"), # 请务必在线上环境中设置此环境变量
+            "password": os.getenv("DB_PASS", ""), # 本机请在 .env 中设置 DB_PASS
             "sslmode": "prefer"
         }
-        # self.init_tables() # 移除此行，数据库表的初始化应手动触发
+        return self.connection_params
     
     @contextlib.contextmanager
     def get_db_connection(self):
         """使用上下文管理器获取数据库连接，并处理事务。"""
         conn = None
         try:
+            self.reload_connection_params()
             conn = psycopg2.connect(**self.connection_params)
             conn.autocommit = False # 禁用自动提交，手动管理事务
             logger.info("数据库连接成功并开始事务管理")
@@ -60,6 +66,7 @@ class PredictionDatabase:
         """内部方法：直接获取原始数据库连接，不进行事务管理"""
         conn = None
         try:
+            self.reload_connection_params()
             conn = psycopg2.connect(**self.connection_params)
             logger.debug("内部数据库连接成功")
             return conn
@@ -204,15 +211,17 @@ class PredictionDatabase:
                 # 准备插入数据
                 insert_sql = """
             INSERT INTO match_predictions (
-                prediction_id, prediction_mode, home_team, away_team, league_name,
+                prediction_id, user_id, username, prediction_mode, home_team, away_team, league_name,
                 match_time, home_odds, draw_odds, away_odds, predicted_result,
                 prediction_confidence, ai_analysis, user_ip
             ) VALUES (
-                %(prediction_id)s, %(prediction_mode)s, %(home_team)s, %(away_team)s, %(league_name)s,
+                %(prediction_id)s, %(user_id)s, %(username)s, %(prediction_mode)s, %(home_team)s, %(away_team)s, %(league_name)s,
                 %(match_time)s, %(home_odds)s, %(draw_odds)s, %(away_odds)s, %(predicted_result)s,
                 %(prediction_confidence)s, %(ai_analysis)s, %(user_ip)s
             ) ON CONFLICT (prediction_id) DO UPDATE SET
                 updated_at = CURRENT_TIMESTAMP,
+                user_id = EXCLUDED.user_id,
+                username = EXCLUDED.username,
                 predicted_result = EXCLUDED.predicted_result,
                 prediction_confidence = EXCLUDED.prediction_confidence,
                 ai_analysis = EXCLUDED.ai_analysis;
