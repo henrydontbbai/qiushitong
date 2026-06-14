@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="bet-details">
                             <span class="bet-odds">赔率: ${odds.toFixed(2)}</span>
                             <span class="bet-prob">概率: ${(prob * 100).toFixed(1)}%</span>
-                            <span class="bet-ev ${evClass}">期望值: ${ev.toFixed(4)}</span>
+                            <span class="bet-ev ${evClass}">模型差值: ${ev.toFixed(4)}</span>
                         </div>
                     </div>
                 `;
@@ -415,9 +415,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${betsHTML}
                     </div>
                     <div class="best-prediction">
-                        <div class="best-label">最佳投注</div>
+                        <div class="best-label">概率参考</div>
                         <div class="best-value">${formatResult(pred.best_bet)}</div>
-                        <div class="best-ev">期望值: ${pred.best_ev.toFixed(4)}</div>
+                        <div class="best-ev">模型差值: ${pred.best_ev.toFixed(4)}</div>
                     </div>
                 </div>
             `;
@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 渲染最佳串关
+    // 渲染组合参考
     function renderBestParlay(parlay) {
         const container = document.getElementById('best-parlay-result');
         
@@ -454,17 +454,17 @@ document.addEventListener('DOMContentLoaded', function() {
         
         container.innerHTML = `
             <div class="parlay-header">
-                <h3>最佳串关组合</h3>
+                <h3>组合参考组合</h3>
                 <div class="parlay-odds">总赔率: ${parlay.total_odds.toFixed(2)}</div>
             </div>
             <div class="parlay-stats">
                 <div class="parlay-stat">
                     <div class="stat-value">${(parlay.total_prob * 100).toFixed(2)}%</div>
-                    <div class="stat-label">中奖概率</div>
+                    <div class="stat-label">模型概率</div>
                 </div>
                 <div class="parlay-stat">
                     <div class="stat-value">${parlay.expected_value.toFixed(4)}</div>
-                    <div class="stat-label">期望值</div>
+                    <div class="stat-label">模型差值</div>
                 </div>
                 <div class="parlay-stat">
                     <div class="stat-value">${parlay.selections.length}</div>
@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
     
-    // 渲染所有串关组合
+    // 渲染所有组合方案
     function renderAllParlays(combinations) {
         const container = document.getElementById('all-parlays-results');
         container.innerHTML = '';
@@ -518,11 +518,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="parlay-stats">
                     <div class="parlay-stat">
                         <div class="stat-value">${(parlay.total_prob * 100).toFixed(2)}%</div>
-                        <div class="stat-label">中奖概率</div>
+                        <div class="stat-label">模型概率</div>
                     </div>
                     <div class="parlay-stat">
                         <div class="stat-value">${parlay.expected_value.toFixed(4)}</div>
-                        <div class="stat-label">期望值</div>
+                        <div class="stat-label">模型差值</div>
                     </div>
                     <div class="parlay-stat">
                         <div class="stat-value">${parlay.selections.length}</div>

@@ -153,18 +153,18 @@ def predict_match(home_team, away_team, home_odds, draw_odds, away_odds):
             'A': away_odds   # 客胜赔率
         }
         
-        # 计算期望值
+        # 计算模型差值
         result_probs = {'H': home_win_prob, 'D': draw_prob, 'A': away_win_prob}
         ev_home = result_probs['H'] * odds['H'] - (1 - result_probs['H'])
         ev_draw = result_probs['D'] * odds['D'] - (1 - result_probs['D'])
         ev_away = result_probs['A'] * odds['A'] - (1 - result_probs['A'])
         
         print("\n赔率分析:")
-        print(f"主胜赔率: {odds['H']}, 期望值: {ev_home:.4f}")
-        print(f"平局赔率: {odds['D']}, 期望值: {ev_draw:.4f}")
-        print(f"客胜赔率: {odds['A']}, 期望值: {ev_away:.4f}")
+        print(f"主胜赔率: {odds['H']}, 模型差值: {ev_home:.4f}")
+        print(f"平局赔率: {odds['D']}, 模型差值: {ev_draw:.4f}")
+        print(f"客胜赔率: {odds['A']}, 模型差值: {ev_away:.4f}")
         
-        # 找出最佳投注选项
+        # 找出概率参考选项
         best_bet = max(
             ("主胜", ev_home, odds['H']),
             ("平局", ev_draw, odds['D']),
@@ -173,7 +173,7 @@ def predict_match(home_team, away_team, home_odds, draw_odds, away_odds):
         )
         
         if best_bet[1] > 0:
-            print(f"\n最佳投注建议: {best_bet[0]}, 赔率: {best_bet[2]}, 期望值: {best_bet[1]:.4f}")
+            print(f"\n最佳决策建议: {best_bet[0]}, 赔率: {best_bet[2]}, 模型差值: {best_bet[1]:.4f}")
         else:
             print("\n没有找到有价值的投注选项")
             

@@ -8,17 +8,20 @@
 import requests
 import json
 import logging
+import os
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
 import time
 import random
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # 配置日志
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('/Users/sco/Desktop/MatchPredict/lottery_spider.log', encoding='utf-8'),
+        logging.FileHandler(os.path.join(PROJECT_ROOT, 'lottery_spider.log'), encoding='utf-8'),
         logging.StreamHandler()
     ]
 )

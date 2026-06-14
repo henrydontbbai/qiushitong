@@ -74,7 +74,7 @@ class WorldCupPredictor:
             'data_quality': data_quality,
             'model_version': self.data.model_version,
             'data_cutoff_at': self.data.data_cutoff_at,
-            'disclaimer': '概率不代表赛果保证，仅供模型模拟参考，非投注建议。AI 只解释已有概率，不参与概率计算。',
+            'disclaimer': '概率不代表赛果保证，仅供模型模拟参考，非决策建议。AI 只解释已有概率，不参与概率计算。',
             'elo_adjustment': adjustment,
             'market_probabilities': market_probabilities,
         }

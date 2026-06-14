@@ -124,7 +124,7 @@ class WorldCupManager {
                 ${this.renderMarket(data.market_probabilities)}
                 ${this.renderDataQuality(data.data_quality)}
                 <div class="worldcup-data-quality">模型版本：${this.escapeHtml(data.model_version || '')} · 数据截止：${this.escapeHtml(data.data_cutoff_at || '')}</div>
-                <p class="worldcup-disclaimer">${this.escapeHtml(data.disclaimer || '概率不代表赛果保证，仅供模型模拟参考，非投注建议。')}</p>
+                <p class="worldcup-disclaimer">${this.escapeHtml(data.disclaimer || '概率不代表赛果保证，仅供模型模拟参考，非决策建议。')}</p>
             </div>
         `;
     }

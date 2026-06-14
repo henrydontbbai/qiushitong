@@ -378,10 +378,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     individual_predictions.push(prediction);
                 }
                 
-                // 生成所有可能的串关组合
+                // 生成所有可能的组合方案
                 const all_combinations = generateParlays(individual_predictions);
                 
-                // 最佳串关
+                // 组合参考
                 const best_parlay = all_combinations.length > 0 ? all_combinations[0] : null;
                 
                 // 渲染结果
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const awayWinPercentage = (prediction.away_win_prob * 100).toFixed(1);
             
             const bestBet = prediction.best_bet;
-            const bestEV = prediction.best_ev.toFixed(2);
+            const bestModelDiff = prediction.best_ev.toFixed(2);
             
             let bestBetText = '';
             if (bestBet === 'home') {
@@ -506,8 +506,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     
                     <div class="best-bet">
-                        <div class="bet-label">最佳投注:</div>
-                        <div class="bet-value">${bestBetText} (期望值: ${bestEV})</div>
+                        <div class="bet-label">概率参考:</div>
+                        <div class="bet-value">${bestBetText} (模型差值: ${bestModelDiff})</div>
                     </div>
                 </div>
             `;
@@ -529,13 +529,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return leagueNames[leagueCode] || leagueCode;
     }
     
-    // 渲染最佳串关
+    // 渲染组合参考
     function renderBestParlay(parlay) {
         const container = document.getElementById('best-parlay-results');
         container.innerHTML = '';
         
         if (!parlay) {
-            container.innerHTML = '<div class="empty-message">无法生成串关组合</div>';
+            container.innerHTML = '<div class="empty-message">无法生成组合方案</div>';
             return;
         }
         
@@ -566,17 +566,17 @@ document.addEventListener('DOMContentLoaded', function() {
         
         parlayElement.innerHTML = `
             <div class="parlay-header">
-                <h3>最佳串关组合</h3>
+                <h3>组合参考方案</h3>
                 <div class="parlay-odds">总赔率: ${parlay.total_odds.toFixed(2)}</div>
             </div>
             <div class="parlay-stats">
                 <div class="parlay-stat">
                     <div class="stat-value">${(parlay.total_prob * 100).toFixed(2)}%</div>
-                    <div class="stat-label">中奖概率</div>
+                    <div class="stat-label">模型概率</div>
                 </div>
                 <div class="parlay-stat">
                     <div class="stat-value">${parlay.expected_value.toFixed(4)}</div>
-                    <div class="stat-label">期望值</div>
+                    <div class="stat-label">模型差值</div>
                 </div>
                 <div class="parlay-stat">
                     <div class="stat-value">${parlay.selections.length}</div>
@@ -591,13 +591,13 @@ document.addEventListener('DOMContentLoaded', function() {
         container.appendChild(parlayElement);
     }
     
-    // 渲染所有串关组合
+    // 渲染所有组合方案
     function renderAllParlays(parlays) {
         const container = document.getElementById('all-parlays-results');
         container.innerHTML = '';
         
         if (!parlays || parlays.length === 0) {
-            container.innerHTML = '<div class="empty-message">无法生成串关组合</div>';
+            container.innerHTML = '<div class="empty-message">无法生成组合方案</div>';
             return;
         }
         
@@ -605,7 +605,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const displayParlays = parlays.slice(1, 11);
         
         if (displayParlays.length === 0) {
-            container.innerHTML = '<div class="empty-message">没有更多串关组合</div>';
+            container.innerHTML = '<div class="empty-message">没有更多组合方案</div>';
             return;
         }
         
@@ -645,11 +645,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="parlay-stats">
                     <div class="parlay-stat">
                         <div class="stat-value">${(parlay.total_prob * 100).toFixed(2)}%</div>
-                        <div class="stat-label">中奖概率</div>
+                        <div class="stat-label">模型概率</div>
                     </div>
                     <div class="parlay-stat">
                         <div class="stat-value">${parlay.expected_value.toFixed(4)}</div>
-                        <div class="stat-label">期望值</div>
+                        <div class="stat-label">模型差值</div>
                     </div>
                     <div class="parlay-stat">
                         <div class="stat-value">${parlay.selections.length}</div>

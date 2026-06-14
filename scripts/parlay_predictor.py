@@ -73,13 +73,13 @@ class ParlayPredictor:
         draw_prob = sum(prob for (i, j), prob in score_probs.items() if i == j)
         away_win_prob = sum(prob for (i, j), prob in score_probs.items() if i < j)
         
-        # 计算期望值
+        # 计算模型差值
         result_probs = {'H': home_win_prob, 'D': draw_prob, 'A': away_win_prob}
         ev_home = result_probs['H'] * home_odds - 1
         ev_draw = result_probs['D'] * draw_odds - 1
         ev_away = result_probs['A'] * away_odds - 1
         
-        # 找出最佳投注选项
+        # 找出概率参考选项
         best_bet = max(
             ("H", ev_home, home_odds, home_win_prob),
             ("D", ev_draw, draw_odds, draw_prob),
@@ -87,7 +87,7 @@ class ParlayPredictor:
             key=lambda x: x[1]
         )
         
-        # 所有可能的投注选项（按期望值排序）
+        # 所有可能的投注选项（按模型差值排序）
         all_bets = [
             ("H", ev_home, home_odds, home_win_prob),
             ("D", ev_draw, draw_odds, draw_prob),
@@ -132,7 +132,7 @@ class ParlayPredictor:
         if not predictions:
             return None
         
-        # 创建最佳串关组合
+        # 创建组合参考组合
         best_parlay = {
             'selections': [],
             'total_odds': 1.0,
@@ -181,7 +181,7 @@ class ParlayPredictor:
             parlay['expected_value'] = parlay['total_odds'] * parlay['total_prob'] - 1
             all_combinations.append(parlay)
         
-        # 按期望值排序
+        # 按模型差值排序
         all_combinations.sort(key=lambda x: x['expected_value'], reverse=True)
         
         return {
@@ -262,21 +262,21 @@ def main():
         print(f"平局概率: {pred['draw_prob']:.2f} ({pred['draw_prob']*100:.1f}%), 赔率: {pred['draw_odds']}")
         print(f"客胜概率: {pred['away_win_prob']:.2f} ({pred['away_win_prob']*100:.1f}%), 赔率: {pred['away_odds']}")
         
-        # 显示所有投注选项的期望值
-        print("所有投注选项 (按期望值排序):")
+        # 显示所有投注选项的模型差值
+        print("所有投注选项 (按模型差值排序):")
         for bet_type, ev, odds, prob in pred['all_bets']:
             result_name = format_result(bet_type)
-            print(f"  {result_name}: 期望值={ev:.4f}, 赔率={odds}, 概率={prob:.2f}")
+            print(f"  {result_name}: 模型差值={ev:.4f}, 赔率={odds}, 概率={prob:.2f}")
         
-        print(f"最佳投注: {format_result(pred['best_bet'])}, 期望值: {pred['best_ev']:.4f}")
+        print(f"概率参考: {format_result(pred['best_bet'])}, 模型差值: {pred['best_ev']:.4f}")
     
-    # 打印最佳串关
-    print("\n最佳串关组合:")
+    # 打印组合参考
+    print("\n组合参考组合:")
     print("=" * 50)
     best = result['best_parlay']
     print(f"总赔率: {best['total_odds']:.2f}")
-    print(f"中奖概率: {best['total_prob']:.4f} ({best['total_prob']*100:.2f}%)")
-    print(f"期望值: {best['expected_value']:.4f}")
+    print(f"模型概率: {best['total_prob']:.4f} ({best['total_prob']*100:.2f}%)")
+    print(f"模型差值: {best['expected_value']:.4f}")
     
     print("\n选择:")
     for i, sel in enumerate(best['selections']):
@@ -292,8 +292,8 @@ def main():
             
         print(f"\n组合 #{i}:")
         print(f"总赔率: {combo['total_odds']:.2f}")
-        print(f"中奖概率: {combo['total_prob']:.4f} ({combo['total_prob']*100:.2f}%)")
-        print(f"期望值: {combo['expected_value']:.4f}")
+        print(f"模型概率: {combo['total_prob']:.4f} ({combo['total_prob']*100:.2f}%)")
+        print(f"模型差值: {combo['expected_value']:.4f}")
         
         print("选择:")
         for j, sel in enumerate(combo['selections']):

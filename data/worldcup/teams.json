@@ -185,13 +185,13 @@
     },
     {
       "team_id": "TUR",
-      "display_name": "T?rkiye",
-      "display_name_zh": "???",
+      "display_name": "Türkiye",
+      "display_name_zh": "土耳其",
       "aliases": [
-        "T?rkiye",
         "Turkey",
         "TUR",
-        "???"
+        "Türkiye",
+        "土耳其"
       ],
       "group": "D",
       "federation": "unknown"
@@ -210,25 +210,26 @@
     },
     {
       "team_id": "CIV",
-      "display_name": "C?te d'Ivoire",
+      "display_name": "Côte d'Ivoire",
       "display_name_zh": "科特迪瓦",
       "aliases": [
         "Ivory Coast",
         "CIV",
-        "科特迪瓦"
+        "科特迪瓦",
+        "Côte d'Ivoire"
       ],
       "group": "E",
       "federation": "unknown"
     },
     {
       "team_id": "CUW",
-      "display_name": "Cura?ao",
-      "display_name_zh": "???",
+      "display_name": "Curaçao",
+      "display_name_zh": "库拉索",
       "aliases": [
-        "Cura?ao",
         "Curacao",
         "CUW",
-        "???"
+        "Curaçao",
+        "库拉索"
       ],
       "group": "E",
       "federation": "unknown"
@@ -272,11 +273,11 @@
     {
       "team_id": "SWE",
       "display_name": "Sweden",
-      "display_name_zh": "??",
+      "display_name_zh": "瑞典",
       "aliases": [
         "Sweden",
         "SWE",
-        "??"
+        "瑞典"
       ],
       "group": "F",
       "federation": "unknown"
@@ -308,11 +309,11 @@
     {
       "team_id": "EGY",
       "display_name": "Egypt",
-      "display_name_zh": "??",
+      "display_name_zh": "埃及",
       "aliases": [
         "Egypt",
         "EGY",
-        "??"
+        "埃及"
       ],
       "group": "G",
       "federation": "unknown"
@@ -418,11 +419,11 @@
     {
       "team_id": "IRQ",
       "display_name": "Iraq",
-      "display_name_zh": "???",
+      "display_name_zh": "伊拉克",
       "aliases": [
         "Iraq",
         "IRQ",
-        "???"
+        "伊拉克"
       ],
       "group": "I",
       "federation": "unknown"
@@ -478,11 +479,11 @@
     {
       "team_id": "JOR",
       "display_name": "Jordan",
-      "display_name_zh": "??",
+      "display_name_zh": "约旦",
       "aliases": [
         "Jordan",
         "JOR",
-        "??"
+        "约旦"
       ],
       "group": "J",
       "federation": "unknown"
@@ -490,11 +491,11 @@
     {
       "team_id": "POR",
       "display_name": "Portugal",
-      "display_name_zh": "???",
+      "display_name_zh": "葡萄牙",
       "aliases": [
         "Portugal",
         "POR",
-        "???"
+        "葡萄牙"
       ],
       "group": "K",
       "federation": "unknown"
