@@ -1,0 +1,21 @@
+{
+  "data_cutoff_at": "2026-06-14T00:00:00+08:00",
+  "sources": [
+    {
+      "source_id": "fifa_schedule_2026_manual_20260614",
+      "name": "FIFA World Cup 2026 public schedule, manually transcribed for local MVP",
+      "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
+      "license_status": "manual reference; local non-commercial use only",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
+      "data_cutoff_at": "2026-06-14T00:00:00+08:00"
+    },
+    {
+      "source_id": "fifa_ranking_20260611",
+      "name": "FIFA/Coca-Cola Men Ranking public page",
+      "url": "https://inside.fifa.com/fifa-world-ranking/men",
+      "license_status": "manual reference; local non-commercial use only",
+      "source_url": "https://inside.fifa.com/fifa-world-ranking/men",
+      "data_cutoff_at": "2026-06-14T00:00:00+08:00"
+    }
+  ]
+}

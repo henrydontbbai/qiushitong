@@ -1,0 +1,246 @@
+{
+  "data_cutoff_at": "2026-06-11",
+  "rating_method": "seeded_elo_from_fifa_rank_for_local_mvp",
+  "ratings": [
+    {
+      "team_id": "MEX",
+      "elo": 2075,
+      "fifa_rank": 15
+    },
+    {
+      "team_id": "RSA",
+      "elo": 1753,
+      "fifa_rank": 61
+    },
+    {
+      "team_id": "KOR",
+      "elo": 2019,
+      "fifa_rank": 23
+    },
+    {
+      "team_id": "CZE",
+      "elo": 1907,
+      "fifa_rank": 39
+    },
+    {
+      "team_id": "CAN",
+      "elo": 1970,
+      "fifa_rank": 30
+    },
+    {
+      "team_id": "BIH",
+      "elo": 1732,
+      "fifa_rank": 64
+    },
+    {
+      "team_id": "QAT",
+      "elo": 1823,
+      "fifa_rank": 51
+    },
+    {
+      "team_id": "SUI",
+      "elo": 2054,
+      "fifa_rank": 18
+    },
+    {
+      "team_id": "BRA",
+      "elo": 2166,
+      "fifa_rank": 2
+    },
+    {
+      "team_id": "HAI",
+      "elo": 1606,
+      "fifa_rank": 82
+    },
+    {
+      "team_id": "SCO",
+      "elo": 1928,
+      "fifa_rank": 36
+    },
+    {
+      "team_id": "MAR",
+      "elo": 2096,
+      "fifa_rank": 12
+    },
+    {
+      "team_id": "USA",
+      "elo": 2068,
+      "fifa_rank": 16
+    },
+    {
+      "team_id": "PAR",
+      "elo": 1879,
+      "fifa_rank": 43
+    },
+    {
+      "team_id": "AUS",
+      "elo": 2005,
+      "fifa_rank": 25
+    },
+    {
+      "team_id": "TUR",
+      "elo": 1991,
+      "fifa_rank": 27
+    },
+    {
+      "team_id": "GER",
+      "elo": 2117,
+      "fifa_rank": 9
+    },
+    {
+      "team_id": "CIV",
+      "elo": 1893,
+      "fifa_rank": 41
+    },
+    {
+      "team_id": "CUW",
+      "elo": 1655,
+      "fifa_rank": 75
+    },
+    {
+      "team_id": "ECU",
+      "elo": 1984,
+      "fifa_rank": 28
+    },
+    {
+      "team_id": "NED",
+      "elo": 2131,
+      "fifa_rank": 7
+    },
+    {
+      "team_id": "JPN",
+      "elo": 2054,
+      "fifa_rank": 18
+    },
+    {
+      "team_id": "SWE",
+      "elo": 2026,
+      "fifa_rank": 22
+    },
+    {
+      "team_id": "TUN",
+      "elo": 1837,
+      "fifa_rank": 49
+    },
+    {
+      "team_id": "BEL",
+      "elo": 2124,
+      "fifa_rank": 8
+    },
+    {
+      "team_id": "EGY",
+      "elo": 1956,
+      "fifa_rank": 32
+    },
+    {
+      "team_id": "IRN",
+      "elo": 2040,
+      "fifa_rank": 20
+    },
+    {
+      "team_id": "NZL",
+      "elo": 1585,
+      "fifa_rank": 85
+    },
+    {
+      "team_id": "ESP",
+      "elo": 2159,
+      "fifa_rank": 3
+    },
+    {
+      "team_id": "CPV",
+      "elo": 1795,
+      "fifa_rank": 55
+    },
+    {
+      "team_id": "KSA",
+      "elo": 1774,
+      "fifa_rank": 58
+    },
+    {
+      "team_id": "URU",
+      "elo": 2103,
+      "fifa_rank": 11
+    },
+    {
+      "team_id": "FRA",
+      "elo": 2152,
+      "fifa_rank": 4
+    },
+    {
+      "team_id": "SEN",
+      "elo": 2047,
+      "fifa_rank": 19
+    },
+    {
+      "team_id": "IRQ",
+      "elo": 1767,
+      "fifa_rank": 59
+    },
+    {
+      "team_id": "NOR",
+      "elo": 1963,
+      "fifa_rank": 31
+    },
+    {
+      "team_id": "ARG",
+      "elo": 2173,
+      "fifa_rank": 1
+    },
+    {
+      "team_id": "ALG",
+      "elo": 1921,
+      "fifa_rank": 37
+    },
+    {
+      "team_id": "AUT",
+      "elo": 2012,
+      "fifa_rank": 24
+    },
+    {
+      "team_id": "JOR",
+      "elo": 1704,
+      "fifa_rank": 68
+    },
+    {
+      "team_id": "POR",
+      "elo": 2138,
+      "fifa_rank": 6
+    },
+    {
+      "team_id": "COD",
+      "elo": 1760,
+      "fifa_rank": 60
+    },
+    {
+      "team_id": "UZB",
+      "elo": 1865,
+      "fifa_rank": 45
+    },
+    {
+      "team_id": "COL",
+      "elo": 2089,
+      "fifa_rank": 13
+    },
+    {
+      "team_id": "ENG",
+      "elo": 2145,
+      "fifa_rank": 5
+    },
+    {
+      "team_id": "CRO",
+      "elo": 2082,
+      "fifa_rank": 14
+    },
+    {
+      "team_id": "GHA",
+      "elo": 1816,
+      "fifa_rank": 52
+    },
+    {
+      "team_id": "PAN",
+      "elo": 1886,
+      "fifa_rank": 42
+    }
+  ]
+}

@@ -1,0 +1,588 @@
+{
+  "teams": [
+    {
+      "team_id": "MEX",
+      "display_name": "Mexico",
+      "display_name_zh": "墨西哥",
+      "aliases": [
+        "Mexico",
+        "MEX",
+        "墨西哥"
+      ],
+      "group": "A",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "RSA",
+      "display_name": "South Africa",
+      "display_name_zh": "南非",
+      "aliases": [
+        "South Africa",
+        "RSA",
+        "南非"
+      ],
+      "group": "A",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "KOR",
+      "display_name": "Korea Republic",
+      "display_name_zh": "韩国",
+      "aliases": [
+        "Korea Republic",
+        "South Korea",
+        "KOR",
+        "韩国"
+      ],
+      "group": "A",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "CZE",
+      "display_name": "Czechia",
+      "display_name_zh": "捷克",
+      "aliases": [
+        "Czechia",
+        "Czech Republic",
+        "CZE",
+        "捷克"
+      ],
+      "group": "A",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "CAN",
+      "display_name": "Canada",
+      "display_name_zh": "加拿大",
+      "aliases": [
+        "Canada",
+        "CAN",
+        "加拿大"
+      ],
+      "group": "B",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "BIH",
+      "display_name": "Bosnia and Herzegovina",
+      "display_name_zh": "波黑",
+      "aliases": [
+        "Bosnia and Herzegovina",
+        "Bosnia",
+        "BIH",
+        "波黑"
+      ],
+      "group": "B",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "QAT",
+      "display_name": "Qatar",
+      "display_name_zh": "卡塔尔",
+      "aliases": [
+        "Qatar",
+        "QAT",
+        "卡塔尔"
+      ],
+      "group": "B",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "SUI",
+      "display_name": "Switzerland",
+      "display_name_zh": "瑞士",
+      "aliases": [
+        "Switzerland",
+        "SUI",
+        "瑞士"
+      ],
+      "group": "B",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "BRA",
+      "display_name": "Brazil",
+      "display_name_zh": "巴西",
+      "aliases": [
+        "Brazil",
+        "BRA",
+        "巴西"
+      ],
+      "group": "C",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "HAI",
+      "display_name": "Haiti",
+      "display_name_zh": "海地",
+      "aliases": [
+        "Haiti",
+        "HAI",
+        "海地"
+      ],
+      "group": "C",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "SCO",
+      "display_name": "Scotland",
+      "display_name_zh": "苏格兰",
+      "aliases": [
+        "Scotland",
+        "SCO",
+        "苏格兰"
+      ],
+      "group": "C",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "MAR",
+      "display_name": "Morocco",
+      "display_name_zh": "摩洛哥",
+      "aliases": [
+        "Morocco",
+        "MAR",
+        "摩洛哥"
+      ],
+      "group": "C",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "USA",
+      "display_name": "USA",
+      "display_name_zh": "美国",
+      "aliases": [
+        "USA",
+        "United States",
+        "美国"
+      ],
+      "group": "D",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "PAR",
+      "display_name": "Paraguay",
+      "display_name_zh": "巴拉圭",
+      "aliases": [
+        "Paraguay",
+        "PAR",
+        "巴拉圭"
+      ],
+      "group": "D",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "AUS",
+      "display_name": "Australia",
+      "display_name_zh": "澳大利亚",
+      "aliases": [
+        "Australia",
+        "AUS",
+        "澳大利亚"
+      ],
+      "group": "D",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "TUR",
+      "display_name": "T?rkiye",
+      "display_name_zh": "???",
+      "aliases": [
+        "T?rkiye",
+        "Turkey",
+        "TUR",
+        "???"
+      ],
+      "group": "D",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "GER",
+      "display_name": "Germany",
+      "display_name_zh": "德国",
+      "aliases": [
+        "Germany",
+        "GER",
+        "德国"
+      ],
+      "group": "E",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "CIV",
+      "display_name": "C?te d'Ivoire",
+      "display_name_zh": "科特迪瓦",
+      "aliases": [
+        "Ivory Coast",
+        "CIV",
+        "科特迪瓦"
+      ],
+      "group": "E",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "CUW",
+      "display_name": "Cura?ao",
+      "display_name_zh": "???",
+      "aliases": [
+        "Cura?ao",
+        "Curacao",
+        "CUW",
+        "???"
+      ],
+      "group": "E",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "ECU",
+      "display_name": "Ecuador",
+      "display_name_zh": "厄瓜多尔",
+      "aliases": [
+        "Ecuador",
+        "ECU",
+        "厄瓜多尔"
+      ],
+      "group": "E",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "NED",
+      "display_name": "Netherlands",
+      "display_name_zh": "荷兰",
+      "aliases": [
+        "Netherlands",
+        "NED",
+        "荷兰"
+      ],
+      "group": "F",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "JPN",
+      "display_name": "Japan",
+      "display_name_zh": "日本",
+      "aliases": [
+        "Japan",
+        "JPN",
+        "日本"
+      ],
+      "group": "F",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "SWE",
+      "display_name": "Sweden",
+      "display_name_zh": "??",
+      "aliases": [
+        "Sweden",
+        "SWE",
+        "??"
+      ],
+      "group": "F",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "TUN",
+      "display_name": "Tunisia",
+      "display_name_zh": "突尼斯",
+      "aliases": [
+        "Tunisia",
+        "TUN",
+        "突尼斯"
+      ],
+      "group": "F",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "BEL",
+      "display_name": "Belgium",
+      "display_name_zh": "比利时",
+      "aliases": [
+        "Belgium",
+        "BEL",
+        "比利时"
+      ],
+      "group": "G",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "EGY",
+      "display_name": "Egypt",
+      "display_name_zh": "??",
+      "aliases": [
+        "Egypt",
+        "EGY",
+        "??"
+      ],
+      "group": "G",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "IRN",
+      "display_name": "IR Iran",
+      "display_name_zh": "伊朗",
+      "aliases": [
+        "IR Iran",
+        "Iran",
+        "IRN",
+        "伊朗"
+      ],
+      "group": "G",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "NZL",
+      "display_name": "New Zealand",
+      "display_name_zh": "新西兰",
+      "aliases": [
+        "New Zealand",
+        "NZL",
+        "新西兰"
+      ],
+      "group": "G",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "ESP",
+      "display_name": "Spain",
+      "display_name_zh": "西班牙",
+      "aliases": [
+        "Spain",
+        "ESP",
+        "西班牙"
+      ],
+      "group": "H",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "CPV",
+      "display_name": "Cabo Verde",
+      "display_name_zh": "佛得角",
+      "aliases": [
+        "Cabo Verde",
+        "Cape Verde",
+        "CPV",
+        "佛得角"
+      ],
+      "group": "H",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "KSA",
+      "display_name": "Saudi Arabia",
+      "display_name_zh": "沙特阿拉伯",
+      "aliases": [
+        "Saudi Arabia",
+        "KSA",
+        "沙特阿拉伯"
+      ],
+      "group": "H",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "URU",
+      "display_name": "Uruguay",
+      "display_name_zh": "乌拉圭",
+      "aliases": [
+        "Uruguay",
+        "URU",
+        "乌拉圭"
+      ],
+      "group": "H",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "FRA",
+      "display_name": "France",
+      "display_name_zh": "法国",
+      "aliases": [
+        "France",
+        "FRA",
+        "法国"
+      ],
+      "group": "I",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "SEN",
+      "display_name": "Senegal",
+      "display_name_zh": "塞内加尔",
+      "aliases": [
+        "Senegal",
+        "SEN",
+        "塞内加尔"
+      ],
+      "group": "I",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "IRQ",
+      "display_name": "Iraq",
+      "display_name_zh": "???",
+      "aliases": [
+        "Iraq",
+        "IRQ",
+        "???"
+      ],
+      "group": "I",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "NOR",
+      "display_name": "Norway",
+      "display_name_zh": "挪威",
+      "aliases": [
+        "Norway",
+        "NOR",
+        "挪威"
+      ],
+      "group": "I",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "ARG",
+      "display_name": "Argentina",
+      "display_name_zh": "阿根廷",
+      "aliases": [
+        "Argentina",
+        "ARG",
+        "阿根廷"
+      ],
+      "group": "J",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "ALG",
+      "display_name": "Algeria",
+      "display_name_zh": "阿尔及利亚",
+      "aliases": [
+        "Algeria",
+        "ALG",
+        "阿尔及利亚"
+      ],
+      "group": "J",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "AUT",
+      "display_name": "Austria",
+      "display_name_zh": "奥地利",
+      "aliases": [
+        "Austria",
+        "AUT",
+        "奥地利"
+      ],
+      "group": "J",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "JOR",
+      "display_name": "Jordan",
+      "display_name_zh": "??",
+      "aliases": [
+        "Jordan",
+        "JOR",
+        "??"
+      ],
+      "group": "J",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "POR",
+      "display_name": "Portugal",
+      "display_name_zh": "???",
+      "aliases": [
+        "Portugal",
+        "POR",
+        "???"
+      ],
+      "group": "K",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "COD",
+      "display_name": "Congo DR",
+      "display_name_zh": "刚果民主共和国",
+      "aliases": [
+        "Congo DR",
+        "DR Congo",
+        "COD",
+        "刚果民主共和国"
+      ],
+      "group": "K",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "UZB",
+      "display_name": "Uzbekistan",
+      "display_name_zh": "乌兹别克斯坦",
+      "aliases": [
+        "Uzbekistan",
+        "UZB",
+        "乌兹别克斯坦"
+      ],
+      "group": "K",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "COL",
+      "display_name": "Colombia",
+      "display_name_zh": "哥伦比亚",
+      "aliases": [
+        "Colombia",
+        "COL",
+        "哥伦比亚"
+      ],
+      "group": "K",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "ENG",
+      "display_name": "England",
+      "display_name_zh": "英格兰",
+      "aliases": [
+        "England",
+        "ENG",
+        "英格兰"
+      ],
+      "group": "L",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "CRO",
+      "display_name": "Croatia",
+      "display_name_zh": "克罗地亚",
+      "aliases": [
+        "Croatia",
+        "CRO",
+        "克罗地亚"
+      ],
+      "group": "L",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "GHA",
+      "display_name": "Ghana",
+      "display_name_zh": "加纳",
+      "aliases": [
+        "Ghana",
+        "GHA",
+        "加纳"
+      ],
+      "group": "L",
+      "federation": "unknown"
+    },
+    {
+      "team_id": "PAN",
+      "display_name": "Panama",
+      "display_name_zh": "巴拿马",
+      "aliases": [
+        "Panama",
+        "PAN",
+        "巴拿马"
+      ],
+      "group": "L",
+      "federation": "unknown"
+    }
+  ]
+}

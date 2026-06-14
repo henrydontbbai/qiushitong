@@ -1,0 +1,22 @@
+﻿from pathlib import Path
+import unittest
+
+
+class WorldCupFrontendSmokeTest(unittest.TestCase):
+    def test_worldcup_frontend_entry_and_script_are_present(self):
+        html = Path("templates/index.html").read_text(encoding="utf-8")
+        js = Path("static/js/worldcup.js").read_text(encoding="utf-8")
+
+        self.assertIn("世界杯专题", html)
+        self.assertIn("worldcup-mode-btn", html)
+        self.assertIn("worldcup-mode", html)
+        self.assertIn("js/worldcup.js", html)
+        self.assertIn("概率不代表赛果保证", html)
+        self.assertNotIn("????", html)
+
+        for text in ["胜", "平", "负", "预期进球", "Top 5", "数据完整度", "模型版本", "概率不代表赛果保证"]:
+            self.assertIn(text, js)
+
+
+if __name__ == "__main__":
+    unittest.main()

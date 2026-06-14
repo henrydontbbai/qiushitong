@@ -32,6 +32,10 @@
                     <i class="fas fa-brain"></i>
                     <span>AI智能模式</span>
                 </button>
+                <button type="button" id="worldcup-mode-btn" class="nav-btn" data-mode="worldcup">
+                    <i class="fas fa-trophy"></i>
+                    <span>世界杯专题</span>
+                </button>
             </div>
             
             <!-- 用户区域 -->
@@ -92,95 +96,55 @@
                 </div>
                 
                 <!-- 右侧：预测成功案例 -->
+                <!-- 右侧：世界杯专题入口 -->
                 <div class="success-cases">
-                    <h2><i class="fas fa-trophy"></i> 预测成功案例</h2>
-                    <div class="cases-table-container">
-                        <table class="cases-table">
-                            <thead>
-                                <tr>
-                                    <th>准确率</th>
-                                    <th>日期</th>
-                                    <th>场次</th>
-                                    <th>预测结果</th>
-                                    <th>比分结果</th>
-                                    <th>赔率</th>
-                                    <th>场次</th>
-                                    <th>预测结果</th>
-                                    <th>比分结果</th>
-                                    <th>赔率</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="success-row">
-                                    <td class="accuracy">100%</td>
-                                    <td>2025-03-02</td>
-                                    <td class="match-code">周日008</td>
-                                    <td class="prediction win">胜</td>
-                                    <td class="score">1-0</td>
-                                    <td class="odds">@2.900</td>
-                                    <td class="match-code">周日011</td>
-                                    <td class="prediction win">胜</td>
-                                    <td class="score">2-1</td>
-                                    <td class="odds">@1.430</td>
-                                </tr>
-                                <tr class="success-row">
-                                    <td class="accuracy">100%</td>
-                                    <td>2025-03-03</td>
-                                    <td class="match-code">周日019</td>
-                                    <td class="prediction lose">负</td>
-                                    <td class="score">1-2</td>
-                                    <td class="odds">@3.40</td>
-                                    <td class="match-code">周日021</td>
-                                    <td class="prediction draw">平</td>
-                                    <td class="score">3-3</td>
-                                    <td class="odds">@2.83</td>
-                                </tr>
-                                <tr class="success-row">
-                                    <td class="accuracy">90%</td>
-                                    <td>2025-03-01</td>
-                                    <td class="match-code">周六012</td>
-                                    <td class="prediction win">胜</td>
-                                    <td class="score">3-1</td>
-                                    <td class="odds">@2.15</td>
-                                    <td class="match-code">周六015</td>
-                                    <td class="prediction draw">平</td>
-                                    <td class="score">1-1</td>
-                                    <td class="odds">@3.20</td>
-                                </tr>
-                                <tr class="success-row">
-                                    <td class="accuracy">100%</td>
-                                    <td>2025-02-28</td>
-                                    <td class="match-code">周五007</td>
-                                    <td class="prediction lose">负</td>
-                                    <td class="score">0-2</td>
-                                    <td class="odds">@4.20</td>
-                                    <td class="match-code">周五009</td>
-                                    <td class="prediction win">胜</td>
-                                    <td class="score">2-0</td>
-                                    <td class="odds">@1.85</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="cases-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">97.5%</div>
-                            <div class="stat-label">平均准确率</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">128</div>
-                            <div class="stat-label">成功预测场次</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">+245%</div>
-                            <div class="stat-label">投注回报率</div>
-                        </div>
+                    <h2><i class="fas fa-trophy"></i> 世界杯专题</h2>
+                    <div class="worldcup-hero-card">
+                        <p><strong>2026 世界杯单场预测</strong>：无需数据库、无需 AI Key，也能查看基础概率。</p>
+                        <p>展示胜/平/负概率、预期进球、Top 5 比分；配置 AI 后可生成白话解释。</p>
+                        <p class="worldcup-disclaimer">概率不代表赛果保证，仅供模型模拟参考，非投注建议。</p>
+                        <button type="button" class="btn primary-btn" onclick="document.getElementById('worldcup-mode-btn').click()">
+                            <i class="fas fa-trophy"></i> 进入世界杯专题
+                        </button>
                     </div>
                 </div>
             </div>
         </header>
 
         <main>
+
+            <!-- 世界杯专题 -->
+            <section id="worldcup-mode" class="match-input-section hidden">
+                <h2><i class="fas fa-trophy"></i> 2026 世界杯专题</h2>
+                <div class="worldcup-layout">
+                    <div class="worldcup-controls">
+                        <div class="controls-row">
+                            <button id="worldcup-refresh-btn" class="btn secondary-btn" type="button">
+                                <i class="fas fa-sync"></i> 刷新赛程
+                            </button>
+                            <button id="worldcup-ai-explain-btn" class="btn primary-btn" type="button" disabled>
+                                <i class="fas fa-brain"></i> 用 AI 翻译成白话分析
+                            </button>
+                        </div>
+                        <div class="worldcup-status" id="worldcup-status">
+                            基础预测无需 AI Key；配置 AI 后可生成白话解释。概率不代表赛果保证。
+                        </div>
+                    </div>
+                    <div class="worldcup-fixtures-panel">
+                        <h3><i class="fas fa-list"></i> 世界杯赛程</h3>
+                        <div id="worldcup-fixtures" class="worldcup-fixtures-list">
+                            <div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在加载赛程...</div>
+                        </div>
+                    </div>
+                    <div class="worldcup-results-panel">
+                        <h3><i class="fas fa-chart-pie"></i> 单场预测</h3>
+                        <div id="worldcup-prediction" class="worldcup-prediction-card">
+                            <div class="empty-message">请选择一场比赛查看预测。</div>
+                        </div>
+                        <div id="worldcup-explanation" class="worldcup-explanation-card hidden"></div>
+                    </div>
+                </div>
+            </section>
 
             <!-- 经典模式 -->
             <section id="classic-mode" class="match-input-section active">
@@ -313,17 +277,17 @@
 
                     <!-- 右侧：购物车 -->
                     <div class="lottery-cart-panel">
-                        <!-- 最佳串关推荐 -->
+                        <!-- AI组合参考 -->
                         <div id="best-parlay-recommendation" class="best-parlay-section hidden">
                             <div class="parlay-header">
-                                <h4><i class="fas fa-star"></i> AI推荐最佳串关</h4>
+                                <h4><i class="fas fa-star"></i> AI组合参考</h4>
                                 <button id="generate-parlay-btn" class="btn compact-btn primary-btn">
                                     <i class="fas fa-magic"></i> 生成推荐
                                 </button>
                             </div>
                             <div id="parlay-content" class="parlay-content">
                                 <div class="parlay-loading">
-                                    <i class="fas fa-spinner fa-spin"></i> AI正在分析最佳组合...
+                                    <i class="fas fa-spinner fa-spin"></i> AI正在分析组合参考...
                                 </div>
                             </div>
                         </div>
@@ -435,7 +399,7 @@
                         <i class="fas fa-chart-pie"></i> 单场预测
                     </button>
                     <button class="tab-btn" data-tab="best-parlay">
-                        <i class="fas fa-star"></i> 最佳串关
+                        <i class="fas fa-star"></i> 组合参考
                     </button>
                     <button class="tab-btn" data-tab="all-parlays">
                         <i class="fas fa-layer-group"></i> 其他组合
@@ -453,13 +417,13 @@
                 
                 <div id="best-parlay-tab" class="tab-content">
                     <div id="best-parlay-results" class="best-parlay-results">
-                        <!-- 最佳串关结果将在这里动态生成 -->
+                        <!-- 组合参考结果将在这里动态生成 -->
                     </div>
                 </div>
                 
                 <div id="all-parlays-tab" class="tab-content">
                     <div id="all-parlays-results" class="all-parlays-results">
-                        <!-- 其他串关组合将在这里动态生成 -->
+                        <!-- 其他组合将在这里动态生成 -->
                     </div>
                 </div>
                 
@@ -473,7 +437,7 @@
         </main>
 
         <footer>
-            <p><i class="fas fa-shield-alt"></i> © 2024 AI足球预测平台 | 数据仅供参考，请理性投注</p>
+            <p><i class="fas fa-shield-alt"></i> © 2024 AI足球预测平台 | 概率参考，理性娱乐，非投注建议</p>
         </footer>
     </div>
 
@@ -503,6 +467,7 @@
               <script src="{{ url_for('static', filename='js/classic-mode.js') }}"></script>
               <script src="{{ url_for('static', filename='js/lottery.js') }}"></script>
               <script src="{{ url_for('static', filename='js/ai-prediction.js') }}"></script>
+              <script src="{{ url_for('static', filename='js/worldcup.js') }}"></script>
               <script src="{{ url_for('static', filename='js/app.js') }}"></script>
               <script src="{{ url_for('static', filename='js/nav-fix.js') }}"></script>
               <script src="{{ url_for('static', filename='js/auth.js') }}"></script>

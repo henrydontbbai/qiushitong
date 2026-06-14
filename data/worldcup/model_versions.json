@@ -1,0 +1,9 @@
+{
+  "active_model_version": "wc-elo-poisson-0.1.0",
+  "models": [
+    {
+      "version": "wc-elo-poisson-0.1.0",
+      "description": "世界杯 MVP：球队评分 + 简化 Poisson 比分分布；赔率仅作市场隐含概率对照。"
+    }
+  ]
+}

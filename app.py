@@ -6,27 +6,63 @@ import requests
 import hashlib
 import psycopg2
 from datetime import datetime, timedelta
+from pathlib import Path
 
 # 尝试导入数据库模块
 try:
     from scripts.database import prediction_db
-    print("✅ 数据库模块导入成功")
+    print("Database module import success")
 except ImportError as e:
-    print(f"⚠️ 数据库模块导入失败: {e}")
+    print(f"Database module import failed: {e}")
     prediction_db = None
 
 # 延迟导入，避免在Vercel环境中的问题
 try:
-    from lottery_api import ChinaSportsLotterySpider
+    from scripts.lottery_api import ChinaSportsLotterySpider
 except ImportError as e:
     print(f"导入彩票API失败: {e}")
     ChinaSportsLotterySpider = None
 
 try:
-    from ai_predictor import AIFootballPredictor
+    from scripts.ai_predictor import AIFootballPredictor
 except ImportError as e:
     print(f"导入AI预测器失败: {e}")
     AIFootballPredictor = None
+
+# 世界杯专题模块（薄 API，预测逻辑在 scripts/worldcup/）
+try:
+    from scripts.worldcup.predictor import WorldCupPredictor
+    from scripts.worldcup.explainer import WorldCupExplainer
+except ImportError as e:
+    logging.getLogger(__name__).warning(f"导入世界杯模块失败: {e}")
+    WorldCupPredictor = None
+    WorldCupExplainer = None
+
+WORLD_CUP_DATA_DIR = Path(__file__).resolve().parent / 'data' / 'worldcup'
+
+def get_worldcup_predictor():
+    """按需创建世界杯预测器，避免主应用启动依赖数据库或 AI。"""
+    if not WorldCupPredictor:
+        return None
+    return WorldCupPredictor(WORLD_CUP_DATA_DIR)
+
+def public_fixture_payload(fixture, predictor):
+    home = predictor._team_from_id(fixture.get('home_team_id')) or {}
+    away = predictor._team_from_id(fixture.get('away_team_id')) or {}
+    return {
+        'match_id': fixture.get('match_id'),
+        'home_team': home.get('display_name_zh') or home.get('display_name') or fixture.get('home_team_id'),
+        'away_team': away.get('display_name_zh') or away.get('display_name') or fixture.get('away_team_id'),
+        'home_team_id': fixture.get('home_team_id'),
+        'away_team_id': fixture.get('away_team_id'),
+        'kickoff_at': fixture.get('kickoff_at'),
+        'stage': fixture.get('stage'),
+        'group': fixture.get('group'),
+        'venue': fixture.get('venue'),
+        'status': fixture.get('status'),
+        'final_score': fixture.get('final_score'),
+        'data_cutoff_at': predictor.data.data_cutoff_at,
+    }
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'your-secret-key-change-in-production') # 在生产环境中务必设置一个强随机 SECRET_KEY
@@ -170,6 +206,71 @@ def index():
     except Exception as e:
         app.logger.error(f"渲染主页失败: {e}")
         return f"页面加载错误: {str(e)}", 500
+
+@app.route('/api/worldcup/fixtures', methods=['GET'])
+def worldcup_fixtures():
+    """返回本地世界杯赛程；不依赖数据库或 AI。"""
+    predictor = get_worldcup_predictor()
+    if not predictor:
+        return jsonify({'success': False, 'message': '世界杯模块暂不可用'}), 500
+
+    group_filter = (request.args.get('group') or '').strip().upper()
+    status_filter = (request.args.get('status') or '').strip().lower()
+    fixtures = []
+    for fixture in predictor.data.fixtures:
+        if group_filter and str(fixture.get('group', '')).upper() != group_filter:
+            continue
+        if status_filter and str(fixture.get('status', '')).lower() != status_filter:
+            continue
+        fixtures.append(public_fixture_payload(fixture, predictor))
+
+    return jsonify({
+        'success': True,
+        'fixtures': fixtures,
+        'count': len(fixtures),
+        'data_cutoff_at': predictor.data.data_cutoff_at,
+        'model_version': predictor.data.model_version,
+        'message': '世界杯赛程加载成功'
+    })
+
+
+@app.route('/api/worldcup/predict', methods=['POST'])
+def worldcup_predict():
+    """返回世界杯单场基础预测；AI 不参与概率计算。"""
+    predictor = get_worldcup_predictor()
+    if not predictor:
+        return jsonify({'success': False, 'message': '世界杯模块暂不可用'}), 500
+
+    data = request.get_json(silent=True) or {}
+    odds = data.get('odds')
+    if data.get('match_id'):
+        result = predictor.predict_fixture(str(data.get('match_id')), odds=odds)
+    else:
+        result = predictor.predict_match(str(data.get('home_team') or ''), str(data.get('away_team') or ''), odds=odds)
+    status = 200 if result.get('success') else 400
+    return jsonify(result), status
+
+
+@app.route('/api/worldcup/explain', methods=['POST'])
+def worldcup_explain():
+    """用 AI 或本地兜底解释预测 JSON；不改写概率。"""
+    data = request.get_json(silent=True) or {}
+    prediction = data.get('prediction') or data
+    predictor_client = None
+
+    gemini_api_key = os.environ.get('GEMINI_API_KEY')
+    gemini_model = os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash-lite-preview-06-17')
+    if AIFootballPredictor and gemini_api_key:
+        predictor_client = AIFootballPredictor(
+            api_key=gemini_api_key,
+            model_name=gemini_model
+        )
+
+    explainer = WorldCupExplainer(predictor_client) if WorldCupExplainer else None
+    if not explainer:
+        return jsonify({'success': False, 'message': '世界杯解释模块暂不可用'}), 500
+    return jsonify(explainer.explain(prediction))
+
 
 @app.route('/api/teams')
 def get_teams():
