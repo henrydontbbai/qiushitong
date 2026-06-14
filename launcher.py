@@ -57,6 +57,11 @@ def load_launcher_env(root: Path, port: int) -> None:
     os.environ.setdefault('MATCHPREDICT_SETTINGS_PATH', str(root / 'settings.json'))
 
 
+
+
+def build_launch_url(port: int) -> str:
+    return f'http://127.0.0.1:{port}/startup-check'
+
 def wait_for_health(url: str, timeout_seconds: int = 30) -> bool:
     """等待 Flask 服务可用。"""
     deadline = time.time() + timeout_seconds
@@ -130,7 +135,7 @@ def main() -> int:
                 contextlib.redirect_stderr(TeeStream(sys.stderr, log_stream)):
             print('MatchPredict 正在启动...')
             print(f'程序目录：{root}')
-            print(f'访问地址：http://127.0.0.1:{port}')
+            print(f'访问地址：{build_launch_url(port)}')
             print('关闭此窗口即可停止服务。')
             LOGGER.info('MatchPredict launcher started, root=%s, port=%s', root, port)
 
@@ -148,7 +153,7 @@ def main() -> int:
             LOGGER.info('Health check passed: %s', health_url)
 
             if not args.no_browser:
-                webbrowser.open(f'http://127.0.0.1:{port}')
+                webbrowser.open(build_launch_url(port))
                 LOGGER.info('Browser opened')
 
             while server_thread.is_alive():

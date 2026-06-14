@@ -146,6 +146,15 @@
                             <button id="worldcup-ai-explain-btn" class="btn primary-btn" type="button" disabled>
                                 <i class="fas fa-brain"></i> 用 AI 翻译成白话分析
                             </button>
+                            <button id="worldcup-copy-btn" class="btn secondary-btn" type="button" disabled>
+                                <i class="fas fa-copy"></i> 复制当前结果
+                            </button>
+                            <button id="worldcup-download-btn" class="btn secondary-btn" type="button" disabled>
+                                <i class="fas fa-file-alt"></i> 下载 TXT
+                            </button>
+                            <button id="worldcup-print-btn" class="btn secondary-btn" type="button" disabled>
+                                <i class="fas fa-print"></i> 打印
+                            </button>
                         </div>
                         <div class="worldcup-status" id="worldcup-status">
                             基础预测无需 AI Key；配置 AI 后可生成白话解释。概率不代表赛果保证。
@@ -494,6 +503,20 @@
             </div>
             <div class="modal-body">
                 <div id="settings-status" class="settings-status"></div>
+                <div class="settings-wizard-presets">
+                    <button type="button" class="settings-preset-card" data-preset="worldcup-basic">
+                        <strong>只看世界杯基础预测</strong>
+                        <span>不填任何配置，直接使用世界杯单场概率。</span>
+                    </button>
+                    <button type="button" class="settings-preset-card" data-preset="ai-explain">
+                        <strong>我要 AI 白话解释</strong>
+                        <span>填写 AI 平台、Base URL、Key 和模型名。</span>
+                    </button>
+                    <button type="button" class="settings-preset-card" data-preset="database-records">
+                        <strong>我要体彩和保存记录</strong>
+                        <span>填写 PostgreSQL 数据库配置。</span>
+                    </button>
+                </div>
                 <form id="settings-form" class="auth-form">
                     <h4>数据库设置（用于彩票模式和保存记录）</h4>
                     <div class="form-row">

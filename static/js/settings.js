@@ -42,6 +42,14 @@ class SettingsManager {
         if (providerSelect) {
             providerSelect.addEventListener('change', () => this.applyProviderDefaults(false));
         }
+
+        document.querySelectorAll('.settings-preset-card').forEach(card => {
+            card.addEventListener('click', () => this.applyPreset(card.getAttribute('data-preset')));
+        });
+
+        if (window.location.hash === '#settings-modal') {
+            window.setTimeout(() => this.openSettingsModal(false), 0);
+        }
     }
 
     async loadStatus() {
@@ -53,6 +61,8 @@ class SettingsManager {
                 this.applyStatus(data);
                 if (!data.database_configured && !localStorage.getItem('MATCHPREDICT_SETTINGS_SKIPPED')) {
                     this.openSettingsModal(true);
+                } else if (!data.ai_configured) {
+                    this.renderStatus(data, '基础预测可直接使用；如需白话解释，请选择 AI 预设并填写接口信息。');
                 }
             }
         } catch (error) {
@@ -132,6 +142,44 @@ class SettingsManager {
         if (modal) {
             modal.classList.add('hidden');
         }
+    }
+
+
+    applyPreset(preset) {
+        const providerInput = document.getElementById('settings-ai-provider');
+        const baseUrlInput = document.getElementById('settings-ai-base-url');
+        const modelInput = document.getElementById('settings-ai-model');
+        const dbHost = document.getElementById('settings-db-host');
+        const dbPort = document.getElementById('settings-db-port');
+        const dbName = document.getElementById('settings-db-name');
+        const dbUser = document.getElementById('settings-db-user');
+        const dbPassword = document.getElementById('settings-db-password');
+        const keyInput = document.getElementById('settings-ai-key');
+
+        if (preset === 'worldcup-basic') {
+            if (dbHost) dbHost.value = '';
+            if (dbPort) dbPort.value = '';
+            if (dbName) dbName.value = '';
+            if (dbUser) dbUser.value = '';
+            if (dbPassword) dbPassword.value = '';
+            if (providerInput) providerInput.value = 'openai_compatible';
+            if (baseUrlInput) baseUrlInput.value = '';
+            if (modelInput) modelInput.value = '';
+            if (keyInput) keyInput.value = '';
+            this.renderStatus(this.status || {}, '已切换到世界杯基础预测模式；不填任何配置也能直接使用。');
+        } else if (preset === 'ai-explain') {
+            if (providerInput) providerInput.value = 'openai_compatible';
+            if (baseUrlInput) baseUrlInput.value = 'https://api.openai.com/v1';
+            if (modelInput && !modelInput.value.trim()) modelInput.value = 'gpt-4o-mini';
+            this.renderStatus(this.status || {}, '已切换到 AI 白话解释预设；按需填写 API Key。');
+        } else if (preset === 'database-records') {
+            if (dbHost) dbHost.value = '127.0.0.1';
+            if (dbPort) dbPort.value = '5432';
+            if (dbName) dbName.value = 'postgres';
+            if (dbUser) dbUser.value = 'postgres';
+            this.renderStatus(this.status || {}, '已切换到数据库预设；填写密码后即可测试连接。');
+        }
+        this.applyProviderDefaults(false);
     }
 
     collectSettings() {

@@ -2826,3 +2826,44 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Phase B small user helpers */
+.startup-check-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.settings-wizard-presets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.settings-preset-card {
+    text-align: left;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.settings-preset-card strong {
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.settings-preset-card span {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.worldcup-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}

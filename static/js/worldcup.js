@@ -6,6 +6,8 @@ class WorldCupManager {
     constructor() {
         this.fixtures = [];
         this.currentPrediction = null;
+        this.currentPredictionText = '';
+        this.toastTimer = null;
         this.bindEvents();
         this.loadFixtures();
     }
@@ -16,6 +18,15 @@ class WorldCupManager {
 
         const explainBtn = document.getElementById('worldcup-ai-explain-btn');
         if (explainBtn) explainBtn.addEventListener('click', () => this.explainCurrentPrediction());
+
+        const copyBtn = document.getElementById('worldcup-copy-btn');
+        if (copyBtn) copyBtn.addEventListener('click', () => this.copyCurrentPrediction());
+
+        const downloadBtn = document.getElementById('worldcup-download-btn');
+        if (downloadBtn) downloadBtn.addEventListener('click', () => this.downloadCurrentPredictionTxt());
+
+        const printBtn = document.getElementById('worldcup-print-btn');
+        if (printBtn) printBtn.addEventListener('click', () => this.printCurrentPrediction());
     }
 
     async loadFixtures() {
@@ -71,6 +82,7 @@ class WorldCupManager {
         const explanation = document.getElementById('worldcup-explanation');
         if (resultContainer) resultContainer.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在计算预测...</div>';
         if (explainBtn) explainBtn.disabled = true;
+        this.toggleExportButtons(false);
         if (explanation) explanation.classList.add('hidden');
 
         try {
@@ -82,9 +94,14 @@ class WorldCupManager {
             const data = await response.json();
             if (!data.success) throw new Error(data.message || '预测失败');
             this.currentPrediction = data;
+            this.currentPredictionText = this.buildPredictionText(data);
             this.renderPrediction(data);
+            this.toggleExportButtons(true);
             if (explainBtn && !data.locked_result) explainBtn.disabled = false;
         } catch (error) {
+            this.currentPrediction = null;
+            this.currentPredictionText = '';
+            this.toggleExportButtons(false);
             if (resultContainer) resultContainer.innerHTML = `<div class="empty-message">${this.escapeHtml(error.message || '预测失败')}</div>`;
         }
     }
@@ -138,6 +155,120 @@ class WorldCupManager {
     renderMarket(market) {
         if (!market) return '';
         return `<div class="worldcup-market">市场隐含概率对照：胜 ${this.formatPercent(market.home_win)} / 平 ${this.formatPercent(market.draw)} / 负 ${this.formatPercent(market.away_win)}。该项只做对照，不参与主模型。</div>`;
+    }
+
+
+    toggleExportButtons(enabled) {
+        ['worldcup-copy-btn', 'worldcup-download-btn', 'worldcup-print-btn'].forEach(id => {
+            const button = document.getElementById(id);
+            if (button) button.disabled = !enabled;
+        });
+    }
+
+    buildPredictionText(data) {
+        const home = data.teams?.home?.display_name_zh || data.teams?.home?.display_name || '主队';
+        const away = data.teams?.away?.display_name_zh || data.teams?.away?.display_name || '客队';
+        const probs = data.probabilities || {};
+        const xg = data.expected_goals || {};
+        const lines = [
+            'MatchPredict 世界杯单场预测',
+            `${home} vs ${away}`,
+        ];
+
+        if (data.locked_result && data.final_score) {
+            lines.push(`已完赛结果：${data.final_score.home}-${data.final_score.away}`);
+        } else {
+            const topScores = (data.top_scores || [])
+                .map(score => `${score.home_goals}-${score.away_goals} ${this.formatPercent(score.probability)}`)
+                .join('；');
+            lines.push(`胜 / 平 / 负：${this.formatPercent(probs.home_win)} / ${this.formatPercent(probs.draw)} / ${this.formatPercent(probs.away_win)}`);
+            lines.push(`预期进球 xG：${this.formatXg(xg.home)} / ${this.formatXg(xg.away)}`);
+            lines.push(`Top 5 最可能比分：${topScores || '暂无'}`);
+            if (data.data_quality) {
+                lines.push(`数据完整度：${data.data_quality.level || '未知'} (${data.data_quality.score || 0}/${data.data_quality.max_score || 4})`);
+            }
+        }
+
+        lines.push(`模型版本：${data.model_version || '未知'}`);
+        lines.push(`数据截止：${data.data_cutoff_at || '未知'}`);
+        lines.push(data.disclaimer || '概率不代表赛果保证，仅供模型模拟参考。');
+        return lines.join('\n');
+    }
+
+    async copyCurrentPrediction() {
+        if (!this.currentPredictionText) return;
+        try {
+            if (navigator.clipboard?.writeText) {
+                await navigator.clipboard.writeText(this.currentPredictionText);
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = this.currentPredictionText;
+                textarea.setAttribute('readonly', 'readonly');
+                textarea.style.position = 'fixed';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+            this.showToast('已复制当前结果', 'success');
+        } catch (error) {
+            this.showToast('复制失败，可改用下载 TXT 或打印', 'error');
+        }
+    }
+
+    downloadCurrentPredictionTxt() {
+        if (!this.currentPredictionText) return;
+        const blob = new Blob([this.currentPredictionText], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `worldcup-prediction-${Date.now()}.txt`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        this.showToast('TXT 已下载', 'success');
+    }
+
+    printCurrentPrediction() {
+        if (!this.currentPredictionText) return;
+        const popup = window.open('', '_blank', 'width=900,height=700');
+        if (!popup) {
+            this.showToast('浏览器拦截了打印窗口，请放行后重试', 'error');
+            return;
+        }
+        const escaped = this.escapeHtml(this.currentPredictionText);
+        popup.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>MatchPredict 世界杯预测</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.6;}pre{white-space:pre-wrap;}</style></head><body><pre>${escaped}</pre></body></html>`);
+        popup.document.close();
+        popup.focus();
+        popup.print();
+    }
+
+    showToast(message, type = 'info') {
+        if (typeof window.showToast === 'function') {
+            window.showToast(message, type);
+            return;
+        }
+        let toast = document.getElementById('worldcup-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'worldcup-toast';
+            toast.style.position = 'fixed';
+            toast.style.right = '20px';
+            toast.style.bottom = '20px';
+            toast.style.zIndex = '9999';
+            toast.style.padding = '10px 14px';
+            toast.style.borderRadius = '8px';
+            toast.style.color = '#fff';
+            toast.style.boxShadow = '0 8px 24px rgba(0,0,0,0.18)';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.style.background = type === 'error' ? '#d64545' : '#16794c';
+        toast.style.display = 'block';
+        clearTimeout(this.toastTimer);
+        this.toastTimer = setTimeout(() => { toast.style.display = 'none'; }, 2400);
     }
 
     renderDataQuality(quality) {

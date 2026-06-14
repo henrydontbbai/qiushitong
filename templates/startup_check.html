@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchPredict 启动自检</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container" style="max-width: 760px; padding-top: 40px;">
+        <header class="main-header">
+            <h1>启动自检</h1>
+            <p class="subtitle">先确认本机服务状态，再进入功能页面。</p>
+        </header>
+
+        <section class="worldcup-hero-card" style="margin-bottom: 16px;">
+            <p><strong>本机免费模式：</strong>{{ '已开启' if local_free_mode else '未开启' }}</p>
+            <p><strong>默认访问端口：</strong>{{ default_port }}</p>
+            <p><strong>日志位置：</strong>{{ launcher_log_path }}</p>
+        </section>
+
+        <section class="worldcup-hero-card" style="margin-bottom: 16px;">
+            <p>如果页面能正常打开，说明绿色包启动成功。基础预测、世界杯专题和设置都可以直接使用。</p>
+            <div class="startup-check-actions" style="display:flex; gap:12px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="btn primary-btn" href="{{ url_for('index') }}">进入首页</a>
+                <a class="btn secondary-btn" href="{{ url_for('index') }}#worldcup-mode">进入世界杯专题</a>
+                <a class="btn secondary-btn" href="{{ url_for('index') }}#settings-modal">打开设置</a>
+            </div>
+        </section>
+
+        <section class="worldcup-hero-card">
+            <p>如果浏览器没有自动打开，请手动访问：</p>
+            <p><code>http://127.0.0.1:{{ default_port }}</code></p>
+        </section>
+    </div>
+</body>
+</html>

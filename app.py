@@ -520,6 +520,18 @@ def worldcup_predict():
     return jsonify(result), status
 
 
+
+
+@app.route('/startup-check', strict_slashes=False)
+def startup_check():
+    """绿色版启动自检页。"""
+    return render_template(
+        'startup_check.html',
+        local_free_mode=os.environ.get('LOCAL_FREE_MODE', 'true').lower() in ('1', 'true', 'yes', 'on'),
+        launcher_log_path='logs/launcher.log',
+        default_port=os.environ.get('PORT', '8000'),
+    )
+
 @app.route('/api/worldcup/explain', methods=['POST'])
 def worldcup_explain():
     """用 AI 或本地兜底解释预测 JSON；不改写概率。"""
