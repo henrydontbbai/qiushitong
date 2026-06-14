@@ -10,7 +10,12 @@ window.addEventListener('load', function() {
     // 等待一小段时间确保所有脚本都已执行
     setTimeout(function() {
         setupNavigation();
+        applyModeFromHash();
     }, 200);
+});
+
+window.addEventListener('hashchange', function() {
+    applyModeFromHash();
 });
 
 // 设置导航功能
@@ -42,6 +47,14 @@ function setupNavigation() {
         // 添加悬停效果确保按钮可交互
         btn.style.cursor = 'pointer';
     });
+}
+
+function applyModeFromHash() {
+    const hash = (window.location.hash || '').replace(/^#/, '').replace(/-mode$/, '');
+    const supportedModes = ['classic', 'lottery', 'ai', 'worldcup'];
+    if (supportedModes.includes(hash)) {
+        switchToMode(hash);
+    }
 }
 
 // 切换模式

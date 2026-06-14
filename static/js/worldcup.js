@@ -199,21 +199,33 @@ class WorldCupManager {
         if (!this.currentPredictionText) return;
         try {
             if (navigator.clipboard?.writeText) {
-                await navigator.clipboard.writeText(this.currentPredictionText);
+                try {
+                    await navigator.clipboard.writeText(this.currentPredictionText);
+                } catch (_) {
+                    this.copyTextWithFallback(this.currentPredictionText);
+                }
             } else {
-                const textarea = document.createElement('textarea');
-                textarea.value = this.currentPredictionText;
-                textarea.setAttribute('readonly', 'readonly');
-                textarea.style.position = 'fixed';
-                textarea.style.left = '-9999px';
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
+                this.copyTextWithFallback(this.currentPredictionText);
             }
             this.showToast('已复制当前结果', 'success');
         } catch (error) {
             this.showToast('复制失败，可改用下载 TXT 或打印', 'error');
+        }
+    }
+
+    copyTextWithFallback(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', 'readonly');
+        textarea.style.position = 'fixed';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        const copied = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        if (!copied) {
+            throw new Error('浏览器未允许复制');
         }
     }
 
@@ -327,6 +339,14 @@ class WorldCupManager {
     }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    window.worldCupManager = new WorldCupManager();
-});
+function initWorldCupManager() {
+    if (!window.worldCupManager) {
+        window.worldCupManager = new WorldCupManager();
+    }
+}
+
+if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', initWorldCupManager);
+} else {
+    initWorldCupManager();
+}
