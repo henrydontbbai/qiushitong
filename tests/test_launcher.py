@@ -49,6 +49,17 @@ class LauncherTest(unittest.TestCase):
 
         self.assertFalse(launcher.wait_for_health('http://127.0.0.1:1/health', timeout_seconds=1))
 
+    def test_build_script_disables_upx_for_green_package_compatibility(self):
+        script = Path('build_exe.ps1').read_text(encoding='utf-8')
+
+        self.assertIn('--noupx', script)
+
+    def test_build_script_excludes_setuptools_runtime_hook(self):
+        script = Path('build_exe.ps1').read_text(encoding='utf-8')
+
+        self.assertIn('--exclude-module "setuptools"', script)
+        self.assertIn('--exclude-module "_distutils_hack"', script)
+
 
 if __name__ == '__main__':
     unittest.main()

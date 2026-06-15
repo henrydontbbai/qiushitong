@@ -21,12 +21,15 @@ try {
     & $PyInstaller `
         --noconfirm `
         --onedir `
+        --noupx `
         --name "MatchPredict" `
         --add-data "templates;templates" `
         --add-data "static;static" `
         --add-data "data;data" `
         --add-data "scripts;scripts" `
         --exclude-module "tests" `
+        --exclude-module "setuptools" `
+        --exclude-module "_distutils_hack" `
         "launcher.py"
 
     Get-ChildItem -LiteralPath "dist\MatchPredict" -Recurse -Directory -Filter "__pycache__" |
