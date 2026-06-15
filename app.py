@@ -152,10 +152,16 @@ except ImportError as e:
 try:
     from scripts.worldcup.predictor import WorldCupPredictor
     from scripts.worldcup.explainer import WorldCupExplainer
+    from scripts.worldcup.meta import build_worldcup_meta
+    from scripts.worldcup.standings import build_group_standings
+    from scripts.worldcup.group_simulator import simulate_group_stage
 except ImportError as e:
     logging.getLogger(__name__).warning("世界杯模块导入失败: %s", e)
     WorldCupPredictor = None
     WorldCupExplainer = None
+    build_worldcup_meta = None
+    build_group_standings = None
+    simulate_group_stage = None
 
 WORLD_CUP_DATA_DIR = RESOURCE_DIR / 'data' / 'worldcup'
 
@@ -502,6 +508,37 @@ def worldcup_fixtures():
         'model_version': predictor.data.model_version,
         'message': '世界杯赛程加载成功'
     })
+
+
+@app.route('/api/worldcup/meta', methods=['GET'])
+def worldcup_meta():
+    """返回世界杯本地数据概况；不依赖数据库或 AI。"""
+    predictor = get_worldcup_predictor()
+    if not predictor or not build_worldcup_meta:
+        return jsonify({'success': False, 'message': '世界杯模块暂不可用'}), 500
+    return jsonify(build_worldcup_meta(predictor.data))
+
+
+@app.route('/api/worldcup/groups', methods=['GET'])
+def worldcup_groups():
+    """返回小组当前积分榜；可选附带小组赛模拟。"""
+    predictor = get_worldcup_predictor()
+    if not predictor or not build_group_standings:
+        return jsonify({'success': False, 'message': '世界杯小组模块暂不可用'}), 500
+    standings = build_group_standings(predictor.data)
+    standings['simulation'] = None
+    simulate = str(request.args.get('simulate') or '').lower() in ('1', 'true', 'yes', 'on')
+    if simulate:
+        if not simulate_group_stage:
+            return jsonify({'success': False, 'message': '世界杯小组模拟模块暂不可用'}), 500
+        trials = request.args.get('trials', 2000)
+        seed_value = request.args.get('seed')
+        try:
+            seed = int(seed_value) if seed_value not in (None, '') else None
+        except ValueError:
+            return jsonify({'success': False, 'message': 'seed 必须是数字'}), 400
+        standings['simulation'] = simulate_group_stage(predictor.data, trials=trials, seed=seed)
+    return jsonify(standings)
 
 
 @app.route('/api/worldcup/predict', methods=['POST'])

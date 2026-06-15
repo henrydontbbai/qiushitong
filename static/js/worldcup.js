@@ -9,12 +9,12 @@ class WorldCupManager {
         this.currentPredictionText = '';
         this.toastTimer = null;
         this.bindEvents();
-        this.loadFixtures();
+        this.loadWorldCupDashboard();
     }
 
     bindEvents() {
         const refreshBtn = document.getElementById('worldcup-refresh-btn');
-        if (refreshBtn) refreshBtn.addEventListener('click', () => this.loadFixtures());
+        if (refreshBtn) refreshBtn.addEventListener('click', () => this.loadWorldCupDashboard());
 
         const explainBtn = document.getElementById('worldcup-ai-explain-btn');
         if (explainBtn) explainBtn.addEventListener('click', () => this.explainCurrentPrediction());
@@ -27,6 +27,103 @@ class WorldCupManager {
 
         const printBtn = document.getElementById('worldcup-print-btn');
         if (printBtn) printBtn.addEventListener('click', () => this.printCurrentPrediction());
+
+        const fixturesContainer = document.getElementById('worldcup-fixtures');
+        if (fixturesContainer) {
+            fixturesContainer.addEventListener('click', (event) => {
+                const button = event.target.closest('.worldcup-predict-btn');
+                if (!button) return;
+                this.predictFixture(button.getAttribute('data-match-id'));
+            });
+        }
+    }
+
+
+    async loadWorldCupDashboard() {
+        await Promise.all([
+            this.loadMeta(),
+            this.loadGroups(),
+            this.loadFixtures()
+        ]);
+    }
+
+    async loadMeta() {
+        const container = document.getElementById('worldcup-meta');
+        if (!container) return;
+        container.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在加载数据说明...</div>';
+        try {
+            const response = await fetch('/api/worldcup/meta');
+            const data = await response.json();
+            if (!data.success) throw new Error(data.message || '数据说明加载失败');
+            const sources = (data.sources || []).map(source => `
+                <li>
+                    <strong>${this.escapeHtml(source.name || source.source_id || '数据来源')}</strong>
+                    <span>${this.escapeHtml(source.data_cutoff_at || data.data_cutoff_at || '未知')}</span>
+                    ${source.source_url ? `<a href="${this.escapeHtml(source.source_url)}" target="_blank" rel="noopener noreferrer">来源</a>` : ''}
+                </li>
+            `).join('');
+            container.innerHTML = `
+                <div class="worldcup-meta-stats">
+                    <span>球队：${data.teams_count || 0}</span>
+                    <span>小组：${data.groups_count || 0}</span>
+                    <span>赛程：${data.fixtures_count || 0}</span>
+                    <span>已赛：${data.finished_count || 0}</span>
+                    <span>未赛：${data.scheduled_count || 0}</span>
+                </div>
+                <div class="worldcup-data-quality">模型版本：${this.escapeHtml(data.model_version || '未知')} · 数据截止：${this.escapeHtml(data.data_cutoff_at || '未知')}</div>
+                <ul class="worldcup-source-list">${sources || '<li>暂无来源说明</li>'}</ul>
+                <div class="worldcup-disclaimer">${(data.limitations || []).map(item => this.escapeHtml(item)).join('；')}</div>
+            `;
+        } catch (error) {
+            container.innerHTML = `<div class="empty-message">${this.escapeHtml(error.message || '数据说明加载失败')}</div>`;
+        }
+    }
+
+    async loadGroups() {
+        const container = document.getElementById('worldcup-groups');
+        if (!container) return;
+        container.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在加载小组积分和小组出线概率...</div>';
+        try {
+            const response = await fetch('/api/worldcup/groups?simulate=1&trials=500&seed=2026');
+            const data = await response.json();
+            if (!data.success) throw new Error(data.message || '小组数据加载失败');
+            this.renderGroups(data.groups || [], data.simulation);
+        } catch (error) {
+            container.innerHTML = `<div class="empty-message">${this.escapeHtml(error.message || '小组数据加载失败')}</div>`;
+        }
+    }
+
+    renderGroups(groups, simulation) {
+        const container = document.getElementById('worldcup-groups');
+        if (!container) return;
+        const simulationByTeam = {};
+        (simulation?.groups || []).forEach(group => {
+            (group.teams || []).forEach(team => {
+                simulationByTeam[team.team_id] = team;
+            });
+        });
+        container.innerHTML = groups.map(group => `
+            <div class="worldcup-group-card">
+                <h4>${this.escapeHtml(group.group)} 组</h4>
+                <table class="worldcup-group-table">
+                    <thead>
+                        <tr><th>队</th><th>赛</th><th>净胜</th><th>分</th><th>出线</th></tr>
+                    </thead>
+                    <tbody>
+                        ${(group.teams || []).map(team => {
+                            const sim = simulationByTeam[team.team_id] || {};
+                            return `<tr>
+                                <td>${team.rank || ''}. ${this.escapeHtml(team.team_name || team.team_id)}</td>
+                                <td>${team.played || 0}</td>
+                                <td>${team.goal_difference || 0}</td>
+                                <td><strong>${team.points || 0}</strong></td>
+                                <td>${simulation ? this.formatPercent(sim.qualify_probability) : '未模拟'}</td>
+                            </tr>`;
+                        }).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `).join('') + '<div class="worldcup-disclaimer">小组出线概率基于当前本地数据和单场模型模拟；不含淘汰赛和冠军概率，概率不代表赛果保证。</div>';
     }
 
     async loadFixtures() {
@@ -71,9 +168,6 @@ class WorldCupManager {
             </div>
         `).join('');
 
-        container.querySelectorAll('.worldcup-predict-btn').forEach(button => {
-            button.addEventListener('click', () => this.predictFixture(button.getAttribute('data-match-id')));
-        });
     }
 
     async predictFixture(matchId) {

@@ -2699,6 +2699,8 @@ footer {
 .worldcup-controls,
 .worldcup-fixtures-panel,
 .worldcup-results-panel,
+.worldcup-meta-panel,
+.worldcup-groups-panel,
 .worldcup-prediction-card,
 .worldcup-explanation-card {
     background: var(--card-bg);
@@ -2717,10 +2719,82 @@ footer {
     grid-column: 1 / -1;
 }
 
+.worldcup-meta-panel,
+.worldcup-groups-panel {
+    grid-column: 1 / -1;
+}
+
 .worldcup-status, .worldcup-disclaimer, .worldcup-data-quality, .worldcup-market {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-top: 0.75rem;
+}
+
+.worldcup-meta-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.worldcup-meta-stats span,
+.worldcup-source-list li {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.55rem 0.7rem;
+}
+
+.worldcup-source-list {
+    display: grid;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+}
+
+.worldcup-source-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.worldcup-groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.75rem;
+}
+
+.worldcup-group-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.85rem;
+}
+
+.worldcup-group-card h4 {
+    margin: 0 0 0.6rem;
+    color: var(--primary-color);
+}
+
+.worldcup-group-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+}
+
+.worldcup-group-table th,
+.worldcup-group-table td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.4rem 0.25rem;
+    text-align: left;
+}
+
+.worldcup-group-table th:last-child,
+.worldcup-group-table td:last-child {
+    text-align: right;
 }
 
 .worldcup-fixtures-list {

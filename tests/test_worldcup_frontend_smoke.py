@@ -11,10 +11,26 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
         self.assertIn("worldcup-mode-btn", html)
         self.assertIn("worldcup-mode", html)
         self.assertIn("js/worldcup.js", html)
+        self.assertIn("v='phase-c1'", html)
         self.assertIn("概率不代表赛果保证", html)
+        self.assertIn("worldcup-meta-panel", html)
+        self.assertIn("worldcup-groups-panel", html)
         self.assertNotIn("????", html)
 
-        for text in ["胜", "平", "负", "预期进球", "Top 5", "数据完整度", "模型版本", "概率不代表赛果保证"]:
+        for text in [
+            "胜",
+            "平",
+            "负",
+            "预期进球",
+            "Top 5",
+            "数据完整度",
+            "模型版本",
+            "概率不代表赛果保证",
+            "/api/worldcup/meta",
+            "/api/worldcup/groups?simulate=1",
+            "小组出线概率",
+            "event.target.closest('.worldcup-predict-btn')",
+        ]:
             self.assertIn(text, js)
 
 
