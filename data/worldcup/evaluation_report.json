@@ -1,0 +1,164 @@
+{
+  "available": true,
+  "sample_count": 2,
+  "skipped_count": 1,
+  "metrics": {
+    "brier_score": 0.5574,
+    "log_loss": 0.9459,
+    "rps": 0.13445
+  },
+  "calibration": {
+    "bucket_count": 10,
+    "sample_count": 2,
+    "ece": 0.455,
+    "buckets": [
+      {
+        "bucket": 1,
+        "range": [
+          0.0,
+          0.1
+        ],
+        "count": 0,
+        "avg_confidence": 0.0,
+        "accuracy": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bucket": 2,
+        "range": [
+          0.1,
+          0.2
+        ],
+        "count": 0,
+        "avg_confidence": 0.0,
+        "accuracy": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bucket": 3,
+        "range": [
+          0.2,
+          0.3
+        ],
+        "count": 0,
+        "avg_confidence": 0.0,
+        "accuracy": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bucket": 4,
+        "range": [
+          0.3,
+          0.4
+        ],
+        "count": 0,
+        "avg_confidence": 0.0,
+        "accuracy": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bucket": 5,
+        "range": [
+          0.4,
+          0.5
+        ],
+        "count": 1,
+        "avg_confidence": 0.43,
+        "accuracy": 0.0,
+        "gap": 0.43
+      },
+      {
+        "bucket": 6,
+        "range": [
+          0.5,
+          0.6
+        ],
+        "count": 1,
+        "avg_confidence": 0.52,
+        "accuracy": 1.0,
+        "gap": 0.48
+      },
+      {
+        "bucket": 7,
+        "range": [
+          0.6,
+          0.7
+        ],
+        "count": 0,
+        "avg_confidence": 0.0,
+        "accuracy": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bucket": 8,
+        "range": [
+          0.7,
+          0.8
+        ],
+        "count": 0,
+        "avg_confidence": 0.0,
+        "accuracy": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bucket": 9,
+        "range": [
+          0.8,
+          0.9
+        ],
+        "count": 0,
+        "avg_confidence": 0.0,
+        "accuracy": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bucket": 10,
+        "range": [
+          0.9,
+          1.0
+        ],
+        "count": 0,
+        "avg_confidence": 0.0,
+        "accuracy": 0.0,
+        "gap": 0.0
+      }
+    ]
+  },
+  "scored_matches": [
+    {
+      "match_id": "EVAL-001",
+      "probabilities": {
+        "home_win": 0.52,
+        "draw": 0.27,
+        "away_win": 0.21
+      },
+      "actual_result": "home_win",
+      "brier_score": 0.3474,
+      "log_loss": 0.6539264674066639,
+      "rps": 0.13724999999999998
+    },
+    {
+      "match_id": "EVAL-002",
+      "probabilities": {
+        "home_win": 0.43,
+        "draw": 0.29,
+        "away_win": 0.28
+      },
+      "actual_result": "draw",
+      "brier_score": 0.7674,
+      "log_loss": 1.2378743560016174,
+      "rps": 0.13165
+    }
+  ],
+  "skipped_matches": [
+    {
+      "match_id": "EVAL-003",
+      "reason": "缺少真实结果，暂不评分"
+    }
+  ],
+  "methodology": "离线评估只使用开赛前已生成的概率样本；predicted_at 和 data_cutoff_at 必须早于 kickoff_at。",
+  "disclaimer": "模型历史评估只是概率参考，不代表未来赛果保证，也不是投注建议。",
+  "report_version": "worldcup-evaluation-0.1.0",
+  "generated_at": "2026-06-15T00:00:00+08:00",
+  "source_file": "data/worldcup/evaluation_matches.json"
+}

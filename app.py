@@ -157,6 +157,7 @@ try:
     from scripts.worldcup.group_simulator import simulate_group_stage
     from scripts.worldcup.bracket_rules import BracketRuleError, load_bracket_rules, validate_bracket_rules
     from scripts.worldcup.tournament_simulator import simulate_tournament
+    from scripts.worldcup.evaluation import load_evaluation_report
 except ImportError as e:
     logging.getLogger(__name__).warning("世界杯模块导入失败: %s", e)
     WorldCupPredictor = None
@@ -168,6 +169,7 @@ except ImportError as e:
     load_bracket_rules = None
     validate_bracket_rules = None
     simulate_tournament = None
+    load_evaluation_report = None
 
 WORLD_CUP_DATA_DIR = RESOURCE_DIR / 'data' / 'worldcup'
 
@@ -614,6 +616,16 @@ def startup_check():
         launcher_log_path='logs/launcher.log',
         default_port=os.environ.get('PORT', '8000'),
     )
+
+
+@app.route('/api/worldcup/evaluation/report', methods=['GET'])
+def worldcup_evaluation_report():
+    """Return local worldcup evaluation report without database, AI, or network."""
+    if not load_evaluation_report:
+        return jsonify({'success': False, 'message': 'WorldCup evaluation module is unavailable'}), 500
+    report = load_evaluation_report(WORLD_CUP_DATA_DIR)
+    report.setdefault('success', True)
+    return jsonify(report)
 
 @app.route('/api/worldcup/explain', methods=['POST'])
 def worldcup_explain():

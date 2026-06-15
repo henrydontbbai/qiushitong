@@ -1,0 +1,41 @@
+﻿{
+  "source_id": "manual_phase_e_seed_samples",
+  "source_url": "local://data/worldcup/evaluation_matches.json",
+  "data_cutoff_at": "2026-06-11T00:00:00+00:00",
+  "notes": "Phase E 最小离线评估样本。仅用于验证评估管线格式，不代表模型长期表现。所有可评分样本的 predicted_at 和 data_cutoff_at 均早于 kickoff_at。",
+  "matches": [
+    {
+      "match_id": "EVAL-001",
+      "home_team": "Mexico",
+      "away_team": "South Africa",
+      "kickoff_at": "2026-06-11T03:00:00+08:00",
+      "predicted_at": "2026-06-10T12:00:00+08:00",
+      "data_cutoff_at": "2026-06-10T00:00:00+08:00",
+      "model_version": "wc-elo-poisson-0.1.0",
+      "probabilities": {"home_win": 0.52, "draw": 0.27, "away_win": 0.21},
+      "actual_result": "home_win"
+    },
+    {
+      "match_id": "EVAL-002",
+      "home_team": "Canada",
+      "away_team": "Qatar",
+      "kickoff_at": "2026-06-12T08:00:00+08:00",
+      "predicted_at": "2026-06-11T12:00:00+08:00",
+      "data_cutoff_at": "2026-06-11T00:00:00+08:00",
+      "model_version": "wc-elo-poisson-0.1.0",
+      "probabilities": {"home_win": 0.43, "draw": 0.29, "away_win": 0.28},
+      "actual_result": "draw"
+    },
+    {
+      "match_id": "EVAL-003",
+      "home_team": "Brazil",
+      "away_team": "Germany",
+      "kickoff_at": "2026-06-13T08:00:00+08:00",
+      "predicted_at": "2026-06-12T12:00:00+08:00",
+      "data_cutoff_at": "2026-06-12T00:00:00+08:00",
+      "model_version": "wc-elo-poisson-0.1.0",
+      "probabilities": {"home_win": 0.38, "draw": 0.28, "away_win": 0.34},
+      "actual_result": null
+    }
+  ]
+}
