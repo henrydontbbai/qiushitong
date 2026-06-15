@@ -52,6 +52,10 @@ class SettingsManager {
         }
     }
 
+    isWorldCupEntry() {
+        return window.location.hash === '#worldcup-mode';
+    }
+
     async loadStatus() {
         try {
             const response = await fetch('/api/local-settings/status');
@@ -60,7 +64,11 @@ class SettingsManager {
                 this.status = data;
                 this.applyStatus(data);
                 if (!data.database_configured && !localStorage.getItem('MATCHPREDICT_SETTINGS_SKIPPED')) {
-                    this.openSettingsModal(true);
+                    if (this.isWorldCupEntry()) {
+                        this.renderStatus(data, '世界杯基础预测可直接使用；需要 AI 白话解释或数据库功能时，再点右上角“设置”。');
+                    } else {
+                        this.openSettingsModal(true);
+                    }
                 } else if (!data.ai_configured) {
                     this.renderStatus(data, '基础预测可直接使用；如需白话解释，请选择 AI 预设并填写接口信息。');
                 }

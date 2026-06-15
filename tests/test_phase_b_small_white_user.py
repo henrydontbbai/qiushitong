@@ -61,6 +61,16 @@ class PhaseBExperienceTest(unittest.TestCase):
         self.assertIn('hashchange', nav_js)
         self.assertIn('replace(/-mode$/', nav_js)
 
+    def test_worldcup_entry_does_not_auto_open_settings_wizard(self):
+        js = Path('static/js/settings.js').read_text(encoding='utf-8')
+
+        self.assertIn('isWorldCupEntry()', js)
+        self.assertIn("window.location.hash === '#worldcup-mode'", js)
+        self.assertIn('if (this.isWorldCupEntry())', js)
+        self.assertIn('世界杯基础预测可直接使用；需要 AI 白话解释或数据库功能时，再点右上角“设置”。', js)
+        self.assertIn("window.location.hash === '#settings-modal'", js)
+        self.assertIn('this.openSettingsModal(false)', js)
+
     def test_worldcup_manager_initializes_after_dom_ready(self):
         js = Path('static/js/worldcup.js').read_text(encoding='utf-8')
 
