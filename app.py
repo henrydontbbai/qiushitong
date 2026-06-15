@@ -155,6 +155,7 @@ try:
     from scripts.worldcup.meta import build_worldcup_meta
     from scripts.worldcup.standings import build_group_standings
     from scripts.worldcup.group_simulator import simulate_group_stage
+    from scripts.worldcup.bracket_rules import BracketRuleError, load_bracket_rules, validate_bracket_rules
 except ImportError as e:
     logging.getLogger(__name__).warning("世界杯模块导入失败: %s", e)
     WorldCupPredictor = None
@@ -162,6 +163,9 @@ except ImportError as e:
     build_worldcup_meta = None
     build_group_standings = None
     simulate_group_stage = None
+    BracketRuleError = None
+    load_bracket_rules = None
+    validate_bracket_rules = None
 
 WORLD_CUP_DATA_DIR = RESOURCE_DIR / 'data' / 'worldcup'
 
@@ -539,6 +543,22 @@ def worldcup_groups():
             return jsonify({'success': False, 'message': 'seed 必须是数字'}), 400
         standings['simulation'] = simulate_group_stage(predictor.data, trials=trials, seed=seed)
     return jsonify(standings)
+
+
+@app.route('/api/worldcup/bracket-rules', methods=['GET'])
+def worldcup_bracket_rules():
+    """返回 2026 世界杯淘汰赛规则基线；不计算冠军概率。"""
+    if not load_bracket_rules or not validate_bracket_rules:
+        return jsonify({'success': False, 'message': '世界杯淘汰赛规则模块暂不可用'}), 500
+    try:
+        rules = load_bracket_rules(WORLD_CUP_DATA_DIR)
+        summary = validate_bracket_rules(rules)
+    except Exception as exc:
+        if BracketRuleError and isinstance(exc, BracketRuleError):
+            return jsonify({'success': False, 'message': str(exc)}), 400
+        logging.getLogger(__name__).exception("世界杯淘汰赛规则读取失败")
+        return jsonify({'success': False, 'message': '世界杯淘汰赛规则读取失败'}), 500
+    return jsonify(summary)
 
 
 @app.route('/api/worldcup/predict', methods=['POST'])

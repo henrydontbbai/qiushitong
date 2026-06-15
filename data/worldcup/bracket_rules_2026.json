@@ -1,0 +1,6762 @@
+{
+  "schema_version": "worldcup-bracket-rules-2026-d0",
+  "tournament": "FIFA World Cup 26",
+  "source_id": "fifa_fwc2026_regulations_annexe_c",
+  "source_name": "FIFA World Cup 26 Regulations, Article 12 and Annexe C",
+  "source_url": "https://digitalhub.fifa.com/m/636f5c9c6f29771f/original/FWC2026_regulations_EN.pdf",
+  "data_cutoff_at": "2026-06-15",
+  "notes": [
+    "本地手工整理自 FIFA 官方 Regulations PDF；不包含自动抓取逻辑。",
+    "本阶段只固化 Round of 32 规则，不计算冠军概率。"
+  ],
+  "format": {
+    "groups": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L"
+    ],
+    "teams_per_group": 4,
+    "group_winners": 12,
+    "group_runners_up": 12,
+    "best_third_placed": 8,
+    "round_of_32_matches": 16
+  },
+  "third_place_assignment_columns": [
+    "1A",
+    "1B",
+    "1D",
+    "1E",
+    "1G",
+    "1I",
+    "1K",
+    "1L"
+  ],
+  "round_of_32_slots": [
+    {
+      "match_id": "M73",
+      "team_a": {
+        "type": "rank",
+        "slot": "2A",
+        "group": "A",
+        "rank": 2
+      },
+      "team_b": {
+        "type": "rank",
+        "slot": "2B",
+        "group": "B",
+        "rank": 2
+      }
+    },
+    {
+      "match_id": "M74",
+      "team_a": {
+        "type": "rank",
+        "slot": "1E",
+        "group": "E",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "third",
+        "column": "1E",
+        "allowed_groups": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "F"
+        ]
+      }
+    },
+    {
+      "match_id": "M75",
+      "team_a": {
+        "type": "rank",
+        "slot": "1F",
+        "group": "F",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "rank",
+        "slot": "2C",
+        "group": "C",
+        "rank": 2
+      }
+    },
+    {
+      "match_id": "M76",
+      "team_a": {
+        "type": "rank",
+        "slot": "1C",
+        "group": "C",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "rank",
+        "slot": "2F",
+        "group": "F",
+        "rank": 2
+      }
+    },
+    {
+      "match_id": "M77",
+      "team_a": {
+        "type": "rank",
+        "slot": "1I",
+        "group": "I",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "third",
+        "column": "1I",
+        "allowed_groups": [
+          "C",
+          "D",
+          "F",
+          "G",
+          "H"
+        ]
+      }
+    },
+    {
+      "match_id": "M78",
+      "team_a": {
+        "type": "rank",
+        "slot": "2E",
+        "group": "E",
+        "rank": 2
+      },
+      "team_b": {
+        "type": "rank",
+        "slot": "2I",
+        "group": "I",
+        "rank": 2
+      }
+    },
+    {
+      "match_id": "M79",
+      "team_a": {
+        "type": "rank",
+        "slot": "1A",
+        "group": "A",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "third",
+        "column": "1A",
+        "allowed_groups": [
+          "C",
+          "E",
+          "F",
+          "H",
+          "I"
+        ]
+      }
+    },
+    {
+      "match_id": "M80",
+      "team_a": {
+        "type": "rank",
+        "slot": "1L",
+        "group": "L",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "third",
+        "column": "1L",
+        "allowed_groups": [
+          "E",
+          "H",
+          "I",
+          "J",
+          "K"
+        ]
+      }
+    },
+    {
+      "match_id": "M81",
+      "team_a": {
+        "type": "rank",
+        "slot": "1D",
+        "group": "D",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "third",
+        "column": "1D",
+        "allowed_groups": [
+          "B",
+          "E",
+          "F",
+          "I",
+          "J"
+        ]
+      }
+    },
+    {
+      "match_id": "M82",
+      "team_a": {
+        "type": "rank",
+        "slot": "1G",
+        "group": "G",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "third",
+        "column": "1G",
+        "allowed_groups": [
+          "A",
+          "E",
+          "H",
+          "I",
+          "J"
+        ]
+      }
+    },
+    {
+      "match_id": "M83",
+      "team_a": {
+        "type": "rank",
+        "slot": "2K",
+        "group": "K",
+        "rank": 2
+      },
+      "team_b": {
+        "type": "rank",
+        "slot": "2L",
+        "group": "L",
+        "rank": 2
+      }
+    },
+    {
+      "match_id": "M84",
+      "team_a": {
+        "type": "rank",
+        "slot": "1H",
+        "group": "H",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "rank",
+        "slot": "2J",
+        "group": "J",
+        "rank": 2
+      }
+    },
+    {
+      "match_id": "M85",
+      "team_a": {
+        "type": "rank",
+        "slot": "1B",
+        "group": "B",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "third",
+        "column": "1B",
+        "allowed_groups": [
+          "E",
+          "F",
+          "G",
+          "I",
+          "J"
+        ]
+      }
+    },
+    {
+      "match_id": "M86",
+      "team_a": {
+        "type": "rank",
+        "slot": "1J",
+        "group": "J",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "rank",
+        "slot": "2H",
+        "group": "H",
+        "rank": 2
+      }
+    },
+    {
+      "match_id": "M87",
+      "team_a": {
+        "type": "rank",
+        "slot": "1K",
+        "group": "K",
+        "rank": 1
+      },
+      "team_b": {
+        "type": "third",
+        "column": "1K",
+        "allowed_groups": [
+          "D",
+          "E",
+          "I",
+          "J",
+          "L"
+        ]
+      }
+    },
+    {
+      "match_id": "M88",
+      "team_a": {
+        "type": "rank",
+        "slot": "2D",
+        "group": "D",
+        "rank": 2
+      },
+      "team_b": {
+        "type": "rank",
+        "slot": "2G",
+        "group": "G",
+        "rank": 2
+      }
+    }
+  ],
+  "third_place_assignments": {
+    "EFGHIJKL": {
+      "option": 1,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3F",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "DFGHIJKL": {
+      "option": 2,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "DEGHIJKL": {
+      "option": 3,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "DEFHIJKL": {
+      "option": 4,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "DEFGIJKL": {
+      "option": 5,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "DEFGHJKL": {
+      "option": 6,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "DEFGHIKL": {
+      "option": 7,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "DEFGHIJL": {
+      "option": 8,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "DEFGHIJK": {
+      "option": 9,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "CFGHIJKL": {
+      "option": 10,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CEGHIJKL": {
+      "option": 11,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CEFHIJKL": {
+      "option": 12,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CEFGIJKL": {
+      "option": 13,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CEFGHJKL": {
+      "option": 14,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CEFGHIKL": {
+      "option": 15,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CEFGHIJL": {
+      "option": 16,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "CEFGHIJK": {
+      "option": 17,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "CDGHIJKL": {
+      "option": 18,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDFHIJKL": {
+      "option": 19,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDFGIJKL": {
+      "option": 20,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDFGHJKL": {
+      "option": 21,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDFGHIKL": {
+      "option": 22,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDFGHIJL": {
+      "option": 23,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "CDFGHIJK": {
+      "option": 24,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "CDEHIJKL": {
+      "option": 25,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEGIJKL": {
+      "option": 26,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEGHJKL": {
+      "option": 27,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEGHIKL": {
+      "option": 28,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEGHIJL": {
+      "option": 29,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "CDEGHIJK": {
+      "option": 30,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "CDEFIJKL": {
+      "option": 31,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEFHJKL": {
+      "option": 32,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEFHIKL": {
+      "option": 33,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEFHIJL": {
+      "option": 34,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "CDEFHIJK": {
+      "option": 35,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "CDEFGJKL": {
+      "option": 36,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEFGIKL": {
+      "option": 37,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEFGIJL": {
+      "option": 38,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "CDEFGIJK": {
+      "option": 39,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "CDEFGHKL": {
+      "option": 40,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "CDEFGHJL": {
+      "option": 41,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "CDEFGHJK": {
+      "option": 42,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "CDEFGHIL": {
+      "option": 43,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "CDEFGHIK": {
+      "option": 44,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "CDEFGHIJ": {
+      "option": 45,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "BFGHIJKL": {
+      "option": 46,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3I",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BEGHIJKL": {
+      "option": 47,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3B",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BEFHIJKL": {
+      "option": 48,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3I",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BEFGIJKL": {
+      "option": 49,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3I",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BEFGHJKL": {
+      "option": 50,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BEFGHIKL": {
+      "option": 51,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3I",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BEFGHIJL": {
+      "option": 52,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BEFGHIJK": {
+      "option": 53,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BDGHIJKL": {
+      "option": 54,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDFHIJKL": {
+      "option": 55,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDFGIJKL": {
+      "option": 56,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDFGHJKL": {
+      "option": 57,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDFGHIKL": {
+      "option": 58,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDFGHIJL": {
+      "option": 59,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BDFGHIJK": {
+      "option": 60,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BDEHIJKL": {
+      "option": 61,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEGIJKL": {
+      "option": 62,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEGHJKL": {
+      "option": 63,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEGHIKL": {
+      "option": 64,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEGHIJL": {
+      "option": 65,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BDEGHIJK": {
+      "option": 66,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BDEFIJKL": {
+      "option": 67,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEFHJKL": {
+      "option": 68,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEFHIKL": {
+      "option": 69,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEFHIJL": {
+      "option": 70,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BDEFHIJK": {
+      "option": 71,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BDEFGJKL": {
+      "option": 72,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEFGIKL": {
+      "option": 73,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEFGIJL": {
+      "option": 74,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BDEFGIJK": {
+      "option": 75,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BDEFGHKL": {
+      "option": 76,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BDEFGHJL": {
+      "option": 77,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "BDEFGHJK": {
+      "option": 78,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "BDEFGHIL": {
+      "option": 79,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BDEFGHIK": {
+      "option": 80,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BDEFGHIJ": {
+      "option": 81,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "BCGHIJKL": {
+      "option": 82,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCFHIJKL": {
+      "option": 83,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCFGIJKL": {
+      "option": 84,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCFGHJKL": {
+      "option": 85,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCFGHIKL": {
+      "option": 86,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCFGHIJL": {
+      "option": 87,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCFGHIJK": {
+      "option": 88,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCEHIJKL": {
+      "option": 89,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEGIJKL": {
+      "option": 90,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEGHJKL": {
+      "option": 91,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEGHIKL": {
+      "option": 92,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEGHIJL": {
+      "option": 93,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCEGHIJK": {
+      "option": 94,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCEFIJKL": {
+      "option": 95,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEFHJKL": {
+      "option": 96,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEFHIKL": {
+      "option": 97,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEFHIJL": {
+      "option": 98,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCEFHIJK": {
+      "option": 99,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCEFGJKL": {
+      "option": 100,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEFGIKL": {
+      "option": 101,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEFGIJL": {
+      "option": 102,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCEFGIJK": {
+      "option": 103,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCEFGHKL": {
+      "option": 104,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCEFGHJL": {
+      "option": 105,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "BCEFGHJK": {
+      "option": 106,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "BCEFGHIL": {
+      "option": 107,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCEFGHIK": {
+      "option": 108,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCEFGHIJ": {
+      "option": 109,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "BCDHIJKL": {
+      "option": 110,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDGIJKL": {
+      "option": 111,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDGHJKL": {
+      "option": 112,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDGHIKL": {
+      "option": 113,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDGHIJL": {
+      "option": 114,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDGHIJK": {
+      "option": 115,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDFIJKL": {
+      "option": 116,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDFHJKL": {
+      "option": 117,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDFHIKL": {
+      "option": 118,
+      "slots": {
+        "1A": "3C",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDFHIJL": {
+      "option": 119,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDFHIJK": {
+      "option": 120,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDFGJKL": {
+      "option": 121,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDFGIKL": {
+      "option": 122,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDFGIJL": {
+      "option": 123,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDFGIJK": {
+      "option": 124,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDFGHKL": {
+      "option": 125,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDFGHJL": {
+      "option": 126,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3J"
+      }
+    },
+    "BCDFGHJK": {
+      "option": 127,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3K"
+      }
+    },
+    "BCDFGHIL": {
+      "option": 128,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDFGHIK": {
+      "option": 129,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDFGHIJ": {
+      "option": 130,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3I"
+      }
+    },
+    "BCDEIJKL": {
+      "option": 131,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEHJKL": {
+      "option": 132,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEHIKL": {
+      "option": 133,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEHIJL": {
+      "option": 134,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDEHIJK": {
+      "option": 135,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDEGJKL": {
+      "option": 136,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEGIKL": {
+      "option": 137,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3I",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEGIJL": {
+      "option": 138,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDEGIJK": {
+      "option": 139,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDEGHKL": {
+      "option": 140,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEGHJL": {
+      "option": 141,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "BCDEGHJK": {
+      "option": 142,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "BCDEGHIL": {
+      "option": 143,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDEGHIK": {
+      "option": 144,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3H",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDEGHIJ": {
+      "option": 145,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "BCDEFJKL": {
+      "option": 146,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3E",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEFIKL": {
+      "option": 147,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEFIJL": {
+      "option": 148,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3E",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDEFIJK": {
+      "option": 149,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3E",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDEFHKL": {
+      "option": 150,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEFHJL": {
+      "option": 151,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "BCDEFHJK": {
+      "option": 152,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "BCDEFHIL": {
+      "option": 153,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDEFHIK": {
+      "option": 154,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDEFHIJ": {
+      "option": 155,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "BCDEFGKL": {
+      "option": 156,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3E",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "BCDEFGJL": {
+      "option": 157,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "BCDEFGJK": {
+      "option": 158,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "BCDEFGIL": {
+      "option": 159,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3E",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "BCDEFGIK": {
+      "option": 160,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3E",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "BCDEFGIJ": {
+      "option": 161,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "BCDEFGHL": {
+      "option": 162,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "BCDEFGHK": {
+      "option": 163,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "BCDEFGHJ": {
+      "option": 164,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3J",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3E"
+      }
+    },
+    "BCDEFGHI": {
+      "option": 165,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3H",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "AFGHIJKL": {
+      "option": 166,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "AEGHIJKL": {
+      "option": 167,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3A",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "AEFHIJKL": {
+      "option": 168,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "AEFGIJKL": {
+      "option": 169,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "AEFGHJKL": {
+      "option": 170,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "AEFGHIKL": {
+      "option": 171,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "AEFGHIJL": {
+      "option": 172,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "AEFGHIJK": {
+      "option": 173,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ADGHIJKL": {
+      "option": 174,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADFHIJKL": {
+      "option": 175,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADFGIJKL": {
+      "option": 176,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADFGHJKL": {
+      "option": 177,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADFGHIKL": {
+      "option": 178,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADFGHIJL": {
+      "option": 179,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ADFGHIJK": {
+      "option": 180,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ADEHIJKL": {
+      "option": 181,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEGIJKL": {
+      "option": 182,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEGHJKL": {
+      "option": 183,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEGHIKL": {
+      "option": 184,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEGHIJL": {
+      "option": 185,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ADEGHIJK": {
+      "option": 186,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ADEFIJKL": {
+      "option": 187,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEFHJKL": {
+      "option": 188,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEFHIKL": {
+      "option": 189,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEFHIJL": {
+      "option": 190,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ADEFHIJK": {
+      "option": 191,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ADEFGJKL": {
+      "option": 192,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEFGIKL": {
+      "option": 193,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEFGIJL": {
+      "option": 194,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ADEFGIJK": {
+      "option": 195,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ADEFGHKL": {
+      "option": 196,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ADEFGHJL": {
+      "option": 197,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ADEFGHJK": {
+      "option": 198,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ADEFGHIL": {
+      "option": 199,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ADEFGHIK": {
+      "option": 200,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ADEFGHIJ": {
+      "option": 201,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ACGHIJKL": {
+      "option": 202,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACFHIJKL": {
+      "option": 203,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACFGIJKL": {
+      "option": 204,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACFGHJKL": {
+      "option": 205,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACFGHIKL": {
+      "option": 206,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACFGHIJL": {
+      "option": 207,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACFGHIJK": {
+      "option": 208,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACEHIJKL": {
+      "option": 209,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEGIJKL": {
+      "option": 210,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEGHJKL": {
+      "option": 211,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEGHIKL": {
+      "option": 212,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEGHIJL": {
+      "option": 213,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACEGHIJK": {
+      "option": 214,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACEFIJKL": {
+      "option": 215,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEFHJKL": {
+      "option": 216,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEFHIKL": {
+      "option": 217,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEFHIJL": {
+      "option": 218,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACEFHIJK": {
+      "option": 219,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACEFGJKL": {
+      "option": 220,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEFGIKL": {
+      "option": 221,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEFGIJL": {
+      "option": 222,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACEFGIJK": {
+      "option": 223,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACEFGHKL": {
+      "option": 224,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACEFGHJL": {
+      "option": 225,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ACEFGHJK": {
+      "option": 226,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ACEFGHIL": {
+      "option": 227,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACEFGHIK": {
+      "option": 228,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACEFGHIJ": {
+      "option": 229,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ACDHIJKL": {
+      "option": 230,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDGIJKL": {
+      "option": 231,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDGHJKL": {
+      "option": 232,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDGHIKL": {
+      "option": 233,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDGHIJL": {
+      "option": 234,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDGHIJK": {
+      "option": 235,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDFIJKL": {
+      "option": 236,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDFHJKL": {
+      "option": 237,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDFHIKL": {
+      "option": 238,
+      "slots": {
+        "1A": "3H",
+        "1B": "3F",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDFHIJL": {
+      "option": 239,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDFHIJK": {
+      "option": 240,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDFGJKL": {
+      "option": 241,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDFGIKL": {
+      "option": 242,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDFGIJL": {
+      "option": 243,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDFGIJK": {
+      "option": 244,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDFGHKL": {
+      "option": 245,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDFGHJL": {
+      "option": 246,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3H"
+      }
+    },
+    "ACDFGHJK": {
+      "option": 247,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3K"
+      }
+    },
+    "ACDFGHIL": {
+      "option": 248,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDFGHIK": {
+      "option": 249,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDFGHIJ": {
+      "option": 250,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3I"
+      }
+    },
+    "ACDEIJKL": {
+      "option": 251,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEHJKL": {
+      "option": 252,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEHIKL": {
+      "option": 253,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEHIJL": {
+      "option": 254,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDEHIJK": {
+      "option": 255,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDEGJKL": {
+      "option": 256,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEGIKL": {
+      "option": 257,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3I",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEGIJL": {
+      "option": 258,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDEGIJK": {
+      "option": 259,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDEGHKL": {
+      "option": 260,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEGHJL": {
+      "option": 261,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ACDEGHJK": {
+      "option": 262,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ACDEGHIL": {
+      "option": 263,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDEGHIK": {
+      "option": 264,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDEGHIJ": {
+      "option": 265,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ACDEFJKL": {
+      "option": 266,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEFIKL": {
+      "option": 267,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3I",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEFIJL": {
+      "option": 268,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDEFIJK": {
+      "option": 269,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDEFHKL": {
+      "option": 270,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEFHJL": {
+      "option": 271,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ACDEFHJK": {
+      "option": 272,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3K"
+      }
+    },
+    "ACDEFHIL": {
+      "option": 273,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDEFHIK": {
+      "option": 274,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDEFHIJ": {
+      "option": 275,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3I"
+      }
+    },
+    "ACDEFGKL": {
+      "option": 276,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ACDEFGJL": {
+      "option": 277,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ACDEFGJK": {
+      "option": 278,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ACDEFGIL": {
+      "option": 279,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ACDEFGIK": {
+      "option": 280,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ACDEFGIJ": {
+      "option": 281,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ACDEFGHL": {
+      "option": 282,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3F",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ACDEFGHK": {
+      "option": 283,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3K"
+      }
+    },
+    "ACDEFGHJ": {
+      "option": 284,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3J",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3E"
+      }
+    },
+    "ACDEFGHI": {
+      "option": 285,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3E",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3I"
+      }
+    },
+    "ABGHIJKL": {
+      "option": 286,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABFHIJKL": {
+      "option": 287,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABFGIJKL": {
+      "option": 288,
+      "slots": {
+        "1A": "3I",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABFGHJKL": {
+      "option": 289,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABFGHIKL": {
+      "option": 290,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABFGHIJL": {
+      "option": 291,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABFGHIJK": {
+      "option": 292,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABEHIJKL": {
+      "option": 293,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEGIJKL": {
+      "option": 294,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEGHJKL": {
+      "option": 295,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEGHIKL": {
+      "option": 296,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEGHIJL": {
+      "option": 297,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABEGHIJK": {
+      "option": 298,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3H",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABEFIJKL": {
+      "option": 299,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEFHJKL": {
+      "option": 300,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEFHIKL": {
+      "option": 301,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEFHIJL": {
+      "option": 302,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABEFHIJK": {
+      "option": 303,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABEFGJKL": {
+      "option": 304,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEFGIKL": {
+      "option": 305,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEFGIJL": {
+      "option": 306,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABEFGIJK": {
+      "option": 307,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABEFGHKL": {
+      "option": 308,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABEFGHJL": {
+      "option": 309,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABEFGHJK": {
+      "option": 310,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABEFGHIL": {
+      "option": 311,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABEFGHIK": {
+      "option": 312,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABEFGHIJ": {
+      "option": 313,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABDHIJKL": {
+      "option": 314,
+      "slots": {
+        "1A": "3I",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDGIJKL": {
+      "option": 315,
+      "slots": {
+        "1A": "3I",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDGHJKL": {
+      "option": 316,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDGHIKL": {
+      "option": 317,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDGHIJL": {
+      "option": 318,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDGHIJK": {
+      "option": 319,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDFIJKL": {
+      "option": 320,
+      "slots": {
+        "1A": "3I",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDFHJKL": {
+      "option": 321,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDFHIKL": {
+      "option": 322,
+      "slots": {
+        "1A": "3H",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDFHIJL": {
+      "option": 323,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDFHIJK": {
+      "option": 324,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDFGJKL": {
+      "option": 325,
+      "slots": {
+        "1A": "3F",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDFGIKL": {
+      "option": 326,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDFGIJL": {
+      "option": 327,
+      "slots": {
+        "1A": "3F",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDFGIJK": {
+      "option": 328,
+      "slots": {
+        "1A": "3F",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDFGHKL": {
+      "option": 329,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDFGHJL": {
+      "option": 330,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3J"
+      }
+    },
+    "ABDFGHJK": {
+      "option": 331,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3J",
+        "1L": "3K"
+      }
+    },
+    "ABDFGHIL": {
+      "option": 332,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDFGHIK": {
+      "option": 333,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDFGHIJ": {
+      "option": 334,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3J"
+      }
+    },
+    "ABDEIJKL": {
+      "option": 335,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEHJKL": {
+      "option": 336,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEHIKL": {
+      "option": 337,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEHIJL": {
+      "option": 338,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDEHIJK": {
+      "option": 339,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDEGJKL": {
+      "option": 340,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEGIKL": {
+      "option": 341,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEGIJL": {
+      "option": 342,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDEGIJK": {
+      "option": 343,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDEGHKL": {
+      "option": 344,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEGHJL": {
+      "option": 345,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABDEGHJK": {
+      "option": 346,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABDEGHIL": {
+      "option": 347,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDEGHIK": {
+      "option": 348,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDEGHIJ": {
+      "option": 349,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABDEFJKL": {
+      "option": 350,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEFIKL": {
+      "option": 351,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEFIJL": {
+      "option": 352,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDEFIJK": {
+      "option": 353,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDEFHKL": {
+      "option": 354,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEFHJL": {
+      "option": 355,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABDEFHJK": {
+      "option": 356,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABDEFHIL": {
+      "option": 357,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDEFHIK": {
+      "option": 358,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDEFHIJ": {
+      "option": 359,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABDEFGKL": {
+      "option": 360,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABDEFGJL": {
+      "option": 361,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3J"
+      }
+    },
+    "ABDEFGJK": {
+      "option": 362,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3J",
+        "1L": "3K"
+      }
+    },
+    "ABDEFGIL": {
+      "option": 363,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABDEFGIK": {
+      "option": 364,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABDEFGIJ": {
+      "option": 365,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3J"
+      }
+    },
+    "ABDEFGHL": {
+      "option": 366,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABDEFGHK": {
+      "option": 367,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABDEFGHJ": {
+      "option": 368,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3J"
+      }
+    },
+    "ABDEFGHI": {
+      "option": 369,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABCHIJKL": {
+      "option": 370,
+      "slots": {
+        "1A": "3I",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCGIJKL": {
+      "option": 371,
+      "slots": {
+        "1A": "3I",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCGHJKL": {
+      "option": 372,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCGHIKL": {
+      "option": 373,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCGHIJL": {
+      "option": 374,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCGHIJK": {
+      "option": 375,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCFIJKL": {
+      "option": 376,
+      "slots": {
+        "1A": "3I",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCFHJKL": {
+      "option": 377,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCFHIKL": {
+      "option": 378,
+      "slots": {
+        "1A": "3H",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCFHIJL": {
+      "option": 379,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCFHIJK": {
+      "option": 380,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCFGJKL": {
+      "option": 381,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCFGIKL": {
+      "option": 382,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCFGIJL": {
+      "option": 383,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCFGIJK": {
+      "option": 384,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3F",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCFGHKL": {
+      "option": 385,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCFGHJL": {
+      "option": 386,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3J"
+      }
+    },
+    "ABCFGHJK": {
+      "option": 387,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3J",
+        "1L": "3K"
+      }
+    },
+    "ABCFGHIL": {
+      "option": 388,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCFGHIK": {
+      "option": 389,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCFGHIJ": {
+      "option": 390,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3J"
+      }
+    },
+    "ABCEIJKL": {
+      "option": 391,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3C",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEHJKL": {
+      "option": 392,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEHIKL": {
+      "option": 393,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEHIJL": {
+      "option": 394,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCEHIJK": {
+      "option": 395,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCEGJKL": {
+      "option": 396,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEGIKL": {
+      "option": 397,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3A",
+        "1G": "3I",
+        "1I": "3C",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEGIJL": {
+      "option": 398,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCEGIJK": {
+      "option": 399,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCEGHKL": {
+      "option": 400,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEGHJL": {
+      "option": 401,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABCEGHJK": {
+      "option": 402,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABCEGHIL": {
+      "option": 403,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCEGHIK": {
+      "option": 404,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3H",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCEGHIJ": {
+      "option": 405,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABCEFJKL": {
+      "option": 406,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEFIKL": {
+      "option": 407,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEFIJL": {
+      "option": 408,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCEFIJK": {
+      "option": 409,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCEFHKL": {
+      "option": 410,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEFHJL": {
+      "option": 411,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABCEFHJK": {
+      "option": 412,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABCEFHIL": {
+      "option": 413,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCEFHIK": {
+      "option": 414,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCEFHIJ": {
+      "option": 415,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABCEFGKL": {
+      "option": 416,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCEFGJL": {
+      "option": 417,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3J"
+      }
+    },
+    "ABCEFGJK": {
+      "option": 418,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3J",
+        "1L": "3K"
+      }
+    },
+    "ABCEFGIL": {
+      "option": 419,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCEFGIK": {
+      "option": 420,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCEFGIJ": {
+      "option": 421,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3J"
+      }
+    },
+    "ABCEFGHL": {
+      "option": 422,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABCEFGHK": {
+      "option": 423,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABCEFGHJ": {
+      "option": 424,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3J"
+      }
+    },
+    "ABCEFGHI": {
+      "option": 425,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABCDIJKL": {
+      "option": 426,
+      "slots": {
+        "1A": "3I",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDHJKL": {
+      "option": 427,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDHIKL": {
+      "option": 428,
+      "slots": {
+        "1A": "3H",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDHIJL": {
+      "option": 429,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDHIJK": {
+      "option": 430,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDGJKL": {
+      "option": 431,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDGIKL": {
+      "option": 432,
+      "slots": {
+        "1A": "3I",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDGIJL": {
+      "option": 433,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDGIJK": {
+      "option": 434,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3G",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDGHKL": {
+      "option": 435,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDGHJL": {
+      "option": 436,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3J"
+      }
+    },
+    "ABCDGHJK": {
+      "option": 437,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3J",
+        "1L": "3K"
+      }
+    },
+    "ABCDGHIL": {
+      "option": 438,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDGHIK": {
+      "option": 439,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDGHIJ": {
+      "option": 440,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3J"
+      }
+    },
+    "ABCDFJKL": {
+      "option": 441,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDFIKL": {
+      "option": 442,
+      "slots": {
+        "1A": "3C",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDFIJL": {
+      "option": 443,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDFIJK": {
+      "option": 444,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDFHKL": {
+      "option": 445,
+      "slots": {
+        "1A": "3H",
+        "1B": "3F",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDFHJL": {
+      "option": 446,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3H"
+      }
+    },
+    "ABCDFHJK": {
+      "option": 447,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3K"
+      }
+    },
+    "ABCDFHIL": {
+      "option": 448,
+      "slots": {
+        "1A": "3H",
+        "1B": "3F",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDFHIK": {
+      "option": 449,
+      "slots": {
+        "1A": "3H",
+        "1B": "3F",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDFHIJ": {
+      "option": 450,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3I"
+      }
+    },
+    "ABCDFGKL": {
+      "option": 451,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDFGJL": {
+      "option": 452,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3J"
+      }
+    },
+    "ABCDFGJK": {
+      "option": 453,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3J",
+        "1L": "3K"
+      }
+    },
+    "ABCDFGIL": {
+      "option": 454,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDFGIK": {
+      "option": 455,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDFGIJ": {
+      "option": 456,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3J"
+      }
+    },
+    "ABCDFGHL": {
+      "option": 457,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3H"
+      }
+    },
+    "ABCDFGHK": {
+      "option": 458,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3K"
+      }
+    },
+    "ABCDFGHJ": {
+      "option": 459,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3J"
+      }
+    },
+    "ABCDFGHI": {
+      "option": 460,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3I"
+      }
+    },
+    "ABCDEJKL": {
+      "option": 461,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDEIKL": {
+      "option": 462,
+      "slots": {
+        "1A": "3E",
+        "1B": "3I",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDEIJL": {
+      "option": 463,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDEIJK": {
+      "option": 464,
+      "slots": {
+        "1A": "3E",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDEHKL": {
+      "option": 465,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDEHJL": {
+      "option": 466,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABCDEHJK": {
+      "option": 467,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABCDEHIL": {
+      "option": 468,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDEHIK": {
+      "option": 469,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDEHIJ": {
+      "option": 470,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABCDEGKL": {
+      "option": 471,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDEGJL": {
+      "option": 472,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3J"
+      }
+    },
+    "ABCDEGJK": {
+      "option": 473,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3J",
+        "1L": "3K"
+      }
+    },
+    "ABCDEGIL": {
+      "option": 474,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDEGIK": {
+      "option": 475,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDEGIJ": {
+      "option": 476,
+      "slots": {
+        "1A": "3E",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3I",
+        "1L": "3J"
+      }
+    },
+    "ABCDEGHL": {
+      "option": 477,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABCDEGHK": {
+      "option": 478,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABCDEGHJ": {
+      "option": 479,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3J"
+      }
+    },
+    "ABCDEGHI": {
+      "option": 480,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABCDEFKL": {
+      "option": 481,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3K"
+      }
+    },
+    "ABCDEFJL": {
+      "option": 482,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABCDEFJK": {
+      "option": 483,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABCDEFIL": {
+      "option": 484,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3I"
+      }
+    },
+    "ABCDEFIK": {
+      "option": 485,
+      "slots": {
+        "1A": "3C",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3I",
+        "1L": "3K"
+      }
+    },
+    "ABCDEFIJ": {
+      "option": 486,
+      "slots": {
+        "1A": "3C",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABCDEFHL": {
+      "option": 487,
+      "slots": {
+        "1A": "3H",
+        "1B": "3F",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3D",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABCDEFHK": {
+      "option": 488,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3K"
+      }
+    },
+    "ABCDEFHJ": {
+      "option": 489,
+      "slots": {
+        "1A": "3H",
+        "1B": "3J",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3E"
+      }
+    },
+    "ABCDEFHI": {
+      "option": 490,
+      "slots": {
+        "1A": "3H",
+        "1B": "3E",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3I"
+      }
+    },
+    "ABCDEFGL": {
+      "option": 491,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3L",
+        "1L": "3E"
+      }
+    },
+    "ABCDEFGK": {
+      "option": 492,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3K"
+      }
+    },
+    "ABCDEFGJ": {
+      "option": 493,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3J"
+      }
+    },
+    "ABCDEFGI": {
+      "option": 494,
+      "slots": {
+        "1A": "3C",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3D",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3E",
+        "1L": "3I"
+      }
+    },
+    "ABCDEFGH": {
+      "option": 495,
+      "slots": {
+        "1A": "3H",
+        "1B": "3G",
+        "1D": "3B",
+        "1E": "3C",
+        "1G": "3A",
+        "1I": "3F",
+        "1K": "3D",
+        "1L": "3E"
+      }
+    }
+  }
+}

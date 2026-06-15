@@ -43,6 +43,7 @@ class WorldCupManager {
         await Promise.all([
             this.loadMeta(),
             this.loadGroups(),
+            this.loadBracketRules(),
             this.loadFixtures()
         ]);
     }
@@ -124,6 +125,29 @@ class WorldCupManager {
                 </table>
             </div>
         `).join('') + '<div class="worldcup-disclaimer">小组出线概率基于当前本地数据和单场模型模拟；不含淘汰赛和冠军概率，概率不代表赛果保证。</div>';
+    }
+
+
+    async loadBracketRules() {
+        const container = document.getElementById('worldcup-bracket-rules');
+        if (!container) return;
+        container.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在加载淘汰赛规则...</div>';
+        try {
+            const response = await fetch('/api/worldcup/bracket-rules');
+            const data = await response.json();
+            if (!data.success) throw new Error(data.message || '淘汰赛规则加载失败');
+            container.innerHTML = `
+                <div class="worldcup-meta-stats">
+                    <span>Round of 32?${data.round_of_32_slots_count || 0} 场</span>
+                    <span>第三名组合：${data.third_place_assignments_count || 0}</span>
+                    <span>晋级规则：24+8</span>
+                </div>
+                <div class="worldcup-data-quality">${this.escapeHtml(data.message || '淘汰赛规则已准备；冠军路径模拟将在下一阶段开放。')}</div>
+                <div class="worldcup-disclaimer">${this.escapeHtml(data.disclaimer || '当前仅校验 2026 Round of 32 规则，不计算冠军概率。')}</div>
+            `;
+        } catch (error) {
+            container.innerHTML = `<div class="empty-message">${this.escapeHtml(error.message || '淘汰赛规则加载失败')}</div>`;
+        }
     }
 
     async loadFixtures() {
