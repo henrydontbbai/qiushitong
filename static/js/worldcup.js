@@ -44,6 +44,7 @@ class WorldCupManager {
             this.loadMeta(),
             this.loadGroups(),
             this.loadBracketRules(),
+            this.loadTournament(),
             this.loadFixtures()
         ]);
     }
@@ -142,12 +143,65 @@ class WorldCupManager {
                     <span>第三名组合：${data.third_place_assignments_count || 0}</span>
                     <span>晋级规则：24+8</span>
                 </div>
-                <div class="worldcup-data-quality">${this.escapeHtml(data.message || '淘汰赛规则已准备；冠军路径模拟将在下一阶段开放。')}</div>
-                <div class="worldcup-disclaimer">${this.escapeHtml(data.disclaimer || '当前仅校验 2026 Round of 32 规则，不计算冠军概率。')}</div>
+                <div class="worldcup-data-quality">${this.escapeHtml(data.message || '淘汰赛规则已准备；冠军路径模拟可在下方查看。')}</div>
+                <div class="worldcup-disclaimer">${this.escapeHtml(data.disclaimer || '当前仅校验 2026 Round of 32 规则；冠军路径概率由单独接口计算。')}</div>
             `;
         } catch (error) {
             container.innerHTML = `<div class="empty-message">${this.escapeHtml(error.message || '淘汰赛规则加载失败')}</div>`;
         }
+    }
+
+    async loadTournament() {
+        const container = document.getElementById('worldcup-tournament');
+        if (!container) return;
+        container.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在加载冠军路径模拟...</div>';
+        try {
+            const response = await fetch('/api/worldcup/tournament?trials=500&seed=2026');
+            const data = await response.json();
+            if (!data.success) throw new Error(data.message || '冠军路径模拟加载失败');
+            this.renderTournament(data);
+        } catch (error) {
+            container.innerHTML = `<div class="empty-message">${this.escapeHtml(error.message || '冠军路径模拟加载失败')}。基础单场预测不受影响。</div>`;
+        }
+    }
+
+    renderTournament(data) {
+        const container = document.getElementById('worldcup-tournament');
+        if (!container) return;
+        const teams = (data.teams || []).slice(0, 12);
+        container.innerHTML = `
+            <div class="worldcup-meta-stats">
+                <span>模拟次数：${data.trials || 0}</span>
+                <span>32 强合计：${this.formatNumber(data.round_totals?.round_of_32_probability)}</span>
+                <span>冠军概率合计：${this.formatNumber(data.round_totals?.champion_probability)}</span>
+            </div>
+            <div class="worldcup-data-quality">模型版本：${this.escapeHtml(data.model_version || '未知')} · 数据截止：${this.escapeHtml(data.data_cutoff_at || '未知')}</div>
+            <table class="worldcup-tournament-table">
+                <thead>
+                    <tr>
+                        <th>球队</th>
+                        <th>进16强</th>
+                        <th>进8强</th>
+                        <th>进4强</th>
+                        <th>进决赛</th>
+                        <th>冠军概率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${teams.map(team => `
+                        <tr>
+                            <td>${this.escapeHtml(team.team_name || team.team_id)}</td>
+                            <td>${this.formatPercent(team.round_of_16_probability)}</td>
+                            <td>${this.formatPercent(team.quarter_final_probability)}</td>
+                            <td>${this.formatPercent(team.semi_final_probability)}</td>
+                            <td>${this.formatPercent(team.final_probability)}</td>
+                            <td><strong>${this.formatPercent(team.champion_probability)}</strong></td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+            <div class="worldcup-disclaimer">${this.escapeHtml(data.disclaimer || '冠军路径模拟为概率参考，不代表赛果保证。')}</div>
+        `;
     }
 
     async loadFixtures() {
@@ -449,6 +503,10 @@ class WorldCupManager {
     }
 
     formatXg(value) {
+        return Number(value || 0).toFixed(2);
+    }
+
+    formatNumber(value) {
         return Number(value || 0).toFixed(2);
     }
 

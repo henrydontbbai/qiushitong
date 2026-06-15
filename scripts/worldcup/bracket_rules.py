@@ -80,15 +80,22 @@ def validate_bracket_rules(rules: dict, require_all_assignments: bool = True) ->
         "best_third_qualifiers": int(fmt.get("best_third_placed") or 0),
         "round_of_32_slots_count": len(slots),
         "third_place_assignments_count": len(assignments),
-        "message": "淘汰赛规则已准备；冠军路径模拟将在下一阶段开放。",
-        "disclaimer": "当前仅校验 2026 Round of 32 规则，不计算冠军概率；概率不代表赛果保证。",
+        "message": "淘汰赛规则已准备；冠军路径模拟可在世界杯专题中查看。",
+        "disclaimer": "当前接口仅校验 2026 Round of 32 规则；冠军路径概率由单独接口计算，概率不代表赛果保证。",
     }
 
 
-def build_round_of_32(standings: dict, data_dir: str | Path, rules: dict | None = None) -> dict:
+def build_round_of_32(
+    standings: dict,
+    data_dir: str | Path,
+    rules: dict | None = None,
+    rules_summary: dict | None = None,
+    validate_rules: bool = True,
+) -> dict:
     """Build the 32-team round-of-32 bracket from ranked group standings."""
     rules = rules or load_bracket_rules(data_dir)
-    validate_bracket_rules(rules, require_all_assignments=False)
+    if validate_rules:
+        validate_bracket_rules(rules, require_all_assignments=False)
     groups = standings.get("groups") or []
     grouped_rows = {str(group.get("group") or "").upper(): group.get("teams", []) for group in groups}
     missing_groups = [group for group in GROUP_ORDER if group not in grouped_rows]
@@ -143,7 +150,7 @@ def build_round_of_32(standings: dict, data_dir: str | Path, rules: dict | None 
         "matches": matches,
         "third_place_combination": third_groups,
         "third_place_assignment_option": assignment.get("option"),
-        "rules_summary": validate_bracket_rules(rules),
+        "rules_summary": rules_summary or validate_bracket_rules(rules),
         "disclaimer": "当前仅生成 Round of 32 对阵规则基线，不计算冠军概率。",
     }
 

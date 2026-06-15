@@ -156,6 +156,7 @@ try:
     from scripts.worldcup.standings import build_group_standings
     from scripts.worldcup.group_simulator import simulate_group_stage
     from scripts.worldcup.bracket_rules import BracketRuleError, load_bracket_rules, validate_bracket_rules
+    from scripts.worldcup.tournament_simulator import simulate_tournament
 except ImportError as e:
     logging.getLogger(__name__).warning("世界杯模块导入失败: %s", e)
     WorldCupPredictor = None
@@ -166,6 +167,7 @@ except ImportError as e:
     BracketRuleError = None
     load_bracket_rules = None
     validate_bracket_rules = None
+    simulate_tournament = None
 
 WORLD_CUP_DATA_DIR = RESOURCE_DIR / 'data' / 'worldcup'
 
@@ -559,6 +561,30 @@ def worldcup_bracket_rules():
         logging.getLogger(__name__).exception("世界杯淘汰赛规则读取失败")
         return jsonify({'success': False, 'message': '世界杯淘汰赛规则读取失败'}), 500
     return jsonify(summary)
+
+
+@app.route('/api/worldcup/tournament', methods=['GET'])
+def worldcup_tournament():
+    """返回世界杯淘汰赛路径模拟；不依赖数据库或 AI。"""
+    predictor = get_worldcup_predictor()
+    if not predictor or not simulate_tournament:
+        return jsonify({'success': False, 'message': '世界杯冠军路径模拟模块暂不可用'}), 500
+
+    trials = request.args.get('trials', 1000)
+    seed_value = request.args.get('seed', 2026)
+    try:
+        seed = int(seed_value) if seed_value not in (None, '') else None
+    except ValueError:
+        return jsonify({'success': False, 'message': 'seed 必须是数字'}), 400
+
+    try:
+        result = simulate_tournament(predictor.data, WORLD_CUP_DATA_DIR, trials=trials, seed=seed)
+    except Exception as exc:
+        if BracketRuleError and isinstance(exc, BracketRuleError):
+            return jsonify({'success': False, 'message': str(exc)}), 400
+        logging.getLogger(__name__).exception("世界杯冠军路径模拟失败")
+        return jsonify({'success': False, 'message': '世界杯冠军路径模拟失败'}), 500
+    return jsonify(result)
 
 
 @app.route('/api/worldcup/predict', methods=['POST'])

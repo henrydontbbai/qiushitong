@@ -2702,6 +2702,7 @@ footer {
 .worldcup-meta-panel,
 .worldcup-groups-panel,
 .worldcup-bracket-panel,
+.worldcup-tournament-panel,
 .worldcup-prediction-card,
 .worldcup-explanation-card {
     background: var(--card-bg);
@@ -2722,7 +2723,8 @@ footer {
 
 .worldcup-meta-panel,
 .worldcup-groups-panel,
-.worldcup-bracket-panel {
+.worldcup-bracket-panel,
+.worldcup-tournament-panel {
     grid-column: 1 / -1;
 }
 
@@ -2797,6 +2799,25 @@ footer {
 .worldcup-group-table th:last-child,
 .worldcup-group-table td:last-child {
     text-align: right;
+}
+
+.worldcup-tournament-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-top: 0.75rem;
+}
+
+.worldcup-tournament-table th,
+.worldcup-tournament-table td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 0.35rem;
+    text-align: right;
+}
+
+.worldcup-tournament-table th:first-child,
+.worldcup-tournament-table td:first-child {
+    text-align: left;
 }
 
 .worldcup-fixtures-list {
