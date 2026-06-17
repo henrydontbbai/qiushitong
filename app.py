@@ -555,6 +555,43 @@ def worldcup_meta():
     return jsonify(build_worldcup_meta(predictor.data))
 
 
+@app.route('/api/worldcup/update-status', methods=['GET'])
+def worldcup_update_status():
+    """??????????????????? AI?"""
+    if not build_worldcup_update_status:
+        return jsonify({'success': False, 'message': '?????????????'}), 500
+    return jsonify(build_worldcup_update_status(WORLD_CUP_DATA_DIR, WORLD_CUP_RUNTIME_DIR))
+
+
+@app.route('/api/worldcup/check-update', methods=['POST'])
+def worldcup_check_update():
+    """??????????????auto=1 ??????"""
+    if not check_worldcup_update:
+        return jsonify({'success': False, 'message': '?????????????'}), 500
+    payload = request.get_json(silent=True) or {}
+    result = check_worldcup_update(
+        WORLD_CUP_DATA_DIR,
+        WORLD_CUP_RUNTIME_DIR,
+        auto=bool(payload.get('auto')),
+        sources=DEFAULT_WORLD_CUP_UPDATE_SOURCES,
+    )
+    return jsonify(result), (200 if result.get('success') else 502)
+
+
+@app.route('/api/worldcup/apply-update', methods=['POST'])
+def worldcup_apply_update():
+    """????????????????????????"""
+    if not apply_worldcup_update:
+        return jsonify({'success': False, 'message': '?????????????'}), 500
+    result = apply_worldcup_update(
+        WORLD_CUP_DATA_DIR,
+        WORLD_CUP_RUNTIME_DIR,
+        sources=DEFAULT_WORLD_CUP_UPDATE_SOURCES,
+    )
+    status_code = 200 if result.get('success') or result.get('error_code') == 'NO_NEWER_UPDATE' else 502
+    return jsonify(result), status_code
+
+
 @app.route('/api/worldcup/groups', methods=['GET'])
 def worldcup_groups():
     """返回小组当前积分榜；可选附带小组赛模拟。"""
