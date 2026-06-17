@@ -782,7 +782,7 @@ def get_lottery_matches():
                 return jsonify({
                     'success': False,
                     'error': '暂无比赛数据',
-                    'message': '数据库中暂无比赛数据，请运行同步脚本更新数据：python scripts/sync_daily_matches.py --days 7'
+                    'message': '本机还没有配置体彩数据库或数据库中暂无体彩比赛数据；不会联网更新。世界杯专题基础预测不受影响。请在设置中配置数据库，或等待新版绿色数据包。'
                 }), 404
 
         except Exception as db_error:

@@ -45,7 +45,7 @@ class LotteryManager {
             });
         }
 
-        // 强制刷新按钮 (提示用户运行同步脚本)
+        // 数据说明按钮（绿色版只提示本机数据来源）
         const forceRefreshBtn = document.getElementById('force-refresh-lottery-btn');
         if (forceRefreshBtn) {
             forceRefreshBtn.addEventListener('click', () => {
@@ -100,26 +100,16 @@ class LotteryManager {
 
         try {
             // 显示加载状态
-            container.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在获取比赛数据...</div>';
+            container.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在读取本机比赛数据...</div>';
+            this.updateMatchesCount(0, 0);
 
             if (refreshBtn) {
                 refreshBtn.disabled = true;
-                refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 获取中...';
+                refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 读取中...';
             }
 
             // 从数据库获取比赛数据
             const response = await fetch(`/api/lottery/matches?days=${days}`);
-
-            // 检查HTTP状态
-            if (!response.ok) {
-                if (response.status === 504) {
-                    throw new Error('服务器响应超时，请稍后重试');
-                } else if (response.status === 500) {
-                    throw new Error('服务器内部错误，请联系管理员');
-                } else {
-                    throw new Error(`请求失败 (${response.status})`);
-                }
-            }
 
             // 尝试解析JSON
             let data;
@@ -134,43 +124,67 @@ class LotteryManager {
                 throw new Error('服务器响应格式错误，请刷新页面重试');
             }
 
+            // 检查HTTP状态：优先展示后端给出的小白提示，避免只显示 404。
+            if (!response.ok) {
+                throw new Error(data.message || this.getFriendlyLotteryError(response.status));
+            }
+
             if (data.success) {
                 this.matches = data.matches || [];
                 this.renderMatches();
 
                 // 显示数据来源信息
-                this.showMessage(`💾 成功从数据库获取 ${data.count || this.matches.length} 场比赛`, 'success');
+                this.showMessage(`已读取 ${data.count || this.matches.length} 场本机比赛数据`, 'success');
             } else {
                 throw new Error(data.message || '获取比赛数据失败');
             }
 
         } catch (error) {
             console.error('获取彩票数据失败:', error);
+            this.matches = [];
+            this.updateMatchesCount(0, 0);
             container.innerHTML = `
-                <div class="error-message">
+                <div class="empty-message lottery-empty-state">
                     <i class="fas fa-exclamation-triangle"></i>
-                    <h3>获取比赛数据失败</h3>
-                    <p>${error.message}</p>
-                    <button onclick="lotteryManager.refreshMatches()" class="retry-btn">
-                        <i class="fas fa-redo"></i> 重试
-                    </button>
+                    <h3>暂时没有可用的体彩本机数据</h3>
+                    <p>${this.escapeHtml(error.message)}</p>
+                    <p class="soft-help-text">这不影响“世界杯专题”的基础预测。体彩模式需要先在“设置”里配置数据库，或等待新版绿色数据包。</p>
+                    <div class="lottery-empty-actions">
+                        <button onclick="lotteryManager.refreshMatches()" class="btn secondary-btn">
+                            <i class="fas fa-redo"></i> 重新读取本机数据
+                        </button>
+                        <button onclick="document.getElementById('settings-btn')?.click()" class="btn primary-btn">
+                            <i class="fas fa-cog"></i> 打开设置
+                        </button>
+                    </div>
                 </div>
             `;
-            this.showMessage('获取数据失败: ' + error.message, 'error');
+            this.showMessage('未读取到体彩数据，世界杯基础预测仍可用', 'warning');
         } finally {
             // 恢复按钮状态
             if (refreshBtn) {
                 refreshBtn.disabled = false;
-                refreshBtn.innerHTML = '<i class="fas fa-sync"></i> 刷新比赛数据';
+                refreshBtn.innerHTML = '<i class="fas fa-sync"></i> 重新读取本机数据';
             }
         }
+    }
+
+    getFriendlyLotteryError(status) {
+        if (status === 404) return '本机暂无体彩比赛数据。世界杯基础预测不受影响；如需体彩数据，请在设置中配置数据库，或使用新版绿色数据包。';
+        if (status === 504) return '读取本机/数据库数据超时，请稍后重试。';
+        if (status === 500) return '读取本机/数据库数据失败，请检查设置中的数据库配置。';
+        return `读取数据失败 (${status})`;
+    }
+
+    escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
     }
 
     renderMatches() {
         const container = document.getElementById('lottery-matches');
 
         if (!this.matches || this.matches.length === 0) {
-            container.innerHTML = '<div class="empty-message">暂无比赛数据</div>';
+            container.innerHTML = '<div class="empty-message">暂无体彩比赛数据。请先配置数据库，或使用世界杯专题基础预测。</div>';
             this.updateMatchesCount(0, 0);
             return;
         }
@@ -708,23 +722,21 @@ class LotteryManager {
         modal.innerHTML = `
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3><i class="fas fa-download"></i> 更新比赛数据</h3>
+                    <h3><i class="fas fa-database"></i> 数据说明</h3>
                     <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p><strong>当前数据来源：</strong>数据库缓存</p>
-                    <p><strong>如需获取最新数据，请在服务器上运行以下命令：</strong></p>
-                    <div class="code-block">
-                        <code>python scripts/sync_daily_matches.py --days 7</code>
-                        <button class="copy-btn" onclick="navigator.clipboard.writeText('python scripts/sync_daily_matches.py --days 7')">
-                            <i class="fas fa-copy"></i>
-                        </button>
-                    </div>
-                    <p class="help-text">
+                    <p><strong>当前数据来源：</strong>本机数据库或绿色包内置数据。</p>
+                    <p><strong>重要说明：</strong>这里不是实时比分源，也不会自动联网同步。</p>
+                    <p class="help-text soft-help-text">
                         <i class="fas fa-info-circle"></i>
-                        该命令将从体彩官网获取最新7天的比赛数据并更新数据库
+                        如果比赛列表为空或不够新，世界杯基础预测仍可使用；如需更新体彩比赛，请先在“设置”里配置数据库，或等待新版绿色数据包。
+                    </p>
+                    <p class="help-text warning-help-text">
+                        <i class="fas fa-shield-alt"></i>
+                        为了避免误导，已开赛或已结束但缺少赛果的比赛，不会当作赛前预测展示。
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -732,7 +744,7 @@ class LotteryManager {
                         <i class="fas fa-times"></i> 关闭
                     </button>
                     <button class="btn primary-btn" onclick="this.closest('.modal-overlay').remove(); lotteryManager.refreshMatches();">
-                        <i class="fas fa-sync"></i> 刷新当前数据
+                        <i class="fas fa-sync"></i> 重新读取本机数据
                     </button>
                 </div>
             </div>
