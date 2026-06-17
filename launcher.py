@@ -54,7 +54,7 @@ def load_launcher_env(root: Path, port: int) -> None:
     os.environ['LOCAL_FREE_MODE'] = os.environ.get('LOCAL_FREE_MODE', 'true')
     os.environ['PORT'] = str(port)
     os.environ.setdefault('FLASK_DEBUG', 'false')
-    os.environ.setdefault('MATCHPREDICT_SETTINGS_PATH', str(root / 'settings.json'))
+    os.environ.setdefault('QIUSHITONG_SETTINGS_PATH', str(root / 'settings.json'))
 
 
 

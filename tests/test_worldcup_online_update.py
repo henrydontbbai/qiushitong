@@ -302,22 +302,22 @@ class WorldCupOnlineUpdateTest(unittest.TestCase):
 
         self.assertEqual(DEFAULT_WORLD_CUP_UPDATE_SOURCES[0]["source_id"], "gitee_raw_primary")
         self.assertIn("gitee.com", DEFAULT_WORLD_CUP_UPDATE_SOURCES[0]["url"])
-        self.assertIn("worldcup/update", DEFAULT_WORLD_CUP_UPDATE_SOURCES[0]["url"])
+        self.assertIn("henrydontbbai/qiushitong", DEFAULT_WORLD_CUP_UPDATE_SOURCES[0]["url"])
         self.assertEqual(DEFAULT_WORLD_CUP_UPDATE_SOURCES[1]["source_id"], "github_raw_fallback")
         self.assertIn("raw.githubusercontent.com", DEFAULT_WORLD_CUP_UPDATE_SOURCES[1]["url"])
-        self.assertIn("worldcup/update", DEFAULT_WORLD_CUP_UPDATE_SOURCES[1]["url"])
+        self.assertIn("henrydontbbai/qiushitong", DEFAULT_WORLD_CUP_UPDATE_SOURCES[1]["url"])
 
     def test_env_override_sources_take_priority(self):
         import os
         from scripts.worldcup.online_update import DEFAULT_WORLD_CUP_UPDATE_SOURCES, _normalized_sources
 
         keys = [
-            'WORLDCUP_UPDATE_GITEE_URL',
-            'WORLDCUP_UPDATE_GITHUB_URL',
+            'QIUSHITONG_WORLDCUP_UPDATE_GITEE_URL',
+            'QIUSHITONG_WORLDCUP_UPDATE_GITHUB_URL',
         ]
         backup = {key: os.environ.get(key) for key in keys}
-        os.environ['WORLDCUP_UPDATE_GITEE_URL'] = 'https://example.com/gitee.json'
-        os.environ['WORLDCUP_UPDATE_GITHUB_URL'] = 'https://example.com/github.json'
+        os.environ['QIUSHITONG_WORLDCUP_UPDATE_GITEE_URL'] = 'https://example.com/gitee.json'
+        os.environ['QIUSHITONG_WORLDCUP_UPDATE_GITHUB_URL'] = 'https://example.com/github.json'
         try:
             sources = _normalized_sources(DEFAULT_WORLD_CUP_UPDATE_SOURCES)
         finally:
@@ -350,12 +350,12 @@ class WorldCupOnlineUpdateTest(unittest.TestCase):
         with mock.patch.object(online_update.subprocess, "run", return_value=completed) as run:
             self.assertEqual(online_update._fetch_via_powershell("https://example.com/patch.json"), '{}')
             powershell_command = " ".join(run.call_args.args[0])
-            self.assertIn("WorldCupUpdate/1.0", powershell_command)
+            self.assertIn("QiuShiTong/1.0", powershell_command)
 
         with mock.patch.object(online_update.subprocess, "run", return_value=completed) as run:
             self.assertEqual(online_update._fetch_via_curl("https://example.com/patch.json"), '{}')
             curl_command = run.call_args.args[0]
-            self.assertIn("WorldCupUpdate/1.0", curl_command)
+            self.assertIn("QiuShiTong/1.0", curl_command)
 
 
 

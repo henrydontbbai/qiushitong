@@ -24,7 +24,7 @@ class LauncherTest(unittest.TestCase):
     def test_load_launcher_env_sets_local_defaults(self):
         import launcher
 
-        keys = ['LOCAL_FREE_MODE', 'PORT', 'FLASK_DEBUG', 'MATCHPREDICT_SETTINGS_PATH']
+        keys = ['LOCAL_FREE_MODE', 'PORT', 'FLASK_DEBUG', 'QIUSHITONG_SETTINGS_PATH', 'MATCHPREDICT_SETTINGS_PATH']
         backup = {key: os.environ.get(key) for key in keys}
         for key in keys:
             os.environ.pop(key, None)
@@ -36,7 +36,8 @@ class LauncherTest(unittest.TestCase):
                 self.assertEqual(os.environ['LOCAL_FREE_MODE'], 'true')
                 self.assertEqual(os.environ['PORT'], '8123')
                 self.assertEqual(os.environ['FLASK_DEBUG'], 'false')
-                self.assertEqual(os.environ['MATCHPREDICT_SETTINGS_PATH'], str(root / 'settings.json'))
+                self.assertEqual(os.environ['QIUSHITONG_SETTINGS_PATH'], str(root / 'settings.json'))
+                self.assertNotIn('MATCHPREDICT_SETTINGS_PATH', os.environ)
         finally:
             for key, value in backup.items():
                 if value is None:

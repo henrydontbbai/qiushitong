@@ -18,12 +18,12 @@ DEFAULT_WORLD_CUP_UPDATE_SOURCES = [
     {
         "source_id": "gitee_raw_primary",
         "name": "Gitee Raw",
-        "url": "https://gitee.com/worldcup/update/raw/main/data/worldcup/results_patch_latest.json",
+        "url": "https://gitee.com/henrydontbbai/qiushitong/raw/main/data/worldcup/results_patch_latest.json",
     },
     {
         "source_id": "github_raw_fallback",
         "name": "GitHub Raw",
-        "url": "https://raw.githubusercontent.com/worldcup/update/main/data/worldcup/results_patch_latest.json",
+        "url": "https://raw.githubusercontent.com/henrydontbbai/qiushitong/main/data/worldcup/results_patch_latest.json",
     },
 ]
 
@@ -216,13 +216,13 @@ def apply_worldcup_update(
 
 
 def _fetch_via_requests(url: str) -> str:
-    response = requests.get(url, timeout=20, headers={"User-Agent": "WorldCupUpdate/1.0"})
+    response = requests.get(url, timeout=20, headers={"User-Agent": "QiuShiTong/1.0"})
     response.raise_for_status()
     return response.text
 
 
 def _fetch_via_urllib(url: str) -> str:
-    request = urllib.request.Request(url, headers={"User-Agent": "WorldCupUpdate/1.0"})
+    request = urllib.request.Request(url, headers={"User-Agent": "QiuShiTong/1.0"})
     with urllib.request.urlopen(request, timeout=20) as response:
         return response.read().decode("utf-8")
 
@@ -234,7 +234,7 @@ def _fetch_via_powershell(url: str) -> str:
         "-Command",
         (
             "$ProgressPreference='SilentlyContinue'; "
-            "$headers = @{ 'User-Agent' = 'WorldCupUpdate/1.0' }; "
+            "$headers = @{ 'User-Agent' = 'QiuShiTong/1.0' }; "
             f"$r = Invoke-WebRequest -Uri '{url}' -Headers $headers -UseBasicParsing -TimeoutSec 20; "
             "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; "
             "Write-Output $r.Content"
@@ -252,7 +252,7 @@ def _fetch_via_curl(url: str) -> str:
         "-L",
         url,
         "-A",
-        "WorldCupUpdate/1.0",
+        "QiuShiTong/1.0",
         "--connect-timeout",
         "20",
         "--max-time",
@@ -350,8 +350,8 @@ def _normalized_sources(sources: list[dict] | None) -> list[dict]:
 
 def _default_update_sources_from_env() -> list[dict]:
     source_list = [dict(item) for item in DEFAULT_WORLD_CUP_UPDATE_SOURCES]
-    gitee_url = str(os.environ.get("WORLDCUP_UPDATE_GITEE_URL") or "").strip()
-    github_url = str(os.environ.get("WORLDCUP_UPDATE_GITHUB_URL") or "").strip()
+    gitee_url = str(os.environ.get("QIUSHITONG_WORLDCUP_UPDATE_GITEE_URL") or "").strip()
+    github_url = str(os.environ.get("QIUSHITONG_WORLDCUP_UPDATE_GITHUB_URL") or "").strip()
     if gitee_url:
         source_list[0]["url"] = gitee_url
     if github_url:

@@ -126,9 +126,9 @@ class LocalSettingsApiTest(unittest.TestCase):
             'database': {
                 'host': 'db.example.test',
                 'port': '15432',
-                'name': 'matchpredict',
-                'user': 'mp_user',
-                'password': 'mp_pass',
+                'name': 'qiushitong',
+                'user': 'qst_user',
+                'password': 'qst_pass',
             }
         }
 
@@ -144,9 +144,9 @@ class LocalSettingsApiTest(unittest.TestCase):
         params = connect.call_args.kwargs
         self.assertEqual(params['host'], 'db.example.test')
         self.assertEqual(params['port'], 15432)
-        self.assertEqual(params['database'], 'matchpredict')
-        self.assertEqual(params['user'], 'mp_user')
-        self.assertEqual(params['password'], 'mp_pass')
+        self.assertEqual(params['database'], 'qiushitong')
+        self.assertEqual(params['user'], 'qst_user')
+        self.assertEqual(params['password'], 'qst_pass')
 
     def test_test_ai_uses_submitted_settings(self):
         payload = {

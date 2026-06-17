@@ -63,7 +63,7 @@ class SettingsManager {
             if (data.success) {
                 this.status = data;
                 this.applyStatus(data);
-                if (!data.database_configured && !localStorage.getItem('MATCHPREDICT_SETTINGS_SKIPPED')) {
+                if (!data.database_configured && !localStorage.getItem('QIUSHITONG_SETTINGS_SKIPPED')) {
                     if (this.isWorldCupEntry()) {
                         this.renderStatus(data, '世界杯基础预测可直接使用；需要 AI 白话解释或数据库功能时，再点右上角“设置”。');
                     } else {
@@ -145,7 +145,7 @@ class SettingsManager {
     }
 
     closeSettingsModal() {
-        localStorage.setItem('MATCHPREDICT_SETTINGS_SKIPPED', '1');
+        localStorage.setItem('QIUSHITONG_SETTINGS_SKIPPED', '1');
         const modal = document.getElementById('settings-modal');
         if (modal) {
             modal.classList.add('hidden');
@@ -226,7 +226,7 @@ class SettingsManager {
             window.AI_BASE_URL = settings.ai.base_url;
             window.AI_MODEL = settings.ai.model;
             localStorage.removeItem('GEMINI_API_KEY');
-            localStorage.removeItem('MATCHPREDICT_SETTINGS_SKIPPED');
+            localStorage.removeItem('QIUSHITONG_SETTINGS_SKIPPED');
 
             this.status = data;
             this.renderStatus(data, '设置已保存。');

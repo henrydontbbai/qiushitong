@@ -4,6 +4,8 @@ __pycache__/
 *.pyc
 *.log
 settings.json
+settings/
+worldcup_overrides/
 dist/
 build/
 *.spec

@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent
 RESOURCE_DIR = Path(getattr(sys, '_MEIPASS', BASE_DIR))
-LOCAL_SETTINGS_PATH = Path(os.environ.get('MATCHPREDICT_SETTINGS_PATH', BASE_DIR / 'settings.json'))
+LOCAL_SETTINGS_PATH = Path(os.environ.get('QIUSHITONG_SETTINGS_PATH', BASE_DIR / 'settings.json'))
 
 
 def get_runtime_root() -> Path:
