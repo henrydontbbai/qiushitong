@@ -557,17 +557,17 @@ def worldcup_meta():
 
 @app.route('/api/worldcup/update-status', methods=['GET'])
 def worldcup_update_status():
-    """??????????????????? AI?"""
+    """获取世界杯在线更新状态。"""
     if not build_worldcup_update_status:
-        return jsonify({'success': False, 'message': '?????????????'}), 500
+        return jsonify({'success': False, 'message': '世界杯在线更新模块暂时不可用，请继续使用本机数据。'}), 500
     return jsonify(build_worldcup_update_status(WORLD_CUP_DATA_DIR, WORLD_CUP_RUNTIME_DIR))
 
 
 @app.route('/api/worldcup/check-update', methods=['POST'])
 def worldcup_check_update():
-    """??????????????auto=1 ??????"""
+    """检查世界杯在线更新，auto=1 表示自动检查。"""
     if not check_worldcup_update:
-        return jsonify({'success': False, 'message': '?????????????'}), 500
+        return jsonify({'success': False, 'message': '世界杯在线更新模块暂时不可用，请继续使用本机数据。'}), 500
     payload = request.get_json(silent=True) or {}
     result = check_worldcup_update(
         WORLD_CUP_DATA_DIR,
@@ -580,9 +580,9 @@ def worldcup_check_update():
 
 @app.route('/api/worldcup/apply-update', methods=['POST'])
 def worldcup_apply_update():
-    """????????????????????????"""
+    """应用已发布的世界杯赛果更新补丁。"""
     if not apply_worldcup_update:
-        return jsonify({'success': False, 'message': '?????????????'}), 500
+        return jsonify({'success': False, 'message': '世界杯在线更新模块暂时不可用，请继续使用本机数据。'}), 500
     result = apply_worldcup_update(
         WORLD_CUP_DATA_DIR,
         WORLD_CUP_RUNTIME_DIR,
