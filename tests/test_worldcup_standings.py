@@ -72,8 +72,8 @@ class WorldCupStandingsTest(unittest.TestCase):
                 {"team_id": "GER", "group": "A"},
             ],
             fixtures=[
-                {"stage": "group", "status": "finished"},
-                {"stage": "group", "status": "scheduled"},
+                {"stage": "group", "status": "finished", "final_score": {"home": 1, "away": 0}},
+                {"stage": "group", "status": "scheduled", "kickoff_at": "2026-06-30T03:00:00+08:00"},
             ],
             ratings={},
             alias_map={},
@@ -89,6 +89,7 @@ class WorldCupStandingsTest(unittest.TestCase):
         self.assertEqual(result["groups_count"], 1)
         self.assertEqual(result["finished_count"], 1)
         self.assertEqual(result["scheduled_count"], 1)
+        self.assertEqual(result["result_pending_count"], 0)
         self.assertEqual(result["sources"][0]["source_url"], "https://example.com")
         self.assertTrue(any("概率不代表赛果保证" in item for item in result["limitations"]))
 

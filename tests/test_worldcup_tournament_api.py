@@ -1,4 +1,4 @@
-import importlib
+﻿import importlib
 import os
 import unittest
 
@@ -25,6 +25,11 @@ class WorldCupTournamentApiTest(unittest.TestCase):
         self.assertAlmostEqual(data["round_totals"]["champion_probability"], 1.0, places=6)
         self.assertIn("model_version", data)
         self.assertIn("data_cutoff_at", data)
+        self.assertIn("base_data_cutoff_at", data)
+        self.assertIn("effective_data_cutoff_at", data)
+        self.assertIn("local_patch_applied", data)
+        self.assertIn("local_patch_matches_count", data)
+        self.assertEqual(data["data_cutoff_at"], data["effective_data_cutoff_at"])
         self.assertIn("概率参考，不代表赛果保证", data["disclaimer"])
         self.assertNotIn("ai_generated", data)
 
@@ -47,3 +52,6 @@ class WorldCupTournamentApiTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+

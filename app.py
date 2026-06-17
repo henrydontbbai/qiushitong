@@ -14,6 +14,15 @@ BASE_DIR = Path(__file__).resolve().parent
 RESOURCE_DIR = Path(getattr(sys, '_MEIPASS', BASE_DIR))
 LOCAL_SETTINGS_PATH = Path(os.environ.get('MATCHPREDICT_SETTINGS_PATH', BASE_DIR / 'settings.json'))
 
+
+def get_runtime_root() -> Path:
+    if getattr(sys, 'frozen', False):
+        return Path(sys.executable).resolve().parent
+    return BASE_DIR
+
+
+WORLD_CUP_RUNTIME_DIR = get_runtime_root()
+
 load_dotenv(BASE_DIR / '.env')
 
 def load_local_settings():
@@ -152,16 +161,24 @@ except ImportError as e:
 try:
     from scripts.worldcup.predictor import WorldCupPredictor
     from scripts.worldcup.explainer import WorldCupExplainer
+    from scripts.worldcup.fixture_status import describe_fixture_status
     from scripts.worldcup.meta import build_worldcup_meta
     from scripts.worldcup.standings import build_group_standings
     from scripts.worldcup.group_simulator import simulate_group_stage
     from scripts.worldcup.bracket_rules import BracketRuleError, load_bracket_rules, validate_bracket_rules
     from scripts.worldcup.tournament_simulator import simulate_tournament
     from scripts.worldcup.evaluation import load_evaluation_report
+    from scripts.worldcup.online_update import (
+        DEFAULT_WORLD_CUP_UPDATE_SOURCES,
+        apply_worldcup_update,
+        build_worldcup_update_status,
+        check_worldcup_update,
+    )
 except ImportError as e:
     logging.getLogger(__name__).warning("世界杯模块导入失败: %s", e)
     WorldCupPredictor = None
     WorldCupExplainer = None
+    describe_fixture_status = None
     build_worldcup_meta = None
     build_group_standings = None
     simulate_group_stage = None
@@ -170,17 +187,22 @@ except ImportError as e:
     validate_bracket_rules = None
     simulate_tournament = None
     load_evaluation_report = None
+    DEFAULT_WORLD_CUP_UPDATE_SOURCES = []
+    apply_worldcup_update = None
+    build_worldcup_update_status = None
+    check_worldcup_update = None
 
 WORLD_CUP_DATA_DIR = RESOURCE_DIR / 'data' / 'worldcup'
 
 def get_worldcup_predictor():
     if not WorldCupPredictor:
         return None
-    return WorldCupPredictor(WORLD_CUP_DATA_DIR)
+    return WorldCupPredictor(WORLD_CUP_DATA_DIR, runtime_dir=WORLD_CUP_RUNTIME_DIR)
 
 def public_fixture_payload(fixture, predictor):
     home = predictor._team_from_id(fixture.get('home_team_id')) or {}
     away = predictor._team_from_id(fixture.get('away_team_id')) or {}
+    status_info = describe_fixture_status(fixture) if describe_fixture_status else {}
     return {
         'match_id': fixture.get('match_id'),
         'home_team': home.get('display_name_zh') or home.get('display_name') or fixture.get('home_team_id'),
@@ -194,6 +216,7 @@ def public_fixture_payload(fixture, predictor):
         'status': fixture.get('status'),
         'final_score': fixture.get('final_score'),
         'data_cutoff_at': predictor.data.data_cutoff_at,
+        **status_info,
     }
 
 app = Flask(
@@ -513,6 +536,11 @@ def worldcup_fixtures():
         'fixtures': fixtures,
         'count': len(fixtures),
         'data_cutoff_at': predictor.data.data_cutoff_at,
+        'base_data_cutoff_at': predictor.data.base_data_cutoff_at,
+        'effective_data_cutoff_at': predictor.data.data_cutoff_at,
+        'local_patch_applied': predictor.data.local_patch_applied,
+        'local_patch_matches_count': predictor.data.local_patch_matches_count,
+        'update_source_mode': predictor.data.update_source_mode,
         'model_version': predictor.data.model_version,
         'message': '世界杯赛程加载成功'
     })

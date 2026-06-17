@@ -7,13 +7,14 @@ from .confidence import derive_data_quality
 from .data_loader import WorldCupDataLoader
 from .elo import calculate_elo_adjustment
 from .goal_model import estimate_expected_goals, result_probabilities, top_scorelines
+from .fixture_status import describe_fixture_status
 from .odds import normalize_market_odds
 from .team_aliases import resolve_team
 
 
 class WorldCupPredictor:
-    def __init__(self, data_dir: str | Path):
-        self.loader = WorldCupDataLoader(data_dir)
+    def __init__(self, data_dir: str | Path, runtime_dir: str | Path | None = None):
+        self.loader = WorldCupDataLoader(data_dir, runtime_dir=runtime_dir)
         self.data = self.loader.load()
 
     def _team_from_id(self, team_id: str) -> Optional[dict]:
@@ -42,6 +43,20 @@ class WorldCupPredictor:
                 'model_version': self.data.model_version,
                 'data_cutoff_at': self.data.data_cutoff_at,
                 'disclaimer': '已完赛比分仅作赛果展示，不代表未来预测能力。',
+            }
+
+        status_info = describe_fixture_status(fixture)
+        if status_info.get('needs_result_update'):
+            return {
+                'success': False,
+                'error_code': 'RESULT_PENDING',
+                'match_id': match_id,
+                'fixture': fixture,
+                **status_info,
+                'model_version': self.data.model_version,
+                'data_cutoff_at': self.data.data_cutoff_at,
+                'message': '这场比赛已开赛或已结束，但本地数据包还没有赛果；请更新数据后查看赛果。',
+                'disclaimer': '本软件使用本地手工数据包，不是实时比分源；不会对已开赛比赛生成赛前预测。',
             }
 
         home_team = self._team_from_id(fixture.get('home_team_id'))

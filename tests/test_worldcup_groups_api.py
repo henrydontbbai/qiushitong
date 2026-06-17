@@ -26,7 +26,9 @@ class WorldCupGroupsApiTest(unittest.TestCase):
         self.assertGreaterEqual(len(data["sources"]), 1)
         self.assertIn("source_url", data["sources"][0])
         self.assertIn("data_cutoff_at", data["sources"][0])
-        self.assertTrue(any("不含淘汰赛" in item for item in data["limitations"]))
+        self.assertFalse(data["is_realtime"])
+        self.assertIn("result_pending_count", data)
+        self.assertTrue(any("不是实时比分" in item for item in data["limitations"]))
 
     def test_groups_endpoint_returns_current_standings(self):
         response = self.client.get("/api/worldcup/groups")
@@ -35,6 +37,11 @@ class WorldCupGroupsApiTest(unittest.TestCase):
         data = response.get_json()
         self.assertTrue(data["success"])
         self.assertEqual(len(data["groups"]), 12)
+        self.assertIn("base_data_cutoff_at", data)
+        self.assertIn("effective_data_cutoff_at", data)
+        self.assertIn("local_patch_applied", data)
+        self.assertIn("local_patch_matches_count", data)
+        self.assertEqual(data["data_cutoff_at"], data["effective_data_cutoff_at"])
         group = data["groups"][0]
         self.assertIn("group", group)
         self.assertEqual(len(group["teams"]), 4)
@@ -47,6 +54,8 @@ class WorldCupGroupsApiTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         data = response.get_json()
         self.assertTrue(data["success"])
+        self.assertIn("effective_data_cutoff_at", data)
+        self.assertEqual(data["data_cutoff_at"], data["effective_data_cutoff_at"])
         self.assertIsNotNone(data["simulation"])
         self.assertEqual(data["simulation"]["trials"], 30)
         simulated_teams = [team for group in data["simulation"]["groups"] for team in group["teams"]]

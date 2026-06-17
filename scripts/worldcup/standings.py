@@ -48,6 +48,11 @@ def build_group_standings(data: WorldCupData) -> dict:
         },
         "model_version": data.model_version,
         "data_cutoff_at": data.data_cutoff_at,
+        "base_data_cutoff_at": data.base_data_cutoff_at,
+        "effective_data_cutoff_at": data.data_cutoff_at,
+        "local_patch_applied": data.local_patch_applied,
+        "local_patch_matches_count": data.local_patch_matches_count,
+        "update_source_mode": data.update_source_mode,
         "disclaimer": "积分榜和出线概率仅供模型模拟参考，概率不代表赛果保证。",
     }
 

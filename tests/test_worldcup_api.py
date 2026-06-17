@@ -20,13 +20,18 @@ class WorldCupApiTest(unittest.TestCase):
         data = response.get_json()
         self.assertTrue(data["success"])
         self.assertGreaterEqual(len(data["fixtures"]), 1)
+        self.assertIn("base_data_cutoff_at", data)
+        self.assertIn("effective_data_cutoff_at", data)
+        self.assertIn("local_patch_applied", data)
+        self.assertIn("local_patch_matches_count", data)
+        self.assertEqual(data["data_cutoff_at"], data["effective_data_cutoff_at"])
         fixture = data["fixtures"][0]
         for key in ["match_id", "home_team", "away_team", "kickoff_at", "stage", "status", "data_cutoff_at"]:
             self.assertIn(key, fixture)
 
     def test_predict_endpoint_works_without_ai_key(self):
         fixtures = self.client.get("/api/worldcup/fixtures").get_json()["fixtures"]
-        match_id = next(item["match_id"] for item in fixtures if item["status"] != "finished")
+        match_id = next(item["match_id"] for item in fixtures if item.get("can_predict"))
 
         response = self.client.post("/api/worldcup/predict", json={"match_id": match_id})
 
@@ -40,6 +45,15 @@ class WorldCupApiTest(unittest.TestCase):
         top_scores = data["top_scores"]
         self.assertEqual(top_scores, sorted(top_scores, key=lambda item: item["probability"], reverse=True))
         self.assertIn("概率不代表赛果保证", data["disclaimer"])
+
+    def test_past_unscored_fixture_is_marked_as_result_pending(self):
+        fixtures = self.client.get("/api/worldcup/fixtures").get_json()["fixtures"]
+        pending = [item for item in fixtures if item.get("needs_result_update")]
+
+        self.assertGreaterEqual(len(pending), 1)
+        self.assertFalse(pending[0]["can_predict"])
+        self.assertEqual(pending[0]["computed_status"], "result_pending")
+        self.assertIn("赛果待更新", pending[0]["status_label"])
 
     def test_explain_endpoint_falls_back_without_ai_key(self):
         prediction = self.client.post("/api/worldcup/predict", json={"home_team": "Brazil", "away_team": "Germany"}).get_json()

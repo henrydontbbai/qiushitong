@@ -22,8 +22,9 @@ class WorldCupCoreTest(unittest.TestCase):
         (self.data_dir / "fixtures_2026.json").write_text(
             '''{
   "fixtures": [
-    {"match_id": "WC2026-A-001", "home_team_id": "BRA", "away_team_id": "GER", "kickoff_at": "2026-06-15T03:00:00+08:00", "stage": "group", "group": "A", "venue": "Example Stadium", "neutral_site": true, "status": "scheduled", "final_score": null, "source_id": "fixture-test"},
-    {"match_id": "WC2026-A-002", "home_team_id": "JPN", "away_team_id": "USA", "kickoff_at": "2026-06-16T03:00:00+08:00", "stage": "group", "group": "A", "venue": "Example Stadium", "neutral_site": true, "status": "finished", "final_score": {"home": 2, "away": 1}, "source_id": "fixture-test"}
+    {"match_id": "WC2026-A-001", "home_team_id": "BRA", "away_team_id": "GER", "kickoff_at": "2026-06-20T03:00:00+08:00", "stage": "group", "group": "A", "venue": "Example Stadium", "neutral_site": true, "status": "scheduled", "final_score": null, "source_id": "fixture-test"},
+    {"match_id": "WC2026-A-002", "home_team_id": "JPN", "away_team_id": "USA", "kickoff_at": "2026-06-16T03:00:00+08:00", "stage": "group", "group": "A", "venue": "Example Stadium", "neutral_site": true, "status": "finished", "final_score": {"home": 2, "away": 1}, "source_id": "fixture-test"},
+    {"match_id": "WC2026-A-003", "home_team_id": "BRA", "away_team_id": "USA", "kickoff_at": "2026-06-15T03:00:00+08:00", "stage": "group", "group": "A", "venue": "Example Stadium", "neutral_site": true, "status": "scheduled", "final_score": null, "source_id": "fixture-test"}
   ]
 }
 ''',
@@ -89,6 +90,17 @@ class WorldCupCoreTest(unittest.TestCase):
         self.assertTrue(result["locked_result"])
         self.assertEqual(result["final_score"], {"home": 2, "away": 1})
         self.assertIn("已完赛", result["summary"])
+
+    def test_past_fixture_without_score_requires_result_update(self):
+        from scripts.worldcup.predictor import WorldCupPredictor
+
+        predictor = WorldCupPredictor(data_dir=self.data_dir)
+        result = predictor.predict_fixture("WC2026-A-003")
+
+        self.assertFalse(result["success"])
+        self.assertEqual(result["error_code"], "RESULT_PENDING")
+        self.assertTrue(result["needs_result_update"])
+        self.assertIn("本地数据包还没有赛果", result["message"])
 
     def test_unknown_team_returns_friendly_error(self):
         from scripts.worldcup.predictor import WorldCupPredictor

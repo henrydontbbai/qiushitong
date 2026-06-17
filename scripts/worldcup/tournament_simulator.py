@@ -125,6 +125,11 @@ def simulate_tournament(
         "round_totals": round_totals,
         "model_version": data.model_version,
         "data_cutoff_at": data.data_cutoff_at,
+        "base_data_cutoff_at": data.base_data_cutoff_at,
+        "effective_data_cutoff_at": data.data_cutoff_at,
+        "local_patch_applied": data.local_patch_applied,
+        "local_patch_matches_count": data.local_patch_matches_count,
+        "update_source_mode": data.update_source_mode,
         "disclaimer": "冠军路径模拟为概率参考，不代表赛果保证；AI 不参与概率计算。",
         "notes": [
             "小组赛使用 Monte Carlo 模拟，已完赛比分会锁定。",
