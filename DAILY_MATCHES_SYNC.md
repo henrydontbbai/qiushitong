@@ -159,7 +159,7 @@ python scripts/sync_daily_matches.py --stats
    强制重新同步所有数据
 
 ### 日志文件
-- **位置**: `/Users/sco/Desktop/MatchPredict/sync_matches.log`
+- **位置**: `/Users/sco/Desktop/qiushitong/sync_matches.log`
 - **内容**: 详细的同步过程和错误信息
 
 ## 🚀 部署到生产环境
@@ -167,10 +167,10 @@ python scripts/sync_daily_matches.py --stats
 ### 定时任务 (Cron)
 ```bash
 # 每天早上8点同步数据
-0 8 * * * cd /path/to/MatchPredict && python scripts/sync_daily_matches.py --days 3
+0 8 * * * cd /path/to/qiushitong && python scripts/sync_daily_matches.py --days 3
 
 # 每周日凌晨清理旧数据  
-0 2 * * 0 cd /path/to/MatchPredict && python scripts/sync_daily_matches.py --cleanup 30
+0 2 * * 0 cd /path/to/qiushitong && python scripts/sync_daily_matches.py --cleanup 30
 ```
 
 ### 环境变量

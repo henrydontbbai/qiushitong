@@ -67,7 +67,7 @@ python scripts/sync_daily_matches.py --days 7
 python scripts/sync_daily_matches.py --days 3
 
 # 或设置定时任务 (crontab)
-0 8 * * * cd /path/to/MatchPredict && python scripts/sync_daily_matches.py --days 3
+0 8 * * * cd /path/to/qiushitong && python scripts/sync_daily_matches.py --days 3
 ```
 
 ### 数据监控

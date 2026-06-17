@@ -1,16 +1,16 @@
-﻿# MatchPredict 绿色 EXE 99 电脑冒烟验收记录（2026-06-15）
+# 球势通 绿色 EXE 99 电脑冒烟验收记录（2026-06-15）
 
 ## 结论
 
 通过。绿色包已发送到 **windows-99（192.168.0.99）桌面**并在 99 上完成冒烟验收。  
-在不配置数据库、不配置 AI Key 的情况下，`MatchPredict.exe` 可以启动本机服务，启动自检页、世界杯专题、单场基础预测、设置入口和导出入口均可用。
+在不配置数据库、不配置 AI Key 的情况下，`QiuShiTong.exe` 可以启动本机服务，启动自检页、世界杯专题、单场基础预测、设置入口和导出入口均可用。
 
 > 本次按要求不以本机 EXE 运行为验收结论；本机只做构建和自动化代码检查。
 
 ## 99 测试位置
 
 - 目标设备：windows-99
-- 远程测试目录：`C:\Users\Administrator\Desktop\MatchPredict-green-smoke-nosetuptools-20260615-163630`
+- 远程测试目录：`C:\Users\Administrator\Desktop\QiuShiTong-green-smoke-nosetuptools-20260615-163630`
 - 绿色包哈希（SHA256）：`AF0A04B1D5789334F46A6B132650B7BB930EDF947F1C4879CB8CAC4675537EA9`
 
 ## 本次修复
@@ -27,10 +27,10 @@
 
 ## 99 上 EXE 启动验收
 
-- `MatchPredict.exe --check`：通过。
-- `MatchPredict.exe --no-browser`：服务启动成功。
-- 默认启动 `MatchPredict.exe`：日志显示已打开浏览器。
-- 运行结束后已停止测试进程，99 上无残留 `MatchPredict` 进程。
+- `QiuShiTong.exe --check`：通过。
+- `QiuShiTong.exe --no-browser`：服务启动成功。
+- 默认启动 `QiuShiTong.exe`：日志显示已打开浏览器。
+- 运行结束后已停止测试进程，99 上无残留 `球势通` 进程。
 
 ## 99 上 API 冒烟
 

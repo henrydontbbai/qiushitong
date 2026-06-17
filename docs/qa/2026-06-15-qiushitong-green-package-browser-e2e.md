@@ -1,4 +1,4 @@
-﻿# MatchPredict 绿色版浏览器端到端验收记录
+# 球势通 绿色版浏览器端到端验收记录
 
 日期：2026-06-15  
 范围：绿色版小白流程验收包，不包含小组赛、淘汰赛、冠军概率、回测、快照、自动更新或爬虫。
@@ -7,7 +7,7 @@
 
 - 本机 Flask 服务：`http://127.0.0.1:8767`
 - `LOCAL_FREE_MODE=true`
-- 使用临时空配置文件：`LOCAL_SETTINGS_PATH=%TEMP%\matchpredict-e2e-settings-8767.json`
+- 使用临时空配置文件：`LOCAL_SETTINGS_PATH=%TEMP%\qiushitong-e2e-settings-8767.json`
 - 未配置数据库，未配置 AI Key
 - 浏览器：Codex 内置浏览器真实页面点击验收
 
