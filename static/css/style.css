@@ -2964,3 +2964,48 @@ footer {
     flex-wrap: wrap;
     gap: 0.5rem;
 }
+
+
+/* 世界杯数据状态提示 */
+.worldcup-live-status-card {
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border: 1px solid rgba(22, 121, 76, 0.18);
+    border-radius: 12px;
+    background: #f6fffa;
+}
+
+.worldcup-live-status-title {
+    font-weight: 700;
+    color: #145c3f;
+    margin-bottom: 8px;
+}
+
+.worldcup-live-status-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 13px;
+    color: #334155;
+}
+
+.worldcup-readonly-tip {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.worldcup-readonly-summary {
+    border-left: 4px solid #f59e0b;
+}
+
+.worldcup-readonly-badge {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #fff7ed;
+    color: #9a3412;
+    font-size: 12px;
+    font-weight: 700;
+}

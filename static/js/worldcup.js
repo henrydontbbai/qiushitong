@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 2026 世界杯专题：单场预测前端闭环。
  * 基础预测不依赖 AI；AI 只解释已有概率。
  */
@@ -8,6 +8,9 @@ class WorldCupManager {
         this.currentPrediction = null;
         this.currentPredictionText = '';
         this.toastTimer = null;
+        this.dataCutoffAt = '';
+        this.dataStatusText = '';
+        this.resultPendingCount = 0;
         this.bindEvents();
         this.loadWorldCupDashboard();
     }
@@ -257,6 +260,14 @@ class WorldCupManager {
         this.toggleExportButtons(false);
         if (explanation) explanation.classList.add('hidden');
 
+        const fixture = this.fixtures.find(item => String(item.match_id) === String(matchId));
+        if (fixture && this.getFixtureDisplayState(fixture) === 'result_pending') {
+            this.currentPrediction = null;
+            this.currentPredictionText = this.buildPendingText(fixture);
+            this.renderPendingResult(fixture);
+            return;
+        }
+
         try {
             const response = await fetch('/api/worldcup/predict', {
                 method: 'POST',
@@ -269,7 +280,7 @@ class WorldCupManager {
             this.currentPredictionText = this.buildPredictionText(data);
             this.renderPrediction(data);
             this.toggleExportButtons(true);
-            if (explainBtn && !data.locked_result) explainBtn.disabled = false;
+            if (explainBtn && !data.locked_result && !data.needs_result_update) explainBtn.disabled = false;
         } catch (error) {
             this.currentPrediction = null;
             this.currentPredictionText = '';
@@ -281,6 +292,11 @@ class WorldCupManager {
     renderPrediction(data) {
         const container = document.getElementById('worldcup-prediction');
         if (!container) return;
+
+        if (data.needs_result_update) {
+            this.renderPendingResult(data.fixture || {});
+            return;
+        }
 
         if (data.locked_result) {
             container.innerHTML = `
@@ -329,6 +345,44 @@ class WorldCupManager {
         return `<div class="worldcup-market">市场隐含概率对照：胜 ${this.formatPercent(market.home_win)} / 平 ${this.formatPercent(market.draw)} / 负 ${this.formatPercent(market.away_win)}。该项只做对照，不参与主模型。</div>`;
     }
 
+
+
+    renderPendingResult(fixture) {
+        const container = document.getElementById('worldcup-prediction');
+        const explainBtn = document.getElementById('worldcup-ai-explain-btn');
+        if (!container) return;
+        if (explainBtn) explainBtn.disabled = true;
+        this.toggleExportButtons(false);
+        const home = fixture.home_team || fixture.teams?.home?.display_name_zh || fixture.teams?.home?.display_name || '??';
+        const away = fixture.away_team || fixture.teams?.away?.display_name_zh || fixture.teams?.away?.display_name || '??';
+        container.innerHTML = `
+            <div class="worldcup-result-summary worldcup-readonly-summary">
+                <div class="worldcup-readonly-badge">赛果待更新</div>
+                <h4>仅展示已同步数据</h4>
+                <p>${this.escapeHtml(home)} vs ${this.escapeHtml(away)}</p>
+                <p>这场比赛已经开赛，但本机数据里还没有赛果补丁，所以先不展示赛前预测。</p>
+                <div class="worldcup-meta-stats worldcup-readonly-stats">
+                    <span>当前生效截止：${this.escapeHtml(this.dataCutoffAt || '未知')}</span>
+                    <span>数据状态：${this.escapeHtml(this.dataStatusText || '数据同步中')}</span>
+                    <span>赛果待更新：${this.escapeHtml(String(this.resultPendingCount || 0))}</span>
+                </div>
+                <p class="worldcup-disclaimer">在线更新只补赛果，不改预测模型。若需最新结果，请先检查在线更新。</p>
+            </div>
+        `;
+    }
+
+    buildPendingText(fixture) {
+        const home = fixture.home_team || fixture.teams?.home?.display_name_zh || fixture.teams?.home?.display_name || '??';
+        const away = fixture.away_team || fixture.teams?.away?.display_name_zh || fixture.teams?.away?.display_name || '??';
+        return [
+            '世界杯赛果待更新',
+            `${home} vs ${away}`,
+            '这场比赛已经开赛，但本机数据里还没有赛果补丁。',
+            `当前生效截止：${this.dataCutoffAt || '未知'}`,
+            `数据状态：${this.dataStatusText || '数据同步中'}`,
+            '在线更新只补赛果，不改预测模型。'
+        ].join('\n');
+    }
 
     toggleExportButtons(enabled) {
         ['worldcup-copy-btn', 'worldcup-download-btn', 'worldcup-print-btn'].forEach(id => {
@@ -489,6 +543,20 @@ class WorldCupManager {
         return `${fixture.stage === 'group' ? '小组赛' : fixture.stage || '比赛'} ${fixture.group ? fixture.group + '组' : ''}`;
     }
 
+    getFixtureDisplayState(fixture) {
+        const status = String(fixture?.status || '').toLowerCase();
+        if (status === 'finished' && fixture?.final_score) return 'finished';
+        if (['in_progress', 'live', 'started', 'ongoing', 'playing'].includes(status)) return 'result_pending';
+        if (!fixture?.final_score && this.hasKickoffPassed(fixture?.kickoff_at)) return 'result_pending';
+        return 'scheduled';
+    }
+
+    hasKickoffPassed(value) {
+        if (!value) return false;
+        const time = new Date(value).getTime();
+        return Number.isFinite(time) && time <= Date.now();
+    }
+
     formatDate(value) {
         if (!value) return '';
         try {
@@ -513,6 +581,17 @@ class WorldCupManager {
     escapeHtml(value) {
         return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
     }
+
+    renderWorldCupLiveStatus() {
+        const cutoff = document.getElementById('worldcup-effective-cutoff');
+        const dataStatus = document.getElementById('worldcup-data-status');
+        const pending = document.getElementById('worldcup-result-pending-count');
+        const tip = document.getElementById('worldcup-readonly-tip');
+        if (cutoff) cutoff.textContent = this.dataCutoffAt || '未知';
+        if (dataStatus) dataStatus.textContent = this.dataStatusText || '数据同步中';
+        if (pending) pending.textContent = String(this.resultPendingCount || 0);
+        if (tip) tip.textContent = '在线更新只补赛果，不改预测模型；本页面不是实时比分。';
+    }
 }
 
 function initWorldCupManager() {
@@ -526,3 +605,4 @@ if (document.readyState === 'loading') {
 } else {
     initWorldCupManager();
 }
+

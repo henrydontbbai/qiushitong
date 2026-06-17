@@ -139,6 +139,15 @@
                 <h2><i class="fas fa-trophy"></i> 2026 世界杯专题</h2>
                 <div class="worldcup-layout">
                     <div class="worldcup-controls">
+                        <div class="worldcup-live-status-card">
+                            <div class="worldcup-live-status-title">在线更新状态卡片</div>
+                            <div class="worldcup-live-status-grid">
+                                <span>当前生效截止：<strong id="worldcup-effective-cutoff">未知</strong></span>
+                                <span>数据状态：<strong id="worldcup-data-status">数据同步中</strong></span>
+                                <span>赛果待更新：<strong id="worldcup-result-pending-count">0</strong></span>
+                            </div>
+                            <div id="worldcup-readonly-tip" class="worldcup-readonly-tip">只读提示：仅展示已同步数据，不改写后端。</div>
+                        </div>
                         <div class="controls-row">
                             <button id="worldcup-refresh-btn" class="btn secondary-btn" type="button">
                                 <i class="fas fa-sync"></i> 刷新赛程
@@ -157,7 +166,7 @@
                             </button>
                         </div>
                         <div class="worldcup-status" id="worldcup-status">
-                            基础预测无需 AI Key；配置 AI 后可生成白话解释。概率不代表赛果保证。
+                            只读提示：基础预测无需 AI Key；配置 AI 后可生成白话解释。概率不代表赛果保证。
                         </div>
                     </div>
                     <div class="worldcup-fixtures-panel">

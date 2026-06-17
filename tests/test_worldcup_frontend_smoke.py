@@ -8,7 +8,6 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
         js = Path("static/js/worldcup.js").read_text(encoding="utf-8")
 
         self.assertIn("worldcup-mode-btn", html)
-        self.assertIn("worldcup-mode-btn", html)
         self.assertIn("worldcup-mode", html)
         self.assertIn("js/worldcup.js", html)
         self.assertIn("v='phase-d1'", html)
@@ -18,10 +17,17 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
         self.assertIn("worldcup-bracket-panel", html)
         self.assertIn("worldcup-tournament-panel", html)
         self.assertNotIn("????", html)
+        for text in [
+            "worldcup-live-status-card",
+            "worldcup-effective-cutoff",
+            "worldcup-data-status",
+            "worldcup-result-pending-count",
+            "worldcup-readonly-tip",
+        ]:
+            self.assertIn(text, html)
 
         for text in [
             "renderProb",
-            "Top 5",
             "renderDataQuality",
             "formatPercent",
             "formatXg",
@@ -36,6 +42,10 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
             "event.target.closest('.worldcup-predict-btn')",
             "worldcup-tournament-table",
             "worldcup-tournament",
+            "worldcup-readonly-summary",
+            "renderPendingResult",
+            "getFixtureDisplayState",
+            "buildPendingText",
         ]:
             self.assertIn(text, js)
 
