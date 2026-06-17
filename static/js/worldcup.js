@@ -397,7 +397,7 @@ class WorldCupManager {
         const probs = data.probabilities || {};
         const xg = data.expected_goals || {};
         const lines = [
-            'MatchPredict 世界杯单场预测',
+            '球势通 世界杯单场预测',
             `${home} vs ${away}`,
         ];
 
@@ -477,7 +477,7 @@ class WorldCupManager {
             return;
         }
         const escaped = this.escapeHtml(this.currentPredictionText);
-        popup.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>MatchPredict 世界杯预测</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.6;}pre{white-space:pre-wrap;}</style></head><body><pre>${escaped}</pre></body></html>`);
+        popup.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>球势通 世界杯预测</title><style>body{font-family:Arial,sans-serif;padding:24px;line-height:1.6;}pre{white-space:pre-wrap;}</style></head><body><pre>${escaped}</pre></body></html>`);
         popup.document.close();
         popup.focus();
         popup.print();

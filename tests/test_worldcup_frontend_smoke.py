@@ -7,6 +7,9 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
         html = Path("templates/index.html").read_text(encoding="utf-8")
         js = Path("static/js/worldcup.js").read_text(encoding="utf-8")
 
+        self.assertIn("\u7403\u52bf\u901a", html)
+        self.assertNotIn("AI\u8db3\u7403\u9884\u6d4b", html)
+        self.assertNotIn("???", html)
         self.assertIn("worldcup-mode-btn", html)
         self.assertIn("worldcup-mode", html)
         self.assertIn("js/worldcup.js", html)
