@@ -22,7 +22,7 @@ try {
         --noconfirm `
         --onedir `
         --noupx `
-        --name "MatchPredict" `
+        --name "QiuShiTong" `
         --add-data "templates;templates" `
         --add-data "static;static" `
         --add-data "data;data" `
@@ -32,21 +32,21 @@ try {
         --exclude-module "_distutils_hack" `
         "launcher.py"
 
-    Get-ChildItem -LiteralPath "dist\MatchPredict" -Recurse -Directory -Filter "__pycache__" |
+    Get-ChildItem -LiteralPath "dist\QiuShiTong" -Recurse -Directory -Filter "__pycache__" |
         Remove-Item -Recurse -Force
-    Get-ChildItem -LiteralPath "dist\MatchPredict" -Recurse -File |
+    Get-ChildItem -LiteralPath "dist\QiuShiTong" -Recurse -File |
         Where-Object { $_.Extension -in @(".pyc", ".pyo") } |
         Remove-Item -Force
 
     $ReadmeName = (-join ([char[]](0x4F7F, 0x7528, 0x8BF4, 0x660E))) + ".txt"
-    Copy-Item -Force -LiteralPath (Join-Path $Root $ReadmeName) -Destination (Join-Path "dist\MatchPredict" $ReadmeName)
+    Copy-Item -Force -LiteralPath (Join-Path $Root $ReadmeName) -Destination (Join-Path "dist\QiuShiTong" $ReadmeName)
 
-    $ZipName = "MatchPredict-" + (-join ([char[]](0x7EFF, 0x8272, 0x7248))) + ".zip"
+    $ZipName = (-join ([char[]](0x7403, 0x52BF, 0x901A))) + "-" + (-join ([char[]](0x7EFF, 0x8272, 0x7248))) + ".zip"
     $zipPath = Join-Path $Root (Join-Path "dist" $ZipName)
     if (Test-Path $zipPath) {
         Remove-Item -LiteralPath $zipPath -Force
     }
-    Compress-Archive -Path "dist\MatchPredict\*" -DestinationPath $zipPath
+    Compress-Archive -Path "dist\QiuShiTong\*" -DestinationPath $zipPath
 
     Write-Host "Build finished: $zipPath"
 }

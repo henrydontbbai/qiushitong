@@ -54,6 +54,24 @@ class LauncherTest(unittest.TestCase):
 
         self.assertIn('--noupx', script)
 
+
+    def test_build_script_uses_qiushitong_product_name(self):
+        script = Path('build_exe.ps1').read_text(encoding='utf-8')
+
+        self.assertIn('--name "QiuShiTong"', script)
+        self.assertIn('dist\\QiuShiTong', script)
+        self.assertIn('0x7403, 0x52BF, 0x901A', script)
+        self.assertIn('0x7EFF, 0x8272, 0x7248', script)
+        self.assertNotIn('--name "MatchPredict"', script)
+
+    def test_launcher_uses_qiushitong_user_facing_name(self):
+        launcher_source = Path('launcher.py').read_text(encoding='utf-8')
+
+        self.assertIn("logging.getLogger('qiushitong.launcher')", launcher_source)
+        self.assertIn('QiuShiTong launcher started', launcher_source)
+        self.assertNotIn("logging.getLogger('matchpredict.launcher')", launcher_source)
+        self.assertNotIn('MatchPredict launcher started', launcher_source)
+
     def test_build_script_excludes_setuptools_runtime_hook(self):
         script = Path('build_exe.ps1').read_text(encoding='utf-8')
 

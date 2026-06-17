@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-MatchPredict 绿色版启动器。
+球势通绿色版启动器。
 
 双击 exe 后启动本机 Flask 服务，并自动打开浏览器。
 """
@@ -21,7 +21,7 @@ from urllib.request import urlopen
 from dotenv import load_dotenv
 
 
-LOGGER = logging.getLogger('matchpredict.launcher')
+LOGGER = logging.getLogger('qiushitong.launcher')
 
 
 def app_root() -> Path:
@@ -115,7 +115,7 @@ def configure_logging(log_path: Path):
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description='MatchPredict 绿色版启动器')
+    parser = argparse.ArgumentParser(description='球势通绿色版启动器')
     parser.add_argument('--no-browser', action='store_true', help='只启动服务，不自动打开浏览器')
     parser.add_argument('--check', action='store_true', help='检查启动器配置后退出')
     args = parser.parse_args()
@@ -133,11 +133,11 @@ def main() -> int:
         with log_path.open('a', encoding='utf-8') as log_stream, \
                 contextlib.redirect_stdout(TeeStream(sys.stdout, log_stream)), \
                 contextlib.redirect_stderr(TeeStream(sys.stderr, log_stream)):
-            print('MatchPredict 正在启动...')
+            print('球势通正在启动...')
             print(f'程序目录：{root}')
             print(f'访问地址：{build_launch_url(port)}')
             print('关闭此窗口即可停止服务。')
-            LOGGER.info('MatchPredict launcher started, root=%s, port=%s', root, port)
+            LOGGER.info('QiuShiTong launcher started, root=%s, port=%s', root, port)
 
             if args.check:
                 print('启动器检查通过。')
