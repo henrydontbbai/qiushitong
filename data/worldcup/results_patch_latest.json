@@ -1,87 +1,205 @@
 {
   "schema_version": 1,
-  "source_id": "worldcup_results_patch_20260616_fifa_manual",
+  "source_id": "worldcup_results_patch_20260618_fifa_manual",
   "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-  "published_at": "2026-06-16T18:00:00+08:00",
-  "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+  "published_at": "2026-06-18T12:00:00+08:00",
+  "data_cutoff_at": "2026-06-18T12:00:00+08:00",
   "matches": [
     {
       "match_id": "WC2026-GA-002",
       "status": "finished",
-      "final_score": { "home": 1, "away": 2 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 1,
+        "away": 2
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GD-007",
       "status": "finished",
-      "final_score": { "home": 1, "away": 0 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 1,
+        "away": 0
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GE-009",
       "status": "finished",
-      "final_score": { "home": 2, "away": 4 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 2,
+        "away": 4
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GE-010",
       "status": "finished",
-      "final_score": { "home": 7, "away": 1 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 7,
+        "away": 1
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GF-011",
       "status": "finished",
-      "final_score": { "home": 2, "away": 1 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 2,
+        "away": 1
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GF-012",
       "status": "finished",
-      "final_score": { "home": 5, "away": 1 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 5,
+        "away": 1
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GH-013",
       "status": "finished",
-      "final_score": { "home": 1, "away": 0 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 1,
+        "away": 0
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GH-014",
       "status": "finished",
-      "final_score": { "home": 0, "away": 0 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 0,
+        "away": 0
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GG-015",
       "status": "finished",
-      "final_score": { "home": 2, "away": 2 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 2,
+        "away": 2
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     },
     {
       "match_id": "WC2026-GG-016",
       "status": "finished",
-      "final_score": { "home": 3, "away": 2 },
-      "data_cutoff_at": "2026-06-16T18:00:00+08:00",
+      "final_score": {
+        "home": 3,
+        "away": 2
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
+      "source_id": "fifa_scores_fixtures_manual",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    },
+    {
+      "match_id": "WC2026-GI-017",
+      "status": "finished",
+      "final_score": {
+        "home": 3,
+        "away": 1
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
+      "source_id": "fifa_scores_fixtures_manual",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    },
+    {
+      "match_id": "WC2026-GI-018",
+      "status": "finished",
+      "final_score": {
+        "home": 1,
+        "away": 4
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
+      "source_id": "fifa_scores_fixtures_manual",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    },
+    {
+      "match_id": "WC2026-GJ-019",
+      "status": "finished",
+      "final_score": {
+        "home": 3,
+        "away": 0
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
+      "source_id": "fifa_scores_fixtures_manual",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    },
+    {
+      "match_id": "WC2026-GJ-020",
+      "status": "finished",
+      "final_score": {
+        "home": 3,
+        "away": 1
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
+      "source_id": "fifa_scores_fixtures_manual",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    },
+    {
+      "match_id": "WC2026-GL-021",
+      "status": "finished",
+      "final_score": {
+        "home": 1,
+        "away": 0
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
+      "source_id": "fifa_scores_fixtures_manual",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    },
+    {
+      "match_id": "WC2026-GL-022",
+      "status": "finished",
+      "final_score": {
+        "home": 4,
+        "away": 2
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
+      "source_id": "fifa_scores_fixtures_manual",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    },
+    {
+      "match_id": "WC2026-GK-023",
+      "status": "finished",
+      "final_score": {
+        "home": 1,
+        "away": 1
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
+      "source_id": "fifa_scores_fixtures_manual",
+      "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
+    },
+    {
+      "match_id": "WC2026-GK-024",
+      "status": "finished",
+      "final_score": {
+        "home": 1,
+        "away": 3
+      },
+      "data_cutoff_at": "2026-06-18T12:00:00+08:00",
       "source_id": "fifa_scores_fixtures_manual",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures"
     }
