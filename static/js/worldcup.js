@@ -48,6 +48,7 @@ class WorldCupManager {
             this.loadGroups(),
             this.loadBracketRules(),
             this.loadTournament(),
+            this.loadEvaluationReport(),
             this.loadFixtures()
         ]);
     }
@@ -205,6 +206,77 @@ class WorldCupManager {
             </table>
             <div class="worldcup-disclaimer">${this.escapeHtml(data.disclaimer || '冠军路径模拟为概率参考，不代表赛果保证。')}</div>
         `;
+    }
+
+    async loadEvaluationReport() {
+        const container = document.getElementById('worldcup-evaluation');
+        if (!container) return;
+        container.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> 正在加载模型历史评估...</div>';
+        try {
+            const response = await fetch('/api/worldcup/evaluation/report');
+            const data = await response.json();
+            if (!response.ok || !data.success) throw new Error(data.message || '模型历史评估加载失败');
+            this.renderEvaluationReport(data);
+        } catch (error) {
+            container.innerHTML = `
+                <div class="empty-message">${this.escapeHtml(error.message || '评估模块暂不可用')}。基础赛程、预测、小组和冠军路径功能不受影响。</div>
+                <div class="worldcup-disclaimer">历史评估仅供模型表现参考，不代表未来赛果保证，不构成投注建议。</div>
+            `;
+        }
+    }
+
+    renderEvaluationReport(data) {
+        const container = document.getElementById('worldcup-evaluation');
+        if (!container) return;
+        const disclaimer = data.disclaimer || '历史评估仅供模型表现参考，不代表未来赛果保证，不构成投注建议。';
+        if (!data.available) {
+            container.innerHTML = `
+                <div class="empty-message">${this.escapeHtml(data.message || '暂无模型历史评估报告；基础预测不受影响。')}</div>
+                <div class="worldcup-disclaimer">${this.escapeHtml(disclaimer)}</div>
+            `;
+            return;
+        }
+        const metrics = data.metrics || {};
+        const calibration = data.calibration || {};
+        const buckets = (calibration.buckets || []).filter(bucket => bucket.count > 0).slice(0, 5);
+        const bucketRows = buckets.length ? buckets.map(bucket => `
+            <tr>
+                <td>${this.escapeHtml(this.formatBucketRange(bucket.range))}</td>
+                <td>${bucket.count || 0}</td>
+                <td>${this.formatMetric(bucket.avg_confidence)}</td>
+                <td>${this.formatMetric(bucket.accuracy)}</td>
+                <td>${this.formatMetric(bucket.gap)}</td>
+            </tr>
+        `).join('') : '<tr><td colspan="5">暂无可展示的校准分桶样本</td></tr>';
+        container.innerHTML = `
+            <div class="worldcup-meta-stats">
+                <span>评分样本：${data.sample_count || 0}</span>
+                <span>跳过样本：${data.skipped_count || 0}</span>
+                <span>ECE：${this.formatMetric(calibration.ece)}</span>
+            </div>
+            <div class="worldcup-evaluation-metrics">
+                <div><strong>Brier Score</strong><span>${this.formatMetric(metrics.brier_score)}</span></div>
+                <div><strong>Log Loss</strong><span>${this.formatMetric(metrics.log_loss)}</span></div>
+                <div><strong>RPS</strong><span>${this.formatMetric(metrics.rps)}</span></div>
+                <div><strong>ECE</strong><span>${this.formatMetric(calibration.ece)}</span></div>
+            </div>
+            <table class="worldcup-tournament-table worldcup-calibration-table">
+                <thead><tr><th>置信区间</th><th>样本</th><th>平均置信度</th><th>命中率</th><th>差距</th></tr></thead>
+                <tbody>${bucketRows}</tbody>
+            </table>
+            <div class="worldcup-data-quality">${this.escapeHtml(data.methodology || '离线评估只使用开赛前已生成的概率样本。')}</div>
+            <div class="worldcup-disclaimer">${this.escapeHtml(disclaimer)}</div>
+        `;
+    }
+
+    formatMetric(value) {
+        const number = Number(value);
+        return Number.isFinite(number) ? number.toFixed(4) : '暂无';
+    }
+
+    formatBucketRange(range) {
+        if (!Array.isArray(range) || range.length < 2) return '暂无';
+        return `${this.formatPercent(range[0])} - ${this.formatPercent(range[1])}`;
     }
 
     async loadFixtures() {
