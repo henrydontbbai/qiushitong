@@ -6,6 +6,7 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
     def test_worldcup_frontend_entry_and_script_are_present(self):
         html = Path("templates/index.html").read_text(encoding="utf-8")
         js = Path("static/js/worldcup.js").read_text(encoding="utf-8")
+        css = Path("static/css/style.css").read_text(encoding="utf-8")
 
         self.assertIn("\u7403\u52bf\u901a", html)
         self.assertNotIn("AI\u8db3\u7403\u9884\u6d4b", html)
@@ -28,8 +29,16 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
             "worldcup-data-status",
             "worldcup-result-pending-count",
             "worldcup-readonly-tip",
+            "worldcup-check-update-btn",
+            "worldcup-apply-update-btn",
+            "worldcup-update-actions",
+            "\u68c0\u67e5\u5728\u7ebf\u66f4\u65b0",
+            "\u5e94\u7528\u8d5b\u679c\u66f4\u65b0",
+            "\u91cd\u65b0\u8bfb\u53d6\u672c\u673a\u6570\u636e",
+            "\u4e0d\u662f\u5b9e\u65f6\u6bd4\u5206",
         ]:
             self.assertIn(text, html)
+        self.assertIn("worldcup-update-actions", css)
 
         for text in [
             "renderProb",
@@ -41,6 +50,13 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
             "/api/worldcup/bracket-rules",
             "/api/worldcup/tournament",
             "/api/worldcup/evaluation/report",
+            "/api/worldcup/update-status",
+            "/api/worldcup/check-update",
+            "/api/worldcup/apply-update",
+            "loadUpdateStatus",
+            "checkOnlineUpdate",
+            "applyOnlineUpdate",
+            "reloadWorldCupDataAfterUpdate",
             "loadTournament",
             "renderTournament",
             "loadEvaluationReport",
@@ -61,6 +77,8 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
             "\u5386\u53f2\u8bc4\u4f30\u4ec5\u4f9b\u6a21\u578b\u8868\u73b0\u53c2\u8003",
             "\u4e0d\u4ee3\u8868\u672a\u6765\u8d5b\u679c\u4fdd\u8bc1",
             "\u4e0d\u6784\u6210\u6295\u6ce8\u5efa\u8bae",
+            "\u5728\u7ebf\u66f4\u65b0\u53ea\u8865\u8d5b\u679c\uff0c\u4e0d\u6539\u9884\u6d4b\u6a21\u578b",
+            "\u4e0d\u662f\u5b9e\u65f6\u6bd4\u5206",
         ]:
             self.assertIn(text, js)
 

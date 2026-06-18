@@ -3030,6 +3030,18 @@ footer {
     color: #64748b;
 }
 
+
+.worldcup-update-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+}
+
+.worldcup-update-actions .btn {
+    min-width: 150px;
+}
+
 .worldcup-readonly-summary {
     border-left: 4px solid #f59e0b;
 }

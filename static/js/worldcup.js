@@ -11,13 +11,20 @@ class WorldCupManager {
         this.dataCutoffAt = '';
         this.dataStatusText = '';
         this.resultPendingCount = 0;
+        this.updateAvailable = false;
         this.bindEvents();
         this.loadWorldCupDashboard();
     }
 
     bindEvents() {
+        const checkUpdateBtn = document.getElementById('worldcup-check-update-btn');
+        if (checkUpdateBtn) checkUpdateBtn.addEventListener('click', () => this.checkOnlineUpdate());
+
+        const applyUpdateBtn = document.getElementById('worldcup-apply-update-btn');
+        if (applyUpdateBtn) applyUpdateBtn.addEventListener('click', () => this.applyOnlineUpdate());
+
         const refreshBtn = document.getElementById('worldcup-refresh-btn');
-        if (refreshBtn) refreshBtn.addEventListener('click', () => this.loadWorldCupDashboard());
+        if (refreshBtn) refreshBtn.addEventListener('click', () => this.reloadWorldCupData());
 
         const explainBtn = document.getElementById('worldcup-ai-explain-btn');
         if (explainBtn) explainBtn.addEventListener('click', () => this.explainCurrentPrediction());
@@ -44,6 +51,7 @@ class WorldCupManager {
 
     async loadWorldCupDashboard() {
         await Promise.all([
+            this.loadUpdateStatus(),
             this.loadMeta(),
             this.loadGroups(),
             this.loadBracketRules(),
@@ -51,6 +59,89 @@ class WorldCupManager {
             this.loadEvaluationReport(),
             this.loadFixtures()
         ]);
+    }
+
+    async reloadWorldCupData() {
+        this.showToast('已重新读取本机数据', 'info');
+        await this.loadWorldCupDashboard();
+    }
+
+    async loadUpdateStatus() {
+        try {
+            const response = await fetch('/api/worldcup/update-status');
+            const data = await response.json();
+            if (!data.success) throw new Error(data.message || '在线更新状态加载失败');
+            this.dataCutoffAt = data.effective_data_cutoff_at || data.base_data_cutoff_at || '未知';
+            this.dataStatusText = data.update_source_mode === 'base_plus_patch'
+                ? '本机数据 + 在线赛果补丁'
+                : '本机基础数据';
+            this.resultPendingCount = Number(data.result_pending_count || 0);
+            this.updateAvailable = Boolean(data.update_available);
+            this.renderWorldCupLiveStatus();
+            this.toggleApplyUpdateButton();
+        } catch (error) {
+            this.dataStatusText = '更新状态加载失败';
+            this.renderWorldCupLiveStatus();
+            this.toggleApplyUpdateButton(false);
+        }
+    }
+
+    async checkOnlineUpdate() {
+        const button = document.getElementById('worldcup-check-update-btn');
+        if (button) button.disabled = true;
+        try {
+            const response = await fetch('/api/worldcup/check-update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ auto: 0 })
+            });
+            const data = await response.json();
+            if (!response.ok || !data.success) throw new Error(data.message || '在线更新检查失败');
+            this.updateAvailable = Boolean(data.update_available);
+            this.renderWorldCupLiveStatus();
+            this.toggleApplyUpdateButton();
+            this.showToast(this.updateAvailable ? (data.message || '发现可用赛果更新') : (data.message || '当前没有新的赛果更新'), 'success');
+        } catch (error) {
+            this.updateAvailable = false;
+            this.toggleApplyUpdateButton(false);
+            this.showToast(error.message || '在线更新检查失败', 'error');
+        } finally {
+            if (button) button.disabled = false;
+        }
+    }
+
+    async applyOnlineUpdate() {
+        const button = document.getElementById('worldcup-apply-update-btn');
+        let applied = false;
+        if (button) button.disabled = true;
+        try {
+            const response = await fetch('/api/worldcup/apply-update', { method: 'POST' });
+            const data = await response.json();
+            if (!response.ok || !data.success) throw new Error(data.message || '应用赛果更新失败');
+            this.updateAvailable = false;
+            this.dataCutoffAt = data.effective_data_cutoff_at || this.dataCutoffAt;
+            this.dataStatusText = data.local_patch_applied ? '本机数据 + 在线赛果补丁' : this.dataStatusText;
+            this.resultPendingCount = Number(data.result_pending_count || 0);
+            this.renderWorldCupLiveStatus();
+            this.toggleApplyUpdateButton(false);
+            this.showToast(data.message || `已更新 ${data.updated_matches_count || 0} 场赛果`, 'success');
+            applied = true;
+            await this.reloadWorldCupDataAfterUpdate();
+        } catch (error) {
+            this.showToast(error.message || '应用赛果更新失败', 'error');
+        } finally {
+            if (button) button.disabled = applied || !this.updateAvailable;
+        }
+    }
+
+    async reloadWorldCupDataAfterUpdate() {
+        await this.loadWorldCupDashboard();
+    }
+
+    toggleApplyUpdateButton(enabled = null) {
+        const button = document.getElementById('worldcup-apply-update-btn');
+        if (!button) return;
+        button.disabled = enabled === null ? !this.updateAvailable : !enabled;
     }
 
     async loadMeta() {
@@ -662,7 +753,9 @@ class WorldCupManager {
         if (cutoff) cutoff.textContent = this.dataCutoffAt || '未知';
         if (dataStatus) dataStatus.textContent = this.dataStatusText || '数据同步中';
         if (pending) pending.textContent = String(this.resultPendingCount || 0);
-        if (tip) tip.textContent = '在线更新只补赛果，不改预测模型；本页面不是实时比分。';
+        if (tip) tip.textContent = this.updateAvailable
+            ? '发现可用在线更新，请先点击“应用赛果更新”。'
+            : '在线更新只补赛果，不改预测模型；本页面不是实时比分。';
     }
 }
 

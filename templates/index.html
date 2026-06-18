@@ -146,12 +146,20 @@
                                 <span>数据状态：<strong id="worldcup-data-status">数据同步中</strong></span>
                                 <span>赛果待更新：<strong id="worldcup-result-pending-count">0</strong></span>
                             </div>
-                            <div id="worldcup-readonly-tip" class="worldcup-readonly-tip">只读提示：仅展示已同步数据，不改写后端。</div>
+                            <div id="worldcup-readonly-tip" class="worldcup-readonly-tip">在线更新只补赛果，不改预测模型；这不是实时比分服务。</div>
                         </div>
                         <div class="controls-row">
-                            <button id="worldcup-refresh-btn" class="btn secondary-btn" type="button">
-                                <i class="fas fa-sync"></i> 刷新赛程
-                            </button>
+                            <div class="worldcup-update-actions">
+                                <button id="worldcup-check-update-btn" class="btn secondary-btn" type="button">
+                                    <i class="fas fa-cloud-download-alt"></i> 检查在线更新
+                                </button>
+                                <button id="worldcup-apply-update-btn" class="btn primary-btn" type="button" disabled>
+                                    <i class="fas fa-check-circle"></i> 应用赛果更新
+                                </button>
+                                <button id="worldcup-refresh-btn" class="btn secondary-btn" type="button">
+                                    <i class="fas fa-sync"></i> 重新读取本机数据
+                                </button>
+                            </div>
                             <button id="worldcup-ai-explain-btn" class="btn primary-btn" type="button" disabled>
                                 <i class="fas fa-brain"></i> 用 AI 翻译成白话分析
                             </button>
