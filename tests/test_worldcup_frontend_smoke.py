@@ -6,6 +6,7 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
     def test_worldcup_frontend_entry_and_script_are_present(self):
         html = Path("templates/index.html").read_text(encoding="utf-8")
         js = Path("static/js/worldcup.js").read_text(encoding="utf-8")
+        lottery_js = Path("static/js/lottery.js").read_text(encoding="utf-8")
         css = Path("static/css/style.css").read_text(encoding="utf-8")
 
         self.assertIn("\u7403\u52bf\u901a", html)
@@ -38,6 +39,14 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
             "\u4e0d\u662f\u5b9e\u65f6\u6bd4\u5206",
         ]:
             self.assertIn(text, html)
+        for text in [
+            "\u4f53\u5f69\u6570\u636e\u5e93\u6a21\u5f0f",
+            "\u91cd\u65b0\u8bfb\u53d6\u672c\u673a\u4f53\u5f69\u6570\u636e",
+            "\u672c\u6a21\u5f0f\u53ea\u8bfb\u53d6\u672c\u673a\u6570\u636e\u5e93",
+        ]:
+            self.assertIn(text, html)
+        self.assertNotIn("\u4e2d\u56fd\u4f53\u80b2\u5f69\u7968 - \u5b9e\u65f6\u6bd4\u8d5b", html)
+        self.assertNotIn("\u70b9\u51fb\"\u5237\u65b0\u6570\u636e\"\u83b7\u53d6\u6700\u65b0\u6bd4\u8d5b", html)
         self.assertIn("worldcup-update-actions", css)
 
         for text in [
@@ -81,6 +90,12 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
             "\u4e0d\u662f\u5b9e\u65f6\u6bd4\u5206",
         ]:
             self.assertIn(text, js)
+        for text in [
+            "\u91cd\u65b0\u8bfb\u53d6\u672c\u673a\u4f53\u5f69\u6570\u636e",
+            "\u672c\u6a21\u5f0f\u53ea\u8bfb\u53d6\u672c\u673a\u6570\u636e\u5e93",
+            "\u672a\u914d\u7f6e\u6570\u636e\u5e93\u65f6\u4e0d\u4f1a\u8054\u7f51\u66f4\u65b0",
+        ]:
+            self.assertIn(text, lottery_js)
 
         risk_checked_js = js.replace("\u4e0d\u6784\u6210\u6295\u6ce8\u5efa\u8bae", "")
         risk_checked_html = html.replace("\u4e0d\u6784\u6210\u6295\u6ce8\u5efa\u8bae", "")

@@ -307,7 +307,7 @@
 
             <!-- 彩票模式 -->
             <section id="lottery-mode" class="match-input-section hidden">
-                <h2><i class="fas fa-globe"></i> 中国体育彩票 - 实时比赛</h2>
+                <h2><i class="fas fa-globe"></i> 体彩数据库模式</h2>
                 <div class="lottery-layout">
                     <!-- 左侧：比赛列表 -->
                     <div class="lottery-matches-panel">
@@ -315,10 +315,10 @@
                             <h3><i class="fas fa-list"></i> 可选比赛</h3>
                             <div class="controls-row">
                                 <button id="refresh-lottery-btn" class="btn secondary-btn">
-                                    <i class="fas fa-sync"></i> 刷新数据
+                                    <i class="fas fa-sync"></i> 重新读取本机体彩数据
                                 </button>
-                                <button id="force-refresh-lottery-btn" class="btn secondary-btn" title="获取最新数据到数据库">
-                                    <i class="fas fa-download"></i> 更新数据
+                                <button id="force-refresh-lottery-btn" class="btn secondary-btn" title="查看体彩数据来源说明">
+                                    <i class="fas fa-info-circle"></i> 数据来源说明
                                 </button>
                                 <div class="filter-controls">
                                     <label for="days-filter">获取天数:</label>
@@ -346,7 +346,7 @@
                         <div id="lottery-matches" class="lottery-matches-list">
                             <div class="loading-message">
                                 <i class="fas fa-info-circle"></i>
-                                点击"刷新数据"获取最新比赛
+                                本模式只读取本机数据库；未配置数据库时不会联网更新
                             </div>
                         </div>
                     </div>
