@@ -754,6 +754,15 @@ def get_lottery_matches():
 
         app.logger.info(f"从数据库获取体彩数据 - 天数: {days}")
 
+        settings = load_local_settings()
+        if not is_database_configured(settings, include_environment=False):
+            app.logger.info("本机未配置体彩数据库，跳过数据库连接")
+            return jsonify({
+                'success': False,
+                'error': '暂无比赛数据',
+                'message': '本机还没有配置体彩数据库；不会联网更新。世界杯专题基础预测不受影响。请在设置中配置数据库，或等待新版绿色数据包。'
+            }), 404
+
         if not prediction_db:
             app.logger.error("数据库未初始化")
             return jsonify({
