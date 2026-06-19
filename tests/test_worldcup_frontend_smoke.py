@@ -48,6 +48,15 @@ class WorldCupFrontendSmokeTest(unittest.TestCase):
         self.assertNotIn("\u4e2d\u56fd\u4f53\u80b2\u5f69\u7968 - \u5b9e\u65f6\u6bd4\u8d5b", html)
         self.assertNotIn("\u70b9\u51fb\"\u5237\u65b0\u6570\u636e\"\u83b7\u53d6\u6700\u65b0\u6bd4\u8d5b", html)
         self.assertIn("worldcup-update-actions", css)
+        for text in [
+            "UI polish: responsive controls and modals",
+            "grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))",
+            ".lottery-controls .controls-row",
+            "max-height: calc(100vh - 2rem)",
+            "padding-top: 160px",
+            "grid-template-columns: 1fr",
+        ]:
+            self.assertIn(text, css)
 
         for text in [
             "renderProb",
