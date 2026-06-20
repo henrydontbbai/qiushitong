@@ -151,7 +151,7 @@ class LotteryManager {
                     <p class="soft-help-text">这不影响“世界杯专题”的基础预测。体彩模式需要先在“设置”里配置数据库，或等待新版绿色数据包。</p>
                     <div class="lottery-empty-actions">
                         <button onclick="lotteryManager.refreshMatches()" class="btn secondary-btn">
-                            <i class="fas fa-redo"></i> 重新读取本机数据
+                            <i class="fas fa-redo"></i> 重新读取本机体彩数据
                         </button>
                         <button onclick="document.getElementById('settings-btn')?.click()" class="btn primary-btn">
                             <i class="fas fa-cog"></i> 打开设置
@@ -164,13 +164,13 @@ class LotteryManager {
             // 恢复按钮状态
             if (refreshBtn) {
                 refreshBtn.disabled = false;
-                refreshBtn.innerHTML = '<i class="fas fa-sync"></i> 重新读取本机数据';
+                refreshBtn.innerHTML = '<i class="fas fa-sync"></i> 重新读取本机体彩数据';
             }
         }
     }
 
     getFriendlyLotteryError(status) {
-        if (status === 404) return '本机暂无体彩比赛数据。世界杯基础预测不受影响；如需体彩数据，请在设置中配置数据库，或使用新版绿色数据包。';
+        if (status === 404) return '本机暂无体彩比赛数据。本模式只读取本机数据库；未配置数据库时不会联网更新。世界杯基础预测不受影响。';
         if (status === 504) return '读取本机/数据库数据超时，请稍后重试。';
         if (status === 500) return '读取本机/数据库数据失败，请检查设置中的数据库配置。';
         return `读取数据失败 (${status})`;
@@ -184,7 +184,7 @@ class LotteryManager {
         const container = document.getElementById('lottery-matches');
 
         if (!this.matches || this.matches.length === 0) {
-            container.innerHTML = '<div class="empty-message">暂无体彩比赛数据。请先配置数据库，或使用世界杯专题基础预测。</div>';
+            container.innerHTML = '<div class="empty-message">暂无体彩比赛数据。本模式只读取本机数据库；未配置数据库时不会联网更新。你也可以先使用世界杯专题基础预测。</div>';
             this.updateMatchesCount(0, 0);
             return;
         }
@@ -732,7 +732,7 @@ class LotteryManager {
                     <p><strong>重要说明：</strong>这里不是实时比分源，也不会自动联网同步。</p>
                     <p class="help-text soft-help-text">
                         <i class="fas fa-info-circle"></i>
-                        如果比赛列表为空或不够新，世界杯基础预测仍可使用；如需更新体彩比赛，请先在“设置”里配置数据库，或等待新版绿色数据包。
+                        如果比赛列表为空或不够新，世界杯基础预测仍可使用；体彩模式只读取本机数据库，未配置数据库时不会联网更新。
                     </p>
                     <p class="help-text warning-help-text">
                         <i class="fas fa-shield-alt"></i>
@@ -744,7 +744,7 @@ class LotteryManager {
                         <i class="fas fa-times"></i> 关闭
                     </button>
                     <button class="btn primary-btn" onclick="this.closest('.modal-overlay').remove(); lotteryManager.refreshMatches();">
-                        <i class="fas fa-sync"></i> 重新读取本机数据
+                        <i class="fas fa-sync"></i> 重新读取本机体彩数据
                     </button>
                 </div>
             </div>
